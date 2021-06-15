@@ -12149,16 +12149,11 @@ var $async$KN=P.M(function(a,b){if(a===1)return P.O(b,r)
 while(true)switch(s){case 0:if($.bf==null)N.ad7()
 $.bf.toString
 q=F.a8M()
-s=q!=="Web"?2:4
-break
-case 2:s=5
+p=q!=="Web"?"Landscape":"Portrait Up"
+s=2
 return P.L($.a90().Hi(H.a([C.vd,C.ve],t.Ao)),$async$KN)
-case 5:s=6
+case 2:s=3
 return P.L($.a90().Xg(),$async$KN)
-case 6:p="Landscape"
-s=3
-break
-case 4:p="Portrait Up"
 case 3:if($.bf==null)N.ad7()
 q=$.bf
 q.GX(new S.rK(new F.B7(p,null),null))
