@@ -88,6 +88,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+  reveri_games:
+    dependency: "direct main"
+    description:
+      path: "reveri_games/"
+      ref: HEAD
+      resolved-ref: b801ed16e636cfa0a8df8832ca60f3660c5e7887
+      url: "git@github.com:JIGSIG/jigsig.github.io.git"
+    source: git
+    version: "0.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -151,3 +160,4 @@ packages:
     version: "2.1.0"
 sdks:
   dart: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
