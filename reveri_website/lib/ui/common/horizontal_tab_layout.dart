@@ -82,7 +82,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                 children: List.generate(
                   gameToDisplay.length,
                       (index) => MenuCard(
-                    forum: gameToDisplay.elementAt(index),
+                    game: gameToDisplay.elementAt(index),
                   ),
                 ),
               ),
@@ -108,7 +108,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                 children: List.generate(
                   gameToDisplay.length,
                   (index) => MenuCard(
-                    forum: gameToDisplay.elementAt(index),
+                    game: gameToDisplay.elementAt(index),
                   ),
                 ),
               ),
