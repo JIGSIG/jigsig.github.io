@@ -33,7 +33,7 @@ dependencies:
   digital_projet_manager:
     git:
       url: git@github.com:JIGSIG/jigsig.github.io.git
-      path: reveri_games/digital_projet_manager/
+      path: reveri_games/digital_project_manager/
 
 dev_dependencies:
   flutter_test:
