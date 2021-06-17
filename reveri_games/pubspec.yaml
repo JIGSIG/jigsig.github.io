@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  bonfire: ^1.1.5
+  flutter_device_type: ^0.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -22,7 +25,13 @@ dev_dependencies:
 flutter:
 
   # To add assets to your package, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/images/
+    - assets/images/player/
+    - assets/images/enemy/
+    - assets/images/tile/
+    - assets/images/tiled/
+    - assets/images/itens/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   #
