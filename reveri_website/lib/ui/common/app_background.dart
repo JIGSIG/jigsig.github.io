@@ -12,7 +12,7 @@ class AppBackground extends StatelessWidget {
         return Stack(
           children: <Widget>[
             Container(
-              color: backgroundColor,
+              color: Colors.black,
             ),
             Positioned(
               left: -(height/2 - width/2),

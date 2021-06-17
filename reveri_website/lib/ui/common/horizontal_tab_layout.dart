@@ -54,26 +54,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
       height: getOSInsideWeb() == 'Web' ? MediaQuery.of(context).size.height
           - kToolbarHeight - 40 : 400,
       width: MediaQuery.of(context).size.width,
-      child: Stack(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 100.0),
-            child: FutureBuilder(
-              future: playAnimation(),
-              builder: (context, snapshot) {
-                return FadeTransition(
-                  opacity: _fadeAnimation,
-                  child: SlideTransition(
-                    position: _animation,
-                    child:
-                        getOSInsideWeb() == 'Web' ? _bodyPc() : _bodyMobile(),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+      child: getOSInsideWeb() == 'Web' ? _bodyPc() : _bodyMobile(),
     );
   }
 
@@ -84,17 +65,31 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / 6;
 
-    return GridView.count(
-      shrinkWrap: true,
-      childAspectRatio: (itemWidth / itemHeight),
-      crossAxisCount: 5,
-      crossAxisSpacing: 0,
-      mainAxisSpacing: 0,
-      children: List.generate(
-        gameToDisplay.length,
-        (index) => MenuCard(
-          forum: gameToDisplay.elementAt(index),
-        ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 125.0),
+      child: FutureBuilder(
+        future: playAnimation(),
+        builder: (context, snapshot) {
+          return FadeTransition(
+            opacity: _fadeAnimation,
+            child: SlideTransition(
+              position: _animation,
+              child: GridView.count(
+                shrinkWrap: true,
+                childAspectRatio: (itemWidth / itemHeight),
+                crossAxisCount: 5,
+                crossAxisSpacing: 0,
+                mainAxisSpacing: 0,
+                children: List.generate(
+                  gameToDisplay.length,
+                      (index) => MenuCard(
+                    forum: gameToDisplay.elementAt(index),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

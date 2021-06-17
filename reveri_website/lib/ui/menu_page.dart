@@ -20,7 +20,7 @@ class _MenuPageState extends State<MenuPage> {
         body: Stack(
         children: <Widget>[
           AppBackground(),
-          Container(color: Colors.black.withOpacity(.95),),
+          Container(color: Colors.black.withOpacity(.55),),
           FloatingSearchBar(
             transitionCurve: Curves.easeInOutCubic,
             transition: CircularFloatingSearchBarTransition(),
