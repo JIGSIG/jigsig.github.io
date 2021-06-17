@@ -15,7 +15,6 @@ class HorizontalTabLayout extends StatefulWidget {
 
 class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     with SingleTickerProviderStateMixin {
-  int selectedTabIndex = 2;
   late AnimationController _controller;
   late Animation<Offset> _animation;
   late Animation<double> _fadeAnimation;
@@ -52,7 +51,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
   Widget build(BuildContext context) {
     return Container(
       height: getOSInsideWeb() == 'Web' ? MediaQuery.of(context).size.height
-          - kToolbarHeight - 40 : 400,
+          - kToolbarHeight - 40 : 450,
       width: MediaQuery.of(context).size.width,
       child: getOSInsideWeb() == 'Web' ? _bodyPc() : _bodyMobile(),
     );

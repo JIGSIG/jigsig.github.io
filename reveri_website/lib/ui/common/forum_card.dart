@@ -10,7 +10,7 @@ class MenuCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 280.0,
+      width: 300.0,
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
         elevation: 20.0,
@@ -74,7 +74,7 @@ final fortniteMenu = Game(
     games: 600);
 
 final pubgMenu = Game(
-    title: "Developpeur web",
+    title: "Developpeur",
     imagePath: "assets/images/developer.jpeg",
     rank: 25,
     completed: 488,

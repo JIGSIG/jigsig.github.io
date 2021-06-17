@@ -11,22 +11,28 @@ class MenuNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: primaryColor,
-      elevation: 20.0,
-      shape: CustomShapeBorder(),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 15.0, left: 10.0,
-            bottom: 5.0),
-        child: Container(
-          width: 100,
-          child: Text(
-            forum.title,
-            overflow: TextOverflow.clip,
-            style: forumNameTextStyle,
+    return Stack(
+      children: [
+        Material(
+          color: primaryColor,
+          elevation: 20.0,
+          shape: CustomShapeBorder(),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10.0, left: 10.0,),
+          child: Container(
+            width: 100,
+            height: 50,
+            child: Center(
+              child: Text(
+                forum.title,
+                overflow: TextOverflow.clip,
+                style: forumNameTextStyle,
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

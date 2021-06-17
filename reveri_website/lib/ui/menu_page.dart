@@ -17,6 +17,7 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         body: Stack(
         children: <Widget>[
           AppBackground(),
