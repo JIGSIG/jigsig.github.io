@@ -19,13 +19,9 @@ String getOSInsideWeb() {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (!kIsWeb || getOSInsideWeb() != 'Web') {
-    await Flame.device.setLandscape();
-    await Flame.device.fullScreen();
-  }
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: CheckOrientation(toDisplay: Menu()),
+    home: GameTiledMap(),
   ));
 }
 

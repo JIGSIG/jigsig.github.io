@@ -57642,7 +57642,7 @@ return new N.DS(1/q.gqy(q),1/(0.05*p))})
 s($,"apj","adl",function(){return P.acY(0.78)/P.acY(0.9)})
 r($,"aqq","adU",function(){var q=null,p=t.N
 return new N.JR(P.bf(20,q,!1,t.dR),0,new N.QD(H.a([],t.R)),q,P.w(p,H.Z("d4<alC>")),P.w(p,H.Z("alC")),P.alE(t.K,p),0,q,!1,!1,q,q,0,q,q,N.abn(),N.abn())})
-s($,"arO","aeG",function(){return M.a9A(112,600,"assets/images/digital_project_manager.jpeg",31,4,"Chef de projet digital","https://jigsig.github.io/reveri_games/example/build/web/index.html")})
+s($,"arO","aeG",function(){return M.a9A(112,600,"assets/images/digital_project_manager.jpeg",31,4,"Chef de projet digital","https://jigsig.github.io/reveri_games/digital_project_manager/")})
 s($,"as_","aeN",function(){return M.a9A(488,1000,"assets/images/developer.jpeg",25,2.5,"D\xe9veloppeur","https://jigsig.github.io/reveri_games/example/build/web/")})
 s($,"arQ","a7G",function(){var q=$.aeG(),p=$.aeN()
 return H.a([q,p,q,p,q,p,q,p,q,p,q,p,q,p,q,p],H.Z("u<mM>"))})

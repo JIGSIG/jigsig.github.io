@@ -81,7 +81,7 @@ final fortniteMenu = Game(
   completed: 112,
   stars: 4,
   games: 600,
-  url: "https://jigsig.github.io/reveri_games/example/web/",
+  url: "https://jigsig.github.io/reveri_games/digital_project_manager/",
 );
 
 final pubgMenu = Game(
