@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:example/decoration/barrel_dragable.dart';
-import 'package:example/decoration/chest.dart';
-import 'package:example/decoration/spikes.dart';
-import 'package:example/decoration/torch.dart';
-import 'package:example/enemy/goblin.dart';
+import 'package:reveri_games/decoration/barrel_dragable.dart';
+import 'package:reveri_games/decoration/chest.dart';
+import 'package:reveri_games/decoration/spikes.dart';
+import 'package:reveri_games/decoration/torch.dart';
+import 'package:reveri_games/enemy/goblin.dart';
 import 'package:flutter/material.dart';
 
 class DungeonMap {

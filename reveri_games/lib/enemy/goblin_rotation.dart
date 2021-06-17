@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:example/manual_map/dungeon_map.dart';
+import 'package:reveri_games/manual_map/dungeon_map.dart';
 
 class GoblinRotation extends RotationEnemy {
   GoblinRotation(Vector2 position)

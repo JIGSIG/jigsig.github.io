@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:example/manual_map/dungeon_map.dart';
-import 'package:example/util/common_sprite_sheet.dart';
-import 'package:example/util/enemy_sprite_sheet.dart';
+import 'package:reveri_games/manual_map/dungeon_map.dart';
+import 'package:reveri_games/util/common_sprite_sheet.dart';
+import 'package:reveri_games/util/enemy_sprite_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

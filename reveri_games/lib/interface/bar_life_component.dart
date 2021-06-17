@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:example/player/knight.dart';
+import 'package:reveri_games/player/knight.dart';
 import 'package:flutter/material.dart';
 
 class BarLifeComponent extends InterfaceComponent {

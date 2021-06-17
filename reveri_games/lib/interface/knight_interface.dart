@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:example/interface/bar_life_component.dart';
-import 'package:example/player/knight.dart';
+import 'package:reveri_games/interface/bar_life_component.dart';
+import 'package:reveri_games/player/knight.dart';
 
 class KnightInterface extends GameInterface {
   @override

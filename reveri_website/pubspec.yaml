@@ -29,6 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   material_floating_search_bar: ^0.3.4
+
   reveri_games:
     git:
       url: git@github.com:JIGSIG/jigsig.github.io.git

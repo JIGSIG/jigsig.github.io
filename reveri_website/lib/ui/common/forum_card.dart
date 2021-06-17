@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reveri_games/reveri_games.dart';
 import 'package:reveri_website/ui/common/forum_details_widget.dart';
 import 'package:reveri_website/ui/common/forum_name_widget.dart';
 
@@ -82,7 +83,7 @@ final fortniteMenu = Game(
   completed: 112,
   stars: 4,
   games: 600,
-  game: Container(color: Colors.yellow,),
+  game: GameTiledMap(),
 );
 
 final pubgMenu = Game(
