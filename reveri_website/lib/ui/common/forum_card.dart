@@ -13,6 +13,7 @@ class MenuCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        html.document.documentElement!.requestFullscreen();
         html.window.open(game.url,"_self");
       },
       child: SizedBox(

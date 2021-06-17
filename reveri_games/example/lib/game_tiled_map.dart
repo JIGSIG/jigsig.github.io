@@ -43,55 +43,75 @@ class _GameTiledMapState extends State<GameTiledMap> {
       builder: (context, constraints) {
         DungeonMap.tileSize = max(constraints.maxHeight, constraints.maxWidth) /
             (kIsWeb ? 20 : 22);
-        return BonfireTiledWidget(
-          joystick: Joystick(
-            keyboardEnable: true,
-            directional: JoystickDirectional(
-              spriteBackgroundDirectional: Sprite.load(
-                'joystick_background.png',
-              ),
-              spriteKnobDirectional: Sprite.load('joystick_knob.png'),
-              size: 100,
-              isFixed: false,
-            ),
-            actions: [
-              JoystickAction(
-                actionId: PlayerAttackType.AttackMelee,
-                sprite: Sprite.load('joystick_atack.png'),
-                align: JoystickActionAlign.BOTTOM_RIGHT,
-                size: 80,
-                margin: EdgeInsets.only(bottom: 50, right: 50),
-              ),
-              JoystickAction(
-                actionId: PlayerAttackType.AttackRange,
-                sprite: Sprite.load('joystick_atack_range.png'),
-                spriteBackgroundDirection: Sprite.load(
-                  'joystick_background.png',
+        return Stack(
+          children: [
+            BonfireTiledWidget(
+              joystick: Joystick(
+                keyboardEnable: true,
+                directional: JoystickDirectional(
+                  spriteBackgroundDirectional: Sprite.load(
+                    'joystick_background.png',
+                  ),
+                  spriteKnobDirectional: Sprite.load('joystick_knob.png'),
+                  size: 100,
+                  isFixed: false,
                 ),
-                enableDirection: true,
-                size: 50,
-                margin: EdgeInsets.only(bottom: 50, right: 160),
-              )
-            ],
-          ),
-          player: Knight(
-            Vector2((8 * DungeonMap.tileSize), (5 * DungeonMap.tileSize)),
-          ),
-          interface: KnightInterface(),
-          map: TiledWorldMap(
-            'tiled/mapa${widget.map}.json',
-            forceTileSize: Size(DungeonMap.tileSize, DungeonMap.tileSize),
-            objectsBuilder: {
-              'goblin': (properties) => Goblin(properties.position),
-              'torch': (properties) => Torch(properties.position),
-              'barrel': (properties) => BarrelDraggable(properties.position),
-              'spike': (properties) => Spikes(properties.position),
-              'column': (properties) => ColumnDecoration(properties.position),
-              'chest': (properties) => Chest(properties.position),
-            },
-          ),
-          background: BackgroundColorGame(Colors.blueGrey[900]!),
-          lightingColorGame: Colors.black.withOpacity(0.7),
+                actions: [
+                  JoystickAction(
+                    actionId: PlayerAttackType.AttackMelee,
+                    sprite: Sprite.load('joystick_atack.png'),
+                    align: JoystickActionAlign.BOTTOM_RIGHT,
+                    size: 80,
+                    margin: EdgeInsets.only(bottom: 50, right: 50),
+                  ),
+                  JoystickAction(
+                    actionId: PlayerAttackType.AttackRange,
+                    sprite: Sprite.load('joystick_atack_range.png'),
+                    spriteBackgroundDirection: Sprite.load(
+                      'joystick_background.png',
+                    ),
+                    enableDirection: true,
+                    size: 50,
+                    margin: EdgeInsets.only(bottom: 50, right: 160),
+                  )
+                ],
+              ),
+              player: Knight(
+                Vector2((8 * DungeonMap.tileSize), (5 * DungeonMap.tileSize)),
+              ),
+              interface: KnightInterface(),
+              map: TiledWorldMap(
+                'tiled/mapa${widget.map}.json',
+                forceTileSize: Size(DungeonMap.tileSize, DungeonMap.tileSize),
+                objectsBuilder: {
+                  'goblin': (properties) => Goblin(properties.position),
+                  'torch': (properties) => Torch(properties.position),
+                  'barrel': (properties) => BarrelDraggable(properties.position),
+                  'spike': (properties) => Spikes(properties.position),
+                  'column': (properties) => ColumnDecoration(properties.position),
+                  'chest': (properties) => Chest(properties.position),
+                },
+              ),
+              background: BackgroundColorGame(Colors.blueGrey[900]!),
+              lightingColorGame: Colors.black.withOpacity(0.7),
+            ),
+            if (getOSInsideWeb() != 'Web' && MediaQuery.of(context).orientation == Orientation.portrait)
+              Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Center(
+                    child: TextButton(
+                      onPressed: () async {
+                        await SystemChrome.setPreferredOrientations([
+                          DeviceOrientation.landscapeLeft,
+                          DeviceOrientation.landscapeRight,
+                        ]);
+                        setState(() {});
+                      },
+                      child: Text('Changez l\'orientation'),
+                    )),
+              ),
+          ],
         );
       },
     );

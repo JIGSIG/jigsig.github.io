@@ -53279,7 +53279,8 @@ M.rA.prototype={
 L:function(a,b){var s=null,r=K.a8K(new P.bB(20,20)),q=K.a8K(new P.bB(20,20)),p=this.c
 return D.kt(s,T.jo(new V.yr(20,new X.cT(r,C.w),C.mM,T.a91(q,T.e5(C.aN,H.a([M.c3(s,new U.r_(M.akr(s,s,new L.pH(p.b,s,s)),C.fL,s),s,s,s,500,s,s,s),T.l5(0,new D.B_(p,s),s,s,0,0,s,s),T.l5(80,new E.B0(p,s),s,s,0,s,s,s)],t.F),C.af)),s),s,300),C.a5,!1,s,s,s,s,s,s,s,s,s,s,s,new M.RH(this),s,s,s,s,s,s)}}
 M.RH.prototype={
-$0:function(){C.ah.a1U(window,this.a.c.r,"_self")},
+$0:function(){document.documentElement.webkitRequestFullscreen()
+C.ah.a1U(window,this.a.c.r,"_self")},
 $S:0}
 M.mM.prototype={}
 D.B_.prototype={
