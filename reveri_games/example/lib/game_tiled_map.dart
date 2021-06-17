@@ -29,10 +29,7 @@ class GameTiledMap extends StatefulWidget {
 class _GameTiledMapState extends State<GameTiledMap> {
   @override
   void initState() {
-    if (getOSInsideWeb() == 'Ios')
-      SystemChrome.setEnabledSystemUIOverlays([]);
-    else
-      document.documentElement!.requestFullscreen();
+    SystemChrome.setEnabledSystemUIOverlays([]);
     super.initState();
   }
 
