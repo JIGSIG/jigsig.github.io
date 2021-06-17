@@ -28,6 +28,7 @@ class LandingPage extends StatelessWidget {
               SizedBox(
                 height: 70,
               ),
+              // NavBar(),
               Body(),
               LargeChildpart1(),
             ],
@@ -110,9 +111,10 @@ class LargeChild extends StatelessWidget {
             ),
           ),
           FractionallySizedBox(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.topLeft,
             widthFactor: .6,
-            child: Image.network("assets/images/jesse.png"),
+            heightFactor: 1.3,
+            child: Image.network("assets/images/control_body.png", height: 800, width: 800,),
           ),
           FractionallySizedBox(
             alignment: Alignment.centerRight,

@@ -18,17 +18,22 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color.fromRGBO(16, 16, 17, 1),
-      padding: EdgeInsets.only(left: 190, top: 30),
+      padding: EdgeInsets.only(left: 120, top: 1),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(
                 width: 16,
                 // child: Text("ttest"),
               ),
-              Text("ReverieGames", style: TextStyle(fontSize: 26, color: Colors.white,))
+              Text("ReverieGames",
+                  style: TextStyle(
+                    fontSize: 26,
+                    color: Colors.red,
+                  ))
             ],
           ),
           // Responsive Layout
