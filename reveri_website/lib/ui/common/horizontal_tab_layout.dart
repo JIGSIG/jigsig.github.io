@@ -95,7 +95,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
 
   _bodyMobile() {
     return Padding(
-      padding: const EdgeInsets.only(left: 5.0),
+      padding: const EdgeInsets.only(left: 15.0),
       child: FutureBuilder(
         future: playAnimation(),
         builder: (context, snapshot) {
