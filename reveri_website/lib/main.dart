@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/landing_page.dart';
 import 'package:reveri_website/ui/menu_page.dart';
@@ -15,4 +17,12 @@ class MyApp extends StatelessWidget {
       home: MenuPage(),
     );
   }
+}
+
+String getOSInsideWeb() {
+  final userAgent = window.navigator.userAgent.toString().toLowerCase();
+  if (userAgent.contains("iphone")) return "Ios";
+  if (userAgent.contains("ipad")) return "Ios";
+  if (userAgent.contains("android")) return "Android";
+  return "Web";
 }

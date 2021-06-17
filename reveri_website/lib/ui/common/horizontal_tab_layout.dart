@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reveri_website/main.dart';
 
 import 'forum_card.dart';
 
@@ -49,13 +50,9 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
-    /*24 is for notification bar on Android*/
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-    final double itemWidth = size.width / 6;
     return Container(
-      height: 500.0,
+      height: getOSInsideWeb() == 'Web' ? MediaQuery.of(context).size.height
+          - kToolbarHeight - 40 : 400,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: <Widget>[
@@ -68,18 +65,8 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                   opacity: _fadeAnimation,
                   child: SlideTransition(
                     position: _animation,
-                    child: GridView.count(
-                      shrinkWrap: true,
-                      childAspectRatio: (itemWidth / itemHeight),
-                      crossAxisCount: 5,
-                      crossAxisSpacing: 0,
-                      mainAxisSpacing: 0,
-                      children: List.generate(
-                        gameToDisplay.length,
-                        (index) =>
-                            MenuCard(forum: gameToDisplay.elementAt(index)),
-                      ),
-                    ),
+                    child:
+                        getOSInsideWeb() == 'Web' ? _bodyPc() : _bodyMobile(),
                   ),
                 );
               },
@@ -90,38 +77,51 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     );
   }
 
-  List<Widget> getList(index) {
-    return [
-      [
-        MenuCard(forum: fortniteMenu),
-        MenuCard(forum: pubgMenu),
-        MenuCard(forum: fortniteMenu),
-        MenuCard(forum: pubgMenu),
-      ],
-      [
-        MenuCard(forum: fortniteMenu),
-        MenuCard(forum: fortniteMenu),
-        MenuCard(forum: fortniteMenu),
-        MenuCard(forum: pubgMenu)
-      ],
-      [
-        MenuCard(forum: fortniteMenu),
-        MenuCard(forum: pubgMenu),
-        MenuCard(forum: fortniteMenu),
-        MenuCard(forum: pubgMenu),
-        MenuCard(forum: pubgMenu),
-        MenuCard(forum: pubgMenu),
-      ]
-    ][index];
+  _bodyPc() {
+    var size = MediaQuery.of(context).size;
+
+    /*24 is for notification bar on Android*/
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
+    final double itemWidth = size.width / 6;
+
+    return GridView.count(
+      shrinkWrap: true,
+      childAspectRatio: (itemWidth / itemHeight),
+      crossAxisCount: 5,
+      crossAxisSpacing: 0,
+      mainAxisSpacing: 0,
+      children: List.generate(
+        gameToDisplay.length,
+        (index) => MenuCard(
+          forum: gameToDisplay.elementAt(index),
+        ),
+      ),
+    );
   }
 
-  onTabTap(int index) {
-    setState(() {
-      selectedTabIndex = index;
-    });
-  }
-
-  bool elementSearched(Widget element) {
-    return true;
+  _bodyMobile() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 65.0),
+      child: FutureBuilder(
+        future: playAnimation(),
+        builder: (context, snapshot) {
+          return FadeTransition(
+            opacity: _fadeAnimation,
+            child: SlideTransition(
+              position: _animation,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: List.generate(
+                  gameToDisplay.length,
+                  (index) => MenuCard(
+                    forum: gameToDisplay.elementAt(index),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
