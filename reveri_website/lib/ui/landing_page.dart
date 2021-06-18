@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/Responsive/landing_page.dart';
 import 'package:reveri_website/ui/landingTools/navbar.dart';
 import '../ui/Responsive/landing_page.dart';
+import '../ui/landingTools/footer.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -28,9 +29,11 @@ class LandingPage extends StatelessWidget {
               SizedBox(
                 height: 70,
               ),
-              // NavBar(),
+              NavBar(),
               Body(),
-              LargeChildpart1(),
+              if (MediaQuery.of(context).size.width > 800) LargeChildpart1(),
+              if (MediaQuery.of(context).size.width < 800) SmallChildpart1(),
+//              Footer(),
             ],
           ),
         ),
@@ -55,7 +58,7 @@ class LargeChild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color.fromRGBO(16, 16, 17, 1),
-      height: 600,
+      height: MediaQuery.of(context).size.height - 150,
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -65,7 +68,7 @@ class LargeChild extends StatelessWidget {
           FractionallySizedBox(
             alignment: Alignment.centerLeft,
             widthFactor: 0.04,
-            heightFactor: 0.3,
+            heightFactor: 0.5,
             child: Container(
               child: Column(
                 children: [
@@ -114,7 +117,11 @@ class LargeChild extends StatelessWidget {
             alignment: Alignment.topLeft,
             widthFactor: .6,
             heightFactor: 1.3,
-            child: Image.network("assets/images/control_body.png", height: 800, width: 800,),
+            child: Image.network(
+              "assets/images/control_body.png",
+              height: 800,
+              width: 800,
+            ),
           ),
           FractionallySizedBox(
             alignment: Alignment.centerRight,
@@ -157,7 +164,7 @@ class LargeChild extends StatelessWidget {
                           color: Colors.white),
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 90,
                     ),
                     ConstrainedBox(
                       constraints:
@@ -190,8 +197,8 @@ class LargeChildpart1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       color: Color.fromRGBO(12, 12, 12, 1),
-      height: 600,
+      color: Color.fromRGBO(12, 12, 12, 1),
+      height: MediaQuery.of(context).size.height - 150,
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -324,85 +331,215 @@ class LargeChildpart1 extends StatelessWidget {
 class SmallChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Padding(
-      padding: EdgeInsets.all(40),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      height: MediaQuery.of(context).size.height - 200,
+      child: Stack(
+        fit: StackFit.expand,
         children: <Widget>[
-          SizedBox(
-            height: 40,
-          ),
           FractionallySizedBox(
             alignment: Alignment.center,
-            widthFactor: 1.1,
-            child: Column(
-              children: [
-                Text(
-                  "Gaming Community",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: "Montserrat-Regular",
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10.0,
-                        color: Colors.red,
-                        offset: Offset(1.5, -1.5),
+            widthFactor: 0.65,
+            child: Padding(
+              padding: EdgeInsets.zero,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          SizedBox(height: MediaQuery.of(context).size.height / 20),
+                          Text(
+                            "Games Community",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: "Montserrat-Regular",
+                              color: Colors.white,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 10.0,
+                                  color: Colors.red,
+                                  offset: Offset(1.5, -1.5),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 11,),
+                          Text(
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                            style: TextStyle(
+                                fontSize: 13,
+                                fontFamily: "Montserrat-Regular",
+                                color: Colors.white),
+                          ),
+                          FractionallySizedBox(
+                            alignment: Alignment.center,
+                            widthFactor: 1.0,
+                            child: Image.network(
+                                "assets/images/control.png",),
+                          ),
+                          SizedBox(height: 15,),
+                          ConstrainedBox(
+                            constraints:
+                                BoxConstraints.tightFor(width: 200, height: 50),
+                            child: ElevatedButton(
+                                child: Text("Join Community".toUpperCase(),
+                                    style: TextStyle(fontSize: 15)),
+                                style: ButtonStyle(
+                                    foregroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.white),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.red),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(35),
+                                            side: BorderSide(
+                                                color: Colors.red)))),
+                                onPressed: () => null),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 40),
-                Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloret.",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontFamily: "Montserrat-Regular",
-                      color: Colors.white),
-                ),
-              ],
+                    ),
+                  ]),
             ),
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          FractionallySizedBox(
-            alignment: Alignment.centerLeft,
-            widthFactor: 1.0,
-            child: ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: 500, height: 50),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 1),
-                child: ElevatedButton(
-                    child: Text("JOIN COMMUNITY".toUpperCase(),
-                        style: TextStyle(fontSize: 15)),
-                    style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(35),
-                                    side: BorderSide(color: Colors.red)))),
-                    onPressed: () => null),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          FractionallySizedBox(
-            alignment: Alignment.centerLeft,
-            widthFactor: 1.0,
-            child: Image.network("assets/images/jesse.png"),
           ),
         ],
       ),
-    ));
+    );
+  }
+}
+
+class SmallChildpart1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color.fromRGBO(12, 12, 12, 1),
+      height: MediaQuery.of(context).size.height + 100,
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          FractionallySizedBox(
+            alignment: Alignment.center,
+            widthFactor: 0.65,
+            child: Padding(
+              padding: EdgeInsets.zero,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Text(
+                            "Today's",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: "Montserrat-Regular",
+                              color: Colors.red,
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Text(
+                            "Games Collection",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: "Montserrat-Regular",
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Text(
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                            style: TextStyle(
+                                fontSize: 13,
+                                fontFamily: "Montserrat-Regular",
+                                color: Colors.white),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ConstrainedBox(
+                            constraints:
+                                BoxConstraints.tightFor(width: 200, height: 50),
+                            child: ElevatedButton(
+                                child: Text("Browse more".toUpperCase(),
+                                    style: TextStyle(fontSize: 15)),
+                                style: ButtonStyle(
+                                    foregroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.white),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.red),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(35),
+                                            side: BorderSide(
+                                                color: Colors.red)))),
+                                onPressed: () => null),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    CarouselSlider(
+                      items: [
+                        "assets/images/control.jpg",
+                        "assets/images/back_control.jpg",
+                        "assets/images/jesse.jpg"
+                      ].map((i) {
+                        return Builder(
+                          builder: (BuildContext context) {
+                            return Container(
+                              child: SizedBox(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.network(
+                                    '$i',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      }).toList(),
+                      options: CarouselOptions(
+                        height: 350,
+                        aspectRatio: 16 / 9,
+                        viewportFraction: 1.1,
+                        initialPage: 0,
+                        enableInfiniteScroll: true,
+                        reverse: false,
+                        autoPlay: true,
+                        autoPlayInterval: Duration(seconds: 3),
+                        autoPlayAnimationDuration: Duration(milliseconds: 800),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        enlargeCenterPage: true,
+                        scrollDirection: Axis.horizontal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                  ]),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
