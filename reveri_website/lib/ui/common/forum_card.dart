@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/common/forum_details_widget.dart';
 import 'package:reveri_website/ui/common/forum_name_widget.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
 
 class MenuCard extends StatelessWidget {
-  final Game game;
+  final Game forum;
 
-  MenuCard({required this.game});
+  MenuCard({required this.forum});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        html.document.documentElement!.requestFullscreen();
-        html.window.open(game.url,"_self");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => forum.game),
+        );
       },
       child: SizedBox(
         width: 300.0,
@@ -31,7 +31,7 @@ class MenuCard extends StatelessWidget {
                 Container(
                   height: 500,
                   child: Image.asset(
-                    game.imagePath,
+                    forum.imagePath,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -39,12 +39,12 @@ class MenuCard extends StatelessWidget {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  child: MenuDetailsWidget(forum: game),
+                  child: MenuDetailsWidget(forum: forum),
                 ),
                 Positioned(
                   left: 0,
                   bottom: 80.0,
-                  child: MenuNameWidget(forum: game),
+                  child: MenuNameWidget(forum: forum),
                 ),
               ],
             ),
@@ -62,7 +62,7 @@ class Game {
   final int games;
   final int completed;
   final double stars;
-  final String url;
+  final Widget game;
 
   Game({
     required this.title,
@@ -71,7 +71,7 @@ class Game {
     required this.completed,
     required this.stars,
     required this.games,
-    required this.url,
+    required this.game,
   });
 }
 
@@ -82,17 +82,17 @@ final fortniteMenu = Game(
   completed: 112,
   stars: 4,
   games: 600,
-  url: "https://jigsig.github.io/reveri_games/digital_project_manager/",
+  game: Container(),
 );
 
 final pubgMenu = Game(
-  title: "Développeur",
+  title: "Developpeur",
   imagePath: "assets/images/developer.jpeg",
   rank: 25,
   completed: 488,
   stars: 2.5,
   games: 1000,
-  url: "https://jigsig.github.io/reveri_games/example/build/web/",
+  game: Container(),
 );
 
 final games = [
