@@ -1,5 +1,9 @@
+// ignore: avoid_web_libraries_in_flutter
+
+import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
-import 'package:reveri_website/main.dart';
+import 'package:reveri_website/ui/common/label_value_widget.dart';
+import 'package:reveri_website/ui/styleguide/text_styles.dart';
 
 import 'forum_card.dart';
 
@@ -25,7 +29,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     super.initState();
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000));
-    _animation = Tween<Offset>(begin: Offset(0, 0), end: Offset(-0.05, 0))
+    _animation = Tween<Offset>(begin: Offset(0.05, 0), end: Offset(0, 0))
         .animate(_controller);
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
     widget.searchController.addListener(() {
@@ -49,23 +53,21 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Container(
-      height: getOSInsideWeb() == 'Web' ? MediaQuery.of(context).size.height
-          - kToolbarHeight - 40 : 450,
-      width: MediaQuery.of(context).size.width,
-      child: getOSInsideWeb() == 'Web' ? _bodyPc() : _bodyMobile(),
+      child: platformIsWeb ? _bodyPc2() : _bodyMobile(),
     );
   }
 
   _bodyPc() {
-    var size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     /*24 is for notification bar on Android*/
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / 6;
 
     return Padding(
-      padding: const EdgeInsets.only(left: 125.0),
+      padding: const EdgeInsets.only(left: 125.0, top: 68),
       child: FutureBuilder(
         future: playAnimation(),
         builder: (context, snapshot) {
@@ -81,7 +83,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                 mainAxisSpacing: 0,
                 children: List.generate(
                   gameToDisplay.length,
-                      (index) => MenuCard(
+                  (index) => MenuCard(
                     game: gameToDisplay.elementAt(index),
                   ),
                 ),
@@ -93,28 +95,197 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     );
   }
 
-  _bodyMobile() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15.0),
-      child: FutureBuilder(
-        future: playAnimation(),
-        builder: (context, snapshot) {
-          return FadeTransition(
-            opacity: _fadeAnimation,
-            child: SlideTransition(
-              position: _animation,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: List.generate(
-                  gameToDisplay.length,
-                  (index) => MenuCard(
-                    game: gameToDisplay.elementAt(index),
+  _bodyPc2() {
+    final Size size = MediaQuery.of(context).size;
+    return Container(
+      height: 400.0,
+      width: size.width,
+      child: Stack(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 0.0),
+            child: FutureBuilder(
+              future: playAnimation(),
+              builder: (context, snapshot) {
+                return FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: SlideTransition(
+                    position: _animation,
+                    child: gameToDisplay.length < 5
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(
+                              gameToDisplay.length,
+                              (index) => MenuCard(
+                                  game: gameToDisplay.elementAt(index)),
+                            ),
+                          )
+                        : ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: List.generate(
+                              gameToDisplay.length,
+                              (index) => MenuCard(
+                                  game: gameToDisplay.elementAt(index)),
+                            ),
+                          ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
-          );
-        },
+          ),
+        ],
+      ),
+    );
+  }
+
+  _bodyMobile() {
+    final Size size = MediaQuery.of(context).size;
+    return Container(
+      color: Colors.transparent,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 68,
+          ),
+          Container(
+            height: size.height - 68,
+            child: ListView.builder(
+                itemCount: gameToDisplay.length,
+                itemBuilder: (_, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        /*
+                                                if (platformIsIos)
+                          SystemChrome.setEnabledSystemUIOverlays([]);
+                        else
+                          document.documentElement!.requestFullscreen();
+
+                         */
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyHomePage(title: "title")),
+                        );
+                      },
+                      child: Container(
+                        height: 90,
+                        width: size.width - 16,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.15),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Stack(
+                          children: [
+                            ListTile(
+                              leading: Container(
+                                width: size.width * .2 - 24,
+                              ),
+                              title: SizedBox(
+                                height: 35,
+                                child: Text(
+                                  gameToDisplay.elementAt(index).title,
+                                  style: forumNameTextStyle,
+                                ),
+                              ),
+                              subtitle: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  LabelValueWidget(
+                                    value: gameToDisplay
+                                        .elementAt(index)
+                                        .games
+                                        .toString(),
+                                    label: "parties",
+                                    labelStyle: labelTextStyle,
+                                    valueStyle: valueTextStyle,
+                                  ),
+                                  LabelValueWidget(
+                                    value: gameToDisplay
+                                        .elementAt(index)
+                                        .completed
+                                        .toString(),
+                                    label: "réussites",
+                                    labelStyle: labelTextStyle,
+                                    valueStyle: valueTextStyle,
+                                  ),
+                                  LabelValueWidget(
+                                    value: gameToDisplay
+                                        .elementAt(index)
+                                        .stars
+                                        .toStringAsPrecision(2),
+                                    label: "étoiles",
+                                    labelStyle: labelTextStyle,
+                                    valueStyle: valueTextStyle,
+                                  ),
+                                ],
+                              ),
+                              trailing: SizedBox(
+                                width: 30,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(1.5),
+                              child: Container(
+                                height: 90,
+                                width: size.width * .2,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.01),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: Offset(
+                                          0, 3), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                  ),
+                                  child: Image.asset(
+                                    gameToDisplay.elementAt(index).imagePath,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+          ),
+        ],
       ),
     );
   }

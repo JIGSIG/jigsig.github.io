@@ -15,15 +15,13 @@ class AppBackground extends StatelessWidget {
               color: Colors.black,
             ),
             Positioned(
-              left: -(height/2 - width/2),
+              left: -(height / 2 - width / 2),
               bottom: height * 0.25,
               child: Container(
-                  height: height,
-                  width: height,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: firstCircleColor
-                  ),
+                height: height,
+                width: height,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: firstCircleColor),
               ),
             ),
             Positioned(
@@ -33,8 +31,8 @@ class AppBackground extends StatelessWidget {
                 height: width * 1.6,
                 width: width * 1.6,
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: secondCircleColor,
+                  shape: BoxShape.circle,
+                  color: secondCircleColor,
                 ),
               ),
             ),

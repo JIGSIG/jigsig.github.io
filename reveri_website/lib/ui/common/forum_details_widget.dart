@@ -4,7 +4,6 @@ import 'package:reveri_website/ui/common/label_value_widget.dart';
 import 'package:reveri_website/ui/styleguide/text_styles.dart';
 
 class MenuDetailsWidget extends StatelessWidget {
-
   final Game forum;
 
   MenuDetailsWidget({required this.forum});
@@ -18,7 +17,7 @@ class MenuDetailsWidget extends StatelessWidget {
         padding: const EdgeInsets.only(
             left: 20.0, right: 16.0, top: 24.0, bottom: 12.0),
         color: Colors.white,
-        child: Column(
+        child: Stack(
           children: <Widget>[
             Align(
               alignment: Alignment.topRight,
@@ -30,44 +29,46 @@ class MenuDetailsWidget extends StatelessWidget {
                       border: Border.all(
                           color: Colors.grey.withOpacity(0.4), width: 2.0),
                     ),
-                    height: 40.0,
-                    width: 40.0,
+                    height: 50.0,
+                    width: 50.0,
                     child: Center(
                         child: Text(
-                          forum.rank.toString(),
-                          style: rankStyle,
-                        )),
+                      forum.rank.toString(),
+                      style: rankStyle,
+                    )),
                   ),
                   Text("new", style: labelTextStyle),
                 ],
               ),
             ),
-            SizedBox(
-              height: 15.0,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                LabelValueWidget(
-                  value: forum.games.toString(),
-                  label: "parties",
-                  labelStyle: labelTextStyle,
-                  valueStyle: valueTextStyle,
-                ),
-                LabelValueWidget(
-                  value: forum.completed.toString(),
-                  label: "réussites",
-                  labelStyle: labelTextStyle,
-                  valueStyle: valueTextStyle,
-                ),
-                LabelValueWidget(
-                  value: forum.stars.toString(),
-                  label: "étoiles",
-                  labelStyle: labelTextStyle,
-                  valueStyle: valueTextStyle,
-                ),
-              ],
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  LabelValueWidget(
+                    value: forum.games.toString(),
+                    label: "parties",
+                    labelStyle: labelTextStyle,
+                    valueStyle: valueTextStyle,
+                  ),
+                  LabelValueWidget(
+                    value: forum.completed.toString(),
+                    label: "réussites",
+                    labelStyle: labelTextStyle,
+                    valueStyle: valueTextStyle,
+                  ),
+                  LabelValueWidget(
+                    value: forum.stars.toStringAsPrecision(2),
+                    label: "étoiles",
+                    labelStyle: labelTextStyle,
+                    valueStyle: valueTextStyle,
+                  ),
+                ],
+              ),
             )
           ],
         ),
@@ -102,5 +103,4 @@ class MyCustomClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return true;
   }
-
 }

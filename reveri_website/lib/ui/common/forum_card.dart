@@ -1,8 +1,11 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
+
+import 'package:digital_project_manager/game_tiled_map.dart';
+import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/common/forum_details_widget.dart';
 import 'package:reveri_website/ui/common/forum_name_widget.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
 
 class MenuCard extends StatelessWidget {
   final Game game;
@@ -13,11 +16,13 @@ class MenuCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        html.document.documentElement!.requestFullscreen();
-        html.window.open(game.url,"_self");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => GameTiledMap()),
+        );
       },
-      child: SizedBox(
-        width: 300.0,
+      child: Container(
+        width: 275,
         child: Card(
           margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
           elevation: 20.0,
@@ -75,19 +80,19 @@ class Game {
   });
 }
 
-final fortniteMenu = Game(
+final digitalProjectManagerGame = Game(
   title: "Chef de projet digital",
-  imagePath: "assets/images/digital_project_manager.jpeg",
+  imagePath: "assets/images/games/digital_project_manager.jpeg",
   rank: 31,
   completed: 112,
-  stars: 4,
+  stars: 4.0,
   games: 600,
   url: "https://jigsig.github.io/reveri_games/digital_project_manager/",
 );
 
 final pubgMenu = Game(
   title: "Développeur",
-  imagePath: "assets/images/developer.jpeg",
+  imagePath: "assets/images/games/developer.jpeg",
   rank: 25,
   completed: 488,
   stars: 2.5,
@@ -96,20 +101,6 @@ final pubgMenu = Game(
 );
 
 final games = [
-  fortniteMenu,
-  pubgMenu,
-  fortniteMenu,
-  pubgMenu,
-  fortniteMenu,
-  pubgMenu,
-  fortniteMenu,
-  pubgMenu,
-  fortniteMenu,
-  pubgMenu,
-  fortniteMenu,
-  pubgMenu,
-  fortniteMenu,
-  pubgMenu,
-  fortniteMenu,
+  digitalProjectManagerGame,
   pubgMenu,
 ];

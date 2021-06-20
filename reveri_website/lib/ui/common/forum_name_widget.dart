@@ -4,7 +4,6 @@ import 'package:reveri_website/ui/styleguide/colors.dart';
 import 'package:reveri_website/ui/styleguide/text_styles.dart';
 
 class MenuNameWidget extends StatelessWidget {
-
   final Game forum;
 
   MenuNameWidget({required this.forum});
@@ -19,7 +18,10 @@ class MenuNameWidget extends StatelessWidget {
           shape: CustomShapeBorder(),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 10.0, left: 10.0,),
+          padding: const EdgeInsets.only(
+            top: 10.0,
+            left: 10.0,
+          ),
           child: Container(
             width: 100,
             height: 50,

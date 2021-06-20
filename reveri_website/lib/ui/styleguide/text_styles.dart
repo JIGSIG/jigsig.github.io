@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:reveri_website/main.dart';
 import 'package:reveri_website/ui/styleguide/colors.dart';
+
+final platformIsWeb = getOSInsideWeb() == 'Web';
+final platformIsIos = getOSInsideWeb() == 'Ios';
 
 final TextStyle valueTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
@@ -10,11 +14,8 @@ final TextStyle labelTextStyle = TextStyle(
   fontSize: 16.0,
   color: Colors.grey,
 );
-final TextStyle whiteValueTextStyle = TextStyle(
-  fontWeight: FontWeight.bold,
-  fontSize: 18.0,
-  color: Colors.white
-);
+final TextStyle whiteValueTextStyle =
+    TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0, color: Colors.white);
 final TextStyle whiteLabelTextStyle = TextStyle(
   fontWeight: FontWeight.normal,
   fontSize: 16.0,
@@ -51,7 +52,7 @@ final TextStyle buttonStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 final TextStyle forumNameTextStyle = TextStyle(
-  color: Colors.white,
-  fontSize: 14.0,
-  fontWeight: FontWeight.w800,
+  color: platformIsWeb ? Colors.white : Colors.black,
+  fontSize: platformIsWeb ? 18 : 20.0,
+  fontWeight: platformIsWeb ? FontWeight.w800 : FontWeight.w600,
 );
