@@ -18,7 +18,7 @@ class MenuCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => GameTiledMap()),
+          MaterialPageRoute(builder: (context) => game.game),
         );
       },
       child: Container(
@@ -67,7 +67,7 @@ class Game {
   final int games;
   final int completed;
   final double stars;
-  final String url;
+  final Widget game;
 
   Game({
     required this.title,
@@ -76,7 +76,7 @@ class Game {
     required this.completed,
     required this.stars,
     required this.games,
-    required this.url,
+    required this.game,
   });
 }
 
@@ -87,7 +87,7 @@ final digitalProjectManagerGame = Game(
   completed: 112,
   stars: 4.0,
   games: 600,
-  url: "https://jigsig.github.io/reveri_games/digital_project_manager/",
+  game: GameTiledMap(),
 );
 
 final pubgMenu = Game(
@@ -97,7 +97,7 @@ final pubgMenu = Game(
   completed: 488,
   stars: 2.5,
   games: 1000,
-  url: "https://jigsig.github.io/reveri_games/example/build/web/",
+  game: Container(),
 );
 
 final games = [

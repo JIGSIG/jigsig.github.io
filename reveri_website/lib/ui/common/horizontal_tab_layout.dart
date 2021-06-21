@@ -55,7 +55,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Container(
-      child: platformIsWeb ? _bodyPc2() : _bodyMobile(),
+      child: platformIsWeb ? _bodyPc() : _bodyMobile(),
     );
   }
 
@@ -95,49 +95,6 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     );
   }
 
-  _bodyPc2() {
-    final Size size = MediaQuery.of(context).size;
-    return Container(
-      height: 400.0,
-      width: size.width,
-      child: Stack(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 0.0),
-            child: FutureBuilder(
-              future: playAnimation(),
-              builder: (context, snapshot) {
-                return FadeTransition(
-                  opacity: _fadeAnimation,
-                  child: SlideTransition(
-                    position: _animation,
-                    child: gameToDisplay.length < 5
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(
-                              gameToDisplay.length,
-                              (index) => MenuCard(
-                                  game: gameToDisplay.elementAt(index)),
-                            ),
-                          )
-                        : ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: List.generate(
-                              gameToDisplay.length,
-                              (index) => MenuCard(
-                                  game: gameToDisplay.elementAt(index)),
-                            ),
-                          ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   _bodyMobile() {
     final Size size = MediaQuery.of(context).size;
     return Container(
@@ -166,7 +123,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MyHomePage(title: "title")),
+                              builder: (context) => gameToDisplay.elementAt(index).game),
                         );
                       },
                       child: Container(
@@ -290,3 +247,4 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     );
   }
 }
+

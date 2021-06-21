@@ -18,12 +18,9 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Color.fromRGBO(16, 16, 17, 1),
       body: Stack(
         children: <Widget>[
-          AppBackground(),
-          Container(
-            color: Colors.black.withOpacity(.55),
-          ),
           FloatingSearchBar(
             width: platformIsWeb ? 400 : null,
             transitionCurve: Curves.easeInOutCubic,
