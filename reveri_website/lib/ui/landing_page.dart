@@ -130,7 +130,7 @@ class Large extends StatelessWidget {
                               )),
                           SizedBox(
                             height: MediaQuery.of(context).size.height - 190,
-                            child: Image.network(
+                            child: Image.asset(
                               "assets/images/control_body.png",
                               height: 800,
                               width: 800,
@@ -310,7 +310,7 @@ class Large extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(10),
-                                        child: Image.network(
+                                        child: Image.asset(
                                           '$i',
                                           fit: BoxFit.cover,
                                         ),
@@ -511,7 +511,7 @@ class Large extends StatelessWidget {
                         child: FractionallySizedBox(
                           alignment: Alignment.center,
                           widthFactor: 1.4,
-                          child: Image.network(
+                          child: Image.asset(
                             'assets/images/geralt.jpg',
                             height: MediaQuery.of(context).size.height / 1.20,
                             width: MediaQuery.of(context).size.width,
@@ -608,7 +608,7 @@ class Large extends StatelessWidget {
                           ),
                         ),
                       ),
-                      
+
                     ],
                   ),
                 ),
@@ -686,7 +686,7 @@ class LargeChild extends StatelessWidget {
             alignment: Alignment.topLeft,
             widthFactor: .6,
             heightFactor: 1.3,
-            child: Image.network(
+            child: Image.asset(
               "assets/images/control_body.png",
               height: 800,
               width: 800,
@@ -866,7 +866,7 @@ class LargeChildpart1 extends StatelessWidget {
                                 width: MediaQuery.of(context).size.width,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
+                                  child: Image.asset(
                                     '$i',
                                     fit: BoxFit.cover,
                                   ),
@@ -1132,7 +1132,7 @@ class SmallChild extends StatelessWidget {
                             FractionallySizedBox(
                               alignment: Alignment.center,
                               widthFactor: 1.0,
-                              child: Image.network(
+                              child: Image.asset(
                                 "assets/images/control.png",
                               ),
                             ),
@@ -1257,7 +1257,7 @@ class SmallChild extends StatelessWidget {
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(10),
-                                            child: Image.network(
+                                            child: Image.asset(
                                               '$i',
                                               fit: BoxFit.cover,
                                             ),
@@ -1443,7 +1443,7 @@ class SmallChild extends StatelessWidget {
                         child: FractionallySizedBox(
                           alignment: Alignment.center,
                           widthFactor: 1.4,
-                          child: Image.network(
+                          child: Image.asset(
                             'assets/images/esport.jpg',
                             height: 250,
                             width: MediaQuery.of(context).size.width,
