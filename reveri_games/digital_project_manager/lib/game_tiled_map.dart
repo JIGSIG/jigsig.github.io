@@ -92,9 +92,8 @@ class _GameTiledMapState extends State<GameTiledMap> {
               background: BackgroundColorGame(Colors.blueGrey[900]!),
               lightingColorGame: Colors.black.withOpacity(0.7),
             ),
-            if (platformType!.isWeb != true && MediaQuery.of(context)
-                .orientation == Orientation.portrait)
-            Opacity(opacity: .75, child: Scaffold(
+            if (MediaQuery.of(context).orientation == Orientation.portrait)
+              Opacity(opacity: .75, child: Scaffold(
               backgroundColor: Color.fromRGBO(16, 16, 17, 1),
               body: Center(child: TextButton(
                 onPressed: () async {
