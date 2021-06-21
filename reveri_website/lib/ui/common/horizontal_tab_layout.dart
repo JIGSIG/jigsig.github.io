@@ -1,7 +1,10 @@
 // ignore: avoid_web_libraries_in_flutter
 
+import 'dart:html';
+
 import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:reveri_website/ui/common/label_value_widget.dart';
 import 'package:reveri_website/ui/styleguide/text_styles.dart';
 
@@ -113,17 +116,14 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
                       onTap: () {
-                        /*
-                                                if (platformIsIos)
-                          SystemChrome.setEnabledSystemUIOverlays([]);
-                        else
+                        SystemChrome.setEnabledSystemUIOverlays([]);
+                        if (!platformIsIos)
                           document.documentElement!.requestFullscreen();
-
-                         */
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => gameToDisplay.elementAt(index).game),
+                              builder: (context) =>
+                                  gameToDisplay.elementAt(index).game),
                         );
                       },
                       child: Container(
@@ -247,4 +247,3 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     );
   }
 }
-
