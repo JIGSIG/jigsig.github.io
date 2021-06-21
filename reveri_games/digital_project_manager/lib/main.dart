@@ -14,7 +14,7 @@ class PlatformType {
     this.init = false,
     this.isIos = false,
     this.isAndroid = false,
-    this.isWeb = true,
+    this.isWeb = false,
   });
 }
 

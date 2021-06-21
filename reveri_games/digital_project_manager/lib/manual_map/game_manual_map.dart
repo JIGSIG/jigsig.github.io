@@ -17,7 +17,6 @@ class GameManualMap extends StatelessWidget implements GameListener {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     SystemChrome.setEnabledSystemUIOverlays([]);
     return LayoutBuilder(builder: (context, constraints) {
       DungeonMap.tileSize =
