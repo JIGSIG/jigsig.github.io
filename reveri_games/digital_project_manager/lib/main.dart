@@ -1,6 +1,3 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
-
 import 'game_tiled_map.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +29,7 @@ class DPMApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GameTiledMap(),
+      home: GameTiledMap(platformType: new PlatformType(isIos: true),),
     );
   }
 }
@@ -94,24 +91,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
-
-String getOSInsideWeb() {
-  final userAgent = html.window.navigator.userAgent.toString().toLowerCase();
-  try {
-    platformType = new PlatformType(
-      init: true,
-      isIos: userAgent.contains("iphone") || userAgent.contains("ipad"),
-      isAndroid: userAgent.contains("android"),
-      isWeb: !userAgent.contains("iphone") &&
-          !userAgent.contains("ipad") &&
-          !userAgent.contains("android"),
-    );
-  } catch (err) {
-    print(err.toString());
-  }
-  if (userAgent.contains("iphone")) return "Ios";
-  if (userAgent.contains("ipad")) return "Ios";
-  if (userAgent.contains("android")) return "Android";
-  return "Web";
 }

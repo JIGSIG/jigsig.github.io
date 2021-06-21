@@ -13,13 +13,13 @@ import 'player/knight.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'decoration/column.dart';
 
 class GameTiledMap extends StatefulWidget {
   final int map;
+  final PlatformType platformType;
 
-  const GameTiledMap({Key? key, this.map = 1}) : super(key: key);
+  const GameTiledMap({Key? key, this.map = 1, required this.platformType, }) : super(key: key);
 
   @override
   _GameTiledMapState createState() => _GameTiledMapState();
@@ -28,8 +28,10 @@ class GameTiledMap extends StatefulWidget {
 class _GameTiledMapState extends State<GameTiledMap> {
   @override
   void initState() {
-    getOSInsideWeb();
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    if (!kIsWeb) {
+      Flame.device.setLandscape();
+      Flame.device.fullScreen();
+    }
     super.initState();
   }
 
@@ -89,8 +91,8 @@ class _GameTiledMapState extends State<GameTiledMap> {
                   'chest': (properties) => Chest(properties.position),
                 },
               ),
-              background: BackgroundColorGame(Colors.blueGrey[900]!),
-              lightingColorGame: Colors.black.withOpacity(0.7),
+              background: BackgroundColorGame(Colors.black),
+              lightingColorGame: Colors.black.withOpacity(0.1),
             ),
             if (MediaQuery.of(context).orientation == Orientation.portrait)
               Opacity(opacity: .75, child: Scaffold(

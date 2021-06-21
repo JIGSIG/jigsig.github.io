@@ -1,8 +1,6 @@
 // ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
 
 import 'package:digital_project_manager/game_tiled_map.dart';
-import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/common/forum_details_widget.dart';
 import 'package:reveri_website/ui/common/forum_name_widget.dart';

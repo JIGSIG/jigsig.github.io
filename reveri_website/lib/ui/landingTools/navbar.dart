@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../Responsive/landing_page.dart';
 
 class NavBar extends StatelessWidget {
   final navLinks = [

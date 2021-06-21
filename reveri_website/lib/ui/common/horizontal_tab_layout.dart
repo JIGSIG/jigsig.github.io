@@ -1,5 +1,4 @@
 // ignore: avoid_web_libraries_in_flutter
-
 import 'dart:html';
 
 import 'package:digital_project_manager/main.dart';
@@ -56,9 +55,8 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Container(
-      child: platformIsWeb ? _bodyPc() : _bodyMobile(),
+      child: platformType!.isWeb ? _bodyPc() : _bodyMobile(),
     );
   }
 
@@ -117,7 +115,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                     child: GestureDetector(
                       onTap: () {
                         SystemChrome.setEnabledSystemUIOverlays([]);
-                        if (!platformIsIos)
+                        if (!platformType!.isIos)
                           document.documentElement!.requestFullscreen();
                         Navigator.push(
                           context,

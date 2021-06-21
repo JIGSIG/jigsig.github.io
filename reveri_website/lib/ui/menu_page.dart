@@ -1,8 +1,7 @@
+import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'package:reveri_website/ui/common/app_background.dart';
 import 'package:reveri_website/ui/common/horizontal_tab_layout.dart';
-import 'package:reveri_website/ui/styleguide/text_styles.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -22,7 +21,7 @@ class _MenuPageState extends State<MenuPage> {
       body: Stack(
         children: <Widget>[
           FloatingSearchBar(
-            width: platformIsWeb ? 400 : null,
+            width: platformType!.isWeb ? 400 : null,
             transitionCurve: Curves.easeInOutCubic,
             transition: CircularFloatingSearchBarTransition(),
             physics: const BouncingScrollPhysics(),

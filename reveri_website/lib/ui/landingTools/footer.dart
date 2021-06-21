@@ -10,24 +10,20 @@ class Footer extends StatelessWidget {
         fit: StackFit.expand,
         children: <Widget>[
           InkWell(
-  child: Container(
-      decoration: BoxDecoration(border: Border.all()),
-      height: 50,
-      width: 70,
-      child: SizedBox(
-          height: 10,
-          width: 10,
-          child: Container(
-                   height: 40.0,
-                   width: 40.0,
-                   child: Image.asset(
-                      'images/esport.jpg',
-                      fit: BoxFit.fitWidth
-                    )
-              )
-      ),
-  ),
-),
+            child: Container(
+              decoration: BoxDecoration(border: Border.all()),
+              height: 50,
+              width: 70,
+              child: SizedBox(
+                  height: 10,
+                  width: 10,
+                  child: Container(
+                      height: 40.0,
+                      width: 40.0,
+                      child: Image.asset('images/esport.jpg',
+                          fit: BoxFit.fitWidth))),
+            ),
+          ),
           // FittedBox(
           //   child: Image.network('assets/images/esport.jpg', height: 100,),
           //   fit: BoxFit.fitWidth,

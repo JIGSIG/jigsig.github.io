@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/Responsive/landing_page.dart';
 import 'package:reveri_website/ui/landingTools/navbar.dart';
 import 'package:reveri_website/ui/menu_page.dart';
+
 import '../ui/Responsive/landing_page.dart';
 
 class LandingPage extends StatelessWidget {
@@ -58,7 +59,7 @@ class Large extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: SingleChildScrollView(
-         physics: ClampingScrollPhysics(),
+        physics: ClampingScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -79,7 +80,7 @@ class Large extends StatelessWidget {
                                   Container(
                                     alignment: Alignment.centerLeft,
                                     margin:
-                                        EdgeInsets.only(right: 90, bottom: 80),
+                                    EdgeInsets.only(right: 90, bottom: 80),
                                     child: Column(
                                       children: [
                                         RotatedBox(
@@ -89,7 +90,7 @@ class Large extends StatelessWidget {
                                             style: TextStyle(
                                                 fontSize: 10,
                                                 fontFamily:
-                                                    "Montserrat-Regular",
+                                                "Montserrat-Regular",
                                                 color: Colors.grey),
                                           ),
                                         ),
@@ -129,7 +130,10 @@ class Large extends StatelessWidget {
                                 ],
                               )),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height - 190,
+                            height: MediaQuery
+                                .of(context)
+                                .size
+                                .height - 190,
                             child: Image.asset(
                               "assets/images/control_body.png",
                               height: 800,
@@ -137,12 +141,15 @@ class Large extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width / 2 - 200,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width / 2 - 200,
                             child: Column(
                               children: [
                                 Container(
                                   padding:
-                                      EdgeInsets.only(right: 170, bottom: 50),
+                                  EdgeInsets.only(right: 170, bottom: 50),
                                   child: Column(
                                     children: [
                                       Text(
@@ -189,16 +196,16 @@ class Large extends StatelessWidget {
                                                 style: TextStyle(fontSize: 15)),
                                             style: ButtonStyle(
                                               foregroundColor:
-                                                  MaterialStateProperty.all<
-                                                      Color>(Colors.white),
+                                              MaterialStateProperty.all<
+                                                  Color>(Colors.white),
                                               backgroundColor:
-                                                  MaterialStateProperty.all<
-                                                      Color>(Colors.red),
+                                              MaterialStateProperty.all<
+                                                  Color>(Colors.red),
                                               shape: MaterialStateProperty.all<
                                                   RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(35),
+                                                  BorderRadius.circular(35),
                                                   side: BorderSide(
                                                       color: Colors.red),
                                                 ),
@@ -209,7 +216,7 @@ class Large extends StatelessWidget {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                    MenuPage()),
+                                                        MenuPage()),
                                               );
                                             }),
                                       ),
@@ -276,26 +283,32 @@ class Large extends StatelessWidget {
                                       style: TextStyle(fontSize: 15)),
                                   style: ButtonStyle(
                                       foregroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.white),
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
                                       backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.red),
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.red),
                                       shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(35),
+                                              BorderRadius.circular(35),
                                               side:
-                                                  BorderSide(color: Colors.red)))),
+                                              BorderSide(color: Colors.red)))),
                                   onPressed: () => null),
                             ),
                           ],
                         ),
                         Container(
                           color: Color.fromRGBO(12, 12, 12, 1),
-                          height: MediaQuery.of(context).size.height - 190,
-                          width: MediaQuery.of(context).size.width / 2,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height - 190,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 2,
                           padding: EdgeInsets.only(left: 90),
                           child: CarouselSlider(
                             items: [
@@ -307,7 +320,10 @@ class Large extends StatelessWidget {
                                 builder: (BuildContext context) {
                                   return Container(
                                     child: SizedBox(
-                                      width: MediaQuery.of(context).size.width,
+                                      width: MediaQuery
+                                          .of(context)
+                                          .size
+                                          .width,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(10),
                                         child: Image.asset(
@@ -330,7 +346,7 @@ class Large extends StatelessWidget {
                               autoPlay: true,
                               autoPlayInterval: Duration(seconds: 3),
                               autoPlayAnimationDuration:
-                                  Duration(milliseconds: 800),
+                              Duration(milliseconds: 800),
                               autoPlayCurve: Curves.fastOutSlowIn,
                               enlargeCenterPage: true,
                               scrollDirection: Axis.horizontal,
@@ -341,13 +357,22 @@ class Large extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height / 1.15,
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height / 1.15,
                     child: Row(
                       children: [
                         Container(
                           padding: EdgeInsets.zero,
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width / 3,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 3,
                           child: Padding(
                             padding: EdgeInsets.zero,
                             child: Container(
@@ -357,40 +382,46 @@ class Large extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       RichText(
-                                  text: TextSpan(
-                                    text: 'Jam Games',
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        color: Colors.white),
-                                    children: const <TextSpan>[
-                                      TextSpan(
-                                          text: '.',
+                                        text: TextSpan(
+                                          text: 'Jam Games',
                                           style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 50,
-                                              color: Colors.red)),
-                                    ],
-                                  ),
-                                ),
+                                              fontSize: 30,
+                                              color: Colors.white),
+                                          children: const <TextSpan>[
+                                            TextSpan(
+                                                text: '.',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 50,
+                                                    color: Colors.red)),
+                                          ],
+                                        ),
+                                      ),
                                       SizedBox(
                                         height: 40,
                                       ),
                                       Container(
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                    4 +
-                                                50,
+                                        MediaQuery
+                                            .of(context)
+                                            .size
+                                            .width /
+                                            4 +
+                                            50,
                                         height:
-                                            MediaQuery.of(context).size.height /
-                                                    2 +
-                                                100,
+                                        MediaQuery
+                                            .of(context)
+                                            .size
+                                            .height /
+                                            2 +
+                                            100,
                                         color: Color.fromRGBO(23, 24, 24, 1.0),
                                         child: Column(
                                           children: [
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: [],
                                             )
                                           ],
@@ -402,8 +433,14 @@ class Large extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width / 3,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 3,
                           padding: EdgeInsets.zero,
                           child: Padding(
                             padding: EdgeInsets.zero,
@@ -413,34 +450,40 @@ class Large extends StatelessWidget {
                                   padding: EdgeInsets.only(top: 40),
                                   child: Column(
                                     children: [
-                                       RichText(
-                                  text: TextSpan(
-                                    text: 'Best Sales',
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        color: Colors.white),
-                                    children: const <TextSpan>[
-                                      TextSpan(
-                                          text: '.',
+                                      RichText(
+                                        text: TextSpan(
+                                          text: 'Best Sales',
                                           style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 50,
-                                              color: Colors.red)),
-                                    ],
-                                  ),
-                                ),
+                                              fontSize: 30,
+                                              color: Colors.white),
+                                          children: const <TextSpan>[
+                                            TextSpan(
+                                                text: '.',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 50,
+                                                    color: Colors.red)),
+                                          ],
+                                        ),
+                                      ),
                                       SizedBox(
                                         height: 40,
                                       ),
                                       Container(
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                    4 +
-                                                50,
+                                        MediaQuery
+                                            .of(context)
+                                            .size
+                                            .width /
+                                            4 +
+                                            50,
                                         height:
-                                            MediaQuery.of(context).size.height /
-                                                    2 +
-                                                100,
+                                        MediaQuery
+                                            .of(context)
+                                            .size
+                                            .height /
+                                            2 +
+                                            100,
                                         color: Color.fromRGBO(23, 24, 24, 1.0),
                                         child: Column(
                                           children: [],
@@ -452,8 +495,14 @@ class Large extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width / 3,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 3,
                           child: Padding(
                             padding: EdgeInsets.zero,
                             child: Container(
@@ -463,33 +512,39 @@ class Large extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       RichText(
-                                  text: TextSpan(
-                                    text: 'Reveri Games',
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        color: Colors.white),
-                                    children: const <TextSpan>[
-                                      TextSpan(
-                                          text: '.',
+                                        text: TextSpan(
+                                          text: 'Reveri Games',
                                           style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 50,
-                                              color: Colors.red)),
-                                    ],
-                                  ),
-                                ),
+                                              fontSize: 30,
+                                              color: Colors.white),
+                                          children: const <TextSpan>[
+                                            TextSpan(
+                                                text: '.',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 50,
+                                                    color: Colors.red)),
+                                          ],
+                                        ),
+                                      ),
                                       SizedBox(
                                         height: 40,
                                       ),
                                       Container(
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                    4 +
-                                                80,
+                                        MediaQuery
+                                            .of(context)
+                                            .size
+                                            .width /
+                                            4 +
+                                            80,
                                         height:
-                                            MediaQuery.of(context).size.height /
-                                                    2 +
-                                                100,
+                                        MediaQuery
+                                            .of(context)
+                                            .size
+                                            .height /
+                                            2 +
+                                            100,
                                         color: Color.fromRGBO(23, 24, 24, 1.0),
                                         child: Column(
                                           children: [],
@@ -500,118 +555,126 @@ class Large extends StatelessWidget {
                                 )),
                           ),
                         ),
-                        
+
                       ],
                     ),
                   ),
                   Container(
-                   child: Stack(
-                    children: <Widget>[
-                      Container(
-                        child: FractionallySizedBox(
-                          alignment: Alignment.center,
-                          widthFactor: 1.4,
-                          child: Image.asset(
-                            'assets/images/geralt.jpg',
-                            height: MediaQuery.of(context).size.height / 1.20,
-                            width: MediaQuery.of(context).size.width,
-                            fit: BoxFit.cover,
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                          child: FractionallySizedBox(
+                            alignment: Alignment.center,
+                            widthFactor: 1.4,
+                            child: Image.asset(
+                              'assets/images/geralt.jpg',
+                              height: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height / 1.20,
+                              width: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .width,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: 80, left: 20),
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                             Align(
-                                alignment: Alignment.centerLeft,
-                                child: RichText(
-                                  text: TextSpan(
-                                    text: 'R E V E R I ',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 55,
-                                        color: Colors.white),
-                                    children: const <TextSpan>[
-                                      TextSpan(
-                                          text: '.\n\n',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 85,
-                                              color: Colors.blue)),
-                                      TextSpan(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\ncommodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                        ,style: TextStyle(
-                                              fontWeight: FontWeight.w100,
-                                              fontSize: 20,
-                                              color: Colors.white), )
-                                    ],
+                        Container(
+                          padding: EdgeInsets.only(top: 80, left: 20),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: RichText(
+                                    text: TextSpan(
+                                      text: 'R E V E R I ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 55,
+                                          color: Colors.white),
+                                      children: const <TextSpan>[
+                                        TextSpan(
+                                            text: '.\n\n',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 85,
+                                                color: Colors.blue)),
+                                        TextSpan(
+                                          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\ncommodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                          , style: TextStyle(
+                                            fontWeight: FontWeight.w100,
+                                            fontSize: 20,
+                                            color: Colors.white),)
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(height: 70),
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    child: Icon(
-                                      Icons.facebook,
-                                      color: Colors.white,
+                                SizedBox(height: 70),
+                                Row(
+                                  children: [
+                                    CircleAvatar(
+                                      child: Icon(
+                                        Icons.facebook,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  CircleAvatar(
-                                    child: Icon(
-                                      Icons.phone,
-                                      color: Colors.white,
+                                    SizedBox(
+                                      width: 20,
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  CircleAvatar(
-                                    child: Icon(
-                                      Icons.facebook,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      child: Icon(
+                                        Icons.phone,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 40,
-                              ),
-                              ConstrainedBox(
-                                constraints: BoxConstraints.tightFor(
-                                    width: 200, height: 50),
-                                child: ElevatedButton(
-                                    child: Text("Browse more".toUpperCase(),
-                                        style: TextStyle(fontSize: 15)),
-                                    style: ButtonStyle(
-                                        foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.blue),
-                                        shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
-                                            RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(35),
-                                                side:
-                                                    BorderSide(color: Colors.blue)))),
-                                    onPressed: () => null),
-                              ),
-                            ],
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    CircleAvatar(
+                                      child: Icon(
+                                        Icons.facebook,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                ),
+                                ConstrainedBox(
+                                  constraints: BoxConstraints.tightFor(
+                                      width: 200, height: 50),
+                                  child: ElevatedButton(
+                                      child: Text("Browse more".toUpperCase(),
+                                          style: TextStyle(fontSize: 15)),
+                                      style: ButtonStyle(
+                                          foregroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.white),
+                                          backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.blue),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                  borderRadius:
+                                                  BorderRadius.circular(35),
+                                                  side:
+                                                  BorderSide(
+                                                      color: Colors.blue)))),
+                                      onPressed: () => null),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
 
-                    ],
+                      ],
+                    ),
                   ),
-                ),
                 ],
               ),
             )
@@ -627,7 +690,10 @@ class LargeChild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color.fromRGBO(16, 16, 17, 1),
-      height: MediaQuery.of(context).size.height - 150,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height - 150,
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -737,17 +803,17 @@ class LargeChild extends StatelessWidget {
                   ),
                   ConstrainedBox(
                     constraints:
-                        BoxConstraints.tightFor(width: 200, height: 50),
+                    BoxConstraints.tightFor(width: 200, height: 50),
                     child: ElevatedButton(
                         child: Text("Jouer maintenant".toUpperCase(),
                             style: TextStyle(fontSize: 15)),
                         style: ButtonStyle(
                             foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
+                            MaterialStateProperty.all<Color>(Colors.white),
                             backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.red),
+                            MaterialStateProperty.all<Color>(Colors.red),
                             shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(35),
                                     side: BorderSide(color: Colors.red)))),
@@ -780,7 +846,10 @@ class LargeChildpart1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color.fromRGBO(12, 12, 12, 1),
-      height: MediaQuery.of(context).size.height - 150,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height - 150,
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -832,7 +901,7 @@ class LargeChildpart1 extends StatelessWidget {
                     ),
                     ConstrainedBox(
                       constraints:
-                          BoxConstraints.tightFor(width: 200, height: 50),
+                      BoxConstraints.tightFor(width: 200, height: 50),
                       child: ElevatedButton(
                           child: Text("Browse more".toUpperCase(),
                               style: TextStyle(fontSize: 15)),
@@ -840,9 +909,9 @@ class LargeChildpart1 extends StatelessWidget {
                               foregroundColor: MaterialStateProperty.all<Color>(
                                   Colors.white),
                               backgroundColor:
-                                  MaterialStateProperty.all<Color>(Colors.red),
+                              MaterialStateProperty.all<Color>(Colors.red),
                               shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(35),
                                       side: BorderSide(color: Colors.red)))),
@@ -870,7 +939,10 @@ class LargeChildpart1 extends StatelessWidget {
                           builder: (BuildContext context) {
                             return Container(
                               child: SizedBox(
-                                width: MediaQuery.of(context).size.width,
+                                width: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .width,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: Image.asset(
@@ -915,7 +987,10 @@ class LargeChildpart2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color.fromRGBO(12, 12, 12, 1),
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height,
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -944,14 +1019,20 @@ class LargeChildpart2 extends StatelessWidget {
                           height: 40,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width / 4 + 50,
-                          height: MediaQuery.of(context).size.height / 2 + 100,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 4 + 50,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height / 2 + 100,
                           color: Color.fromRGBO(23, 24, 24, 1.0),
                           child: Column(
                             children: [
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Expanded(
                                       flex: 5,
@@ -965,7 +1046,7 @@ class LargeChildpart2 extends StatelessWidget {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
                                           "Spinach soup",
@@ -1026,8 +1107,14 @@ class LargeChildpart2 extends StatelessWidget {
                           height: 40,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width / 4 + 50,
-                          height: MediaQuery.of(context).size.height / 2 + 100,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 4 + 50,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height / 2 + 100,
                           color: Color.fromRGBO(23, 24, 24, 1.0),
                           child: Column(
                             children: [],
@@ -1063,8 +1150,14 @@ class LargeChildpart2 extends StatelessWidget {
                           height: 40,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width / 4 + 80,
-                          height: MediaQuery.of(context).size.height / 2 + 100,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 4 + 80,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height / 2 + 100,
                           color: Color.fromRGBO(23, 24, 24, 1.0),
                           child: Column(
                             children: [],
@@ -1085,7 +1178,10 @@ class SmallChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
       child: SingleChildScrollView(
         physics: ClampingScrollPhysics(),
         child: FractionallySizedBox(
@@ -1106,7 +1202,10 @@ class SmallChild extends StatelessWidget {
                           children: [
                             SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height / 20),
+                                MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height / 20),
                             Text(
                               "Games Community",
                               style: TextStyle(
@@ -1154,18 +1253,18 @@ class SmallChild extends StatelessWidget {
                                       style: TextStyle(fontSize: 15)),
                                   style: ButtonStyle(
                                       foregroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.white),
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
                                       backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.red),
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.red),
                                       shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(35),
+                                              BorderRadius.circular(35),
                                               side:
-                                                  BorderSide(color: Colors.red)))),
+                                              BorderSide(color: Colors.red)))),
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -1240,16 +1339,18 @@ class SmallChild extends StatelessWidget {
                                               style: TextStyle(fontSize: 15)),
                                           style: ButtonStyle(
                                               foregroundColor:
-                                                  MaterialStateProperty.all<Color>(
-                                                      Colors.white),
+                                              MaterialStateProperty.all<Color>(
+                                                  Colors.white),
                                               backgroundColor:
-                                                  MaterialStateProperty.all<Color>(
-                                                      Colors.red),
+                                              MaterialStateProperty.all<Color>(
+                                                  Colors.red),
                                               shape: MaterialStateProperty.all<
-                                                      RoundedRectangleBorder>(
+                                                  RoundedRectangleBorder>(
                                                   RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.circular(35),
-                                                      side: BorderSide(color: Colors.red)))),
+                                                      borderRadius: BorderRadius
+                                                          .circular(35),
+                                                      side: BorderSide(
+                                                          color: Colors.red)))),
                                           onPressed: () => null),
                                     ),
                                   ],
@@ -1270,7 +1371,7 @@ class SmallChild extends StatelessWidget {
                                         child: SizedBox(
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                            BorderRadius.circular(10),
                                             child: Image.asset(
                                               '$i',
                                               fit: BoxFit.cover,
@@ -1291,7 +1392,7 @@ class SmallChild extends StatelessWidget {
                                   autoPlay: true,
                                   autoPlayInterval: Duration(seconds: 3),
                                   autoPlayAnimationDuration:
-                                      Duration(milliseconds: 800),
+                                  Duration(milliseconds: 800),
                                   autoPlayCurve: Curves.fastOutSlowIn,
                                   enlargeCenterPage: true,
                                   scrollDirection: Axis.horizontal,
@@ -1337,12 +1438,18 @@ class SmallChild extends StatelessWidget {
                                       height: 40,
                                     ),
                                     Container(
-                                      width: MediaQuery.of(context).size.width -
+                                      width: MediaQuery
+                                          .of(context)
+                                          .size
+                                          .width -
                                           10,
                                       height:
-                                          MediaQuery.of(context).size.height /
-                                                  2 -
-                                              20,
+                                      MediaQuery
+                                          .of(context)
+                                          .size
+                                          .height /
+                                          2 -
+                                          20,
                                       color: Color.fromRGBO(23, 24, 24, 1.0),
                                       child: Column(
                                         children: [],
@@ -1381,17 +1488,19 @@ class SmallChild extends StatelessWidget {
                                           height: 40,
                                         ),
                                         Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width -
+                                          width: MediaQuery
+                                              .of(context)
+                                              .size
+                                              .width -
                                               10,
-                                          height: MediaQuery.of(context)
-                                                      .size
-                                                      .height /
-                                                  2 -
+                                          height: MediaQuery
+                                              .of(context)
+                                              .size
+                                              .height /
+                                              2 -
                                               20,
                                           color:
-                                              Color.fromRGBO(23, 24, 24, 1.0),
+                                          Color.fromRGBO(23, 24, 24, 1.0),
                                           child: Column(
                                             children: [],
                                           ),
@@ -1428,12 +1537,18 @@ class SmallChild extends StatelessWidget {
                                       height: 40,
                                     ),
                                     Container(
-                                      width: MediaQuery.of(context).size.width -
+                                      width: MediaQuery
+                                          .of(context)
+                                          .size
+                                          .width -
                                           10,
                                       height:
-                                          MediaQuery.of(context).size.height /
-                                                  2 -
-                                              20,
+                                      MediaQuery
+                                          .of(context)
+                                          .size
+                                          .height /
+                                          2 -
+                                          20,
                                       color: Color.fromRGBO(23, 24, 24, 1.0),
                                       child: Column(
                                         children: [],
@@ -1460,7 +1575,10 @@ class SmallChild extends StatelessWidget {
                           child: Image.asset(
                             'assets/images/esport.jpg',
                             height: 250,
-                            width: MediaQuery.of(context).size.width,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -1489,18 +1607,19 @@ class SmallChild extends StatelessWidget {
                                         style: TextStyle(fontSize: 15)),
                                     style: ButtonStyle(
                                         foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.white),
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.grey),
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.grey),
                                         shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                            RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(35),
+                                                BorderRadius.circular(35),
                                                 side:
-                                                    BorderSide(color: Colors.grey)))),
+                                                BorderSide(
+                                                    color: Colors.grey)))),
                                     onPressed: () => null),
                               ),
                             ],
