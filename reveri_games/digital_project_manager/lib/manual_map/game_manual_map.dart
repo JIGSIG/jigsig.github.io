@@ -64,7 +64,7 @@ class GameManualMap extends StatelessWidget implements GameListener {
             gameController: _controller..setListener(this),
             lightingColorGame: Colors.black.withOpacity(0.75),
           ),
-          if (platformType!.isWeb && MediaQuery.of(context).orientation ==
+          if (!platformType!.isWeb && MediaQuery.of(context).orientation ==
               Orientation.portrait)
             Scaffold(
               body: Center(child: TextButton(
