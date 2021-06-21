@@ -31,7 +31,7 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = '1964640232';
+    var serviceWorkerVersion = '1723054601';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
@@ -39,7 +39,7 @@
       }
       scriptLoaded = true;
       var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
+      scriptTag.src = 'main.dart.js?version=2';
       scriptTag.type = 'application/javascript';
       document.body.append(scriptTag);
     }
