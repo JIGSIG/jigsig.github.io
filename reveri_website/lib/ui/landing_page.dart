@@ -739,7 +739,7 @@ class LargeChild extends StatelessWidget {
                     constraints:
                         BoxConstraints.tightFor(width: 200, height: 50),
                     child: ElevatedButton(
-                        child: Text("JOIN COMMUNITY".toUpperCase(),
+                        child: Text("Jouer maintenant".toUpperCase(),
                             style: TextStyle(fontSize: 15)),
                         style: ButtonStyle(
                             foregroundColor:
@@ -751,7 +751,14 @@ class LargeChild extends StatelessWidget {
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(35),
                                     side: BorderSide(color: Colors.red)))),
-                        onPressed: () => null),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MenuPage()),
+                          );
+                        }),
                   ),
                   Container(
                     child: Column(
@@ -1143,7 +1150,7 @@ class SmallChild extends StatelessWidget {
                               constraints: BoxConstraints.tightFor(
                                   width: 200, height: 50),
                               child: ElevatedButton(
-                                  child: Text("Join Community".toUpperCase(),
+                                  child: Text("Jouer maintenant".toUpperCase(),
                                       style: TextStyle(fontSize: 15)),
                                   style: ButtonStyle(
                                       foregroundColor:
@@ -1159,7 +1166,14 @@ class SmallChild extends StatelessWidget {
                                                   BorderRadius.circular(35),
                                               side:
                                                   BorderSide(color: Colors.red)))),
-                                  onPressed: () => null),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              MenuPage()),
+                                    );
+                                  }),
                             ),
                           ],
                         ),

@@ -74,9 +74,11 @@ packages:
   digital_project_manager:
     dependency: "direct main"
     description:
-      path: "../reveri_games/digital_project_manager"
-      relative: true
-    source: path
+      path: "reveri_games/digital_project_manager/"
+      ref: HEAD
+      resolved-ref: "922d17c2ff711a44855051efeba9ee8bbd60e2b1"
+      url: "git@github.com:JIGSIG/jigsig.github.io.git"
+    source: git
     version: "1.0.0+1"
   fake_async:
     dependency: transitive
