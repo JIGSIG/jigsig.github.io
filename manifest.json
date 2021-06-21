@@ -1,6 +1,6 @@
 {
-    "name": "reveri_website",
-    "short_name": "reveri_website",
+    "name": "Reveri Games",
+    "short_name": "Reveri Games",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
