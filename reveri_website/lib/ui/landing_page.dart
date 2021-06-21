@@ -529,7 +529,7 @@ class Large extends StatelessWidget {
                                 alignment: Alignment.centerLeft,
                                 child: RichText(
                                   text: TextSpan(
-                                    text: 'R E V E R I E ',
+                                    text: 'R E V E R I ',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 55,
@@ -1513,7 +1513,7 @@ class SmallChild extends StatelessWidget {
                                 alignment: Alignment.centerLeft,
                                 child: RichText(
                                   text: TextSpan(
-                                    text: 'R E V E R I E ',
+                                    text: 'R E V E R I ',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
