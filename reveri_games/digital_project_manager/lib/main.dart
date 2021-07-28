@@ -1,5 +1,13 @@
-import 'game_tiled_map.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
+
+import 'game_tiled_map.dart';
+
+double mapTileSize = 16;
 
 class PlatformType {
   final bool isIos;
@@ -17,7 +25,8 @@ class PlatformType {
 
 late final PlatformType? platformType;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(DPMApp());
 }
 
@@ -25,69 +34,68 @@ class DPMApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Digital Project Manager',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GameTiledMap(platformType: new PlatformType(isIos: true),),
+      home: Stack(
+        children: [
+          GameTiledMap(
+            platformType: new PlatformType(isIos: true),
+          ),
+          Positioned(
+            top: 25,
+            right: 25,
+            child: GameTime(),
+          ),
+        ],
+      ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class GameTime extends StatefulWidget {
+  const GameTime({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _GameTimeState createState() => _GameTimeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _GameTimeState extends State<GameTime> {
+  late String _timeString = '';
 
-  void _incrementCounter() {
+  @override
+  void initState() {
+    initializeDateFormatting().then((value) {
+      _getTime();
+      Timer.periodic(Duration(minutes: 1), (Timer t) => _getTime());
+    });
+    super.initState();
+  }
+
+  void _getTime() {
+    final String formattedDateTime =
+        DateFormat('HH:mm', 'fr').format(DateTime.now())
+            .toString();
     setState(() {
-      _counter++;
+      _timeString = formattedDateTime;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Stack(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: Image.asset(
-              'assets/images/games/digital_project_manager.jpeg',
-              fit: BoxFit.cover,
-            ),
+    return Material(
+      color: Colors.transparent,
+      child: Container(
+        child: Text(
+          _timeString,
+          style: TextStyle(
+            fontFamily: 'Kindapix',
+            fontSize: 35,
+            color: Colors.white,
           ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'You have pushed the button this many times:',
-                ),
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        ),
       ),
     );
   }

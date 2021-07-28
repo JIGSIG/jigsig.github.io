@@ -1,19 +1,21 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/util/vector2rect.dart';
-import '../decoration/potion_life.dart';
-import '../manual_map/dungeon_map.dart';
-import '../util/common_sprite_sheet.dart';
+import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
+
+import '../decoration/potion_life.dart';
+import '../util/common_sprite_sheet.dart';
 
 class Chest extends GameDecoration with TapGesture {
   bool _observedPlayer = false;
 
   late TextPaint _textConfig;
+
   Chest(Vector2 position)
       : super.withAnimation(
           CommonSpriteSheet.chestAnimated,
-          width: DungeonMap.tileSize * 0.6,
-          height: DungeonMap.tileSize * 0.6,
+          width: mapTileSize * 0.6,
+          height: mapTileSize * 0.6,
           position: position,
         ) {
     _textConfig = TextPaint(
@@ -36,7 +38,7 @@ class Chest extends GameDecoration with TapGesture {
       notObserved: () {
         _observedPlayer = false;
       },
-      radiusVision: DungeonMap.tileSize.toInt(),
+      radiusVision: mapTileSize.toInt(),
     );
     super.update(dt);
   }

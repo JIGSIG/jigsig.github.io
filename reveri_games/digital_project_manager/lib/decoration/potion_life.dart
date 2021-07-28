@@ -1,7 +1,8 @@
 import 'dart:async' as async;
 
 import 'package:bonfire/bonfire.dart';
-import '../manual_map/dungeon_map.dart';
+import 'package:digital_project_manager/main.dart';
+
 import '../util/common_sprite_sheet.dart';
 
 class PotionLife extends GameDecoration with Sensor {
@@ -12,8 +13,8 @@ class PotionLife extends GameDecoration with Sensor {
       : super.withSprite(
           CommonSpriteSheet.potionLifeSprite,
           position: position,
-          width: DungeonMap.tileSize * 0.5,
-          height: DungeonMap.tileSize * 0.5,
+          width: mapTileSize * 0.5,
+          height: mapTileSize * 0.5,
         );
 
   @override

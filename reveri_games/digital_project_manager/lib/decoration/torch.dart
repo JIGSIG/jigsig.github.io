@@ -1,14 +1,15 @@
 import 'package:bonfire/bonfire.dart';
-import '../manual_map/dungeon_map.dart';
-import '../util/common_sprite_sheet.dart';
+import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
+
+import '../util/common_sprite_sheet.dart';
 
 class Torch extends GameDecoration with Lighting {
   Torch(Vector2 position)
       : super.withAnimation(
           CommonSpriteSheet.torchAnimated,
-          width: DungeonMap.tileSize,
-          height: DungeonMap.tileSize,
+          width: mapTileSize,
+          height: mapTileSize,
           position: position,
         ) {
     setupLighting(

@@ -1,10 +1,9 @@
 import 'package:bonfire/bonfire.dart';
-import '../interface/bar_life_component.dart';
-import '../player/knight.dart';
 
-class KnightInterface extends GameInterface {
+class JoueurInterface extends GameInterface {
   @override
   Future<void> onLoad() {
+    /*
     add(BarLifeComponent());
     add(InterfaceComponent(
       sprite: Sprite.load('blue_button1.png'),
@@ -19,6 +18,7 @@ class KnightInterface extends GameInterface {
         }
       },
     ));
+    */
     return super.onLoad();
   }
 }

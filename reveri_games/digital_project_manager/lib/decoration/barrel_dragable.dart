@@ -1,8 +1,9 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/decoration/decoration.dart';
-import '../manual_map/dungeon_map.dart';
-import '../util/common_sprite_sheet.dart';
+import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
+
+import '../util/common_sprite_sheet.dart';
 
 class BarrelDraggable extends GameDecoration with DragGesture, ObjectCollision {
   late TextPaint _textConfig;
@@ -11,20 +12,20 @@ class BarrelDraggable extends GameDecoration with DragGesture, ObjectCollision {
       : super.withSprite(
           CommonSpriteSheet.barrelSprite,
           position: position,
-          width: DungeonMap.tileSize,
-          height: DungeonMap.tileSize,
+          width: mapTileSize,
+          height: mapTileSize,
         ) {
     setupCollision(
       CollisionConfig(
         collisions: [
           CollisionArea.rectangle(
             size: Size(
-              DungeonMap.tileSize * 0.6,
-              DungeonMap.tileSize * 0.4,
+              mapTileSize * 0.6,
+              mapTileSize * 0.4,
             ),
             align: Vector2(
-              DungeonMap.tileSize * 0.2,
-              DungeonMap.tileSize * 0.4,
+              mapTileSize * 0.2,
+              mapTileSize * 0.4,
             ),
           ),
         ],

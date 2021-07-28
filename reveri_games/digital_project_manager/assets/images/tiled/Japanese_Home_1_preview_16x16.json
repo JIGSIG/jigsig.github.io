@@ -1,0 +1,14 @@
+{ "columns":19,
+ "image":"japanese_house\/Japanese_Home_1_preview_16x16.png",
+ "imageheight":214,
+ "imagewidth":304,
+ "margin":0,
+ "name":"Japanese_Home_1_preview_16x16",
+ "spacing":0,
+ "tilecount":247,
+ "tiledversion":"1.7.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.6"
+}

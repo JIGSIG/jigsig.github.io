@@ -1,25 +1,27 @@
 import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
-import 'decoration/barrel_dragable.dart';
-import 'decoration/chest.dart';
-import 'decoration/spikes.dart';
-import 'decoration/torch.dart';
-import 'enemy/goblin.dart';
-import 'interface/knight_interface.dart';
-import 'main.dart';
-import 'manual_map/dungeon_map.dart';
-import 'player/knight.dart';
+import 'package:digital_project_manager/npc/back_end_dev.dart';
+import 'package:digital_project_manager/npc/designer.dart';
+import 'package:digital_project_manager/npc/front_end_dev.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'decoration/column.dart';
+
+import 'interface/knight_interface.dart';
+import 'main.dart';
+import 'npc/client.dart';
+import 'player/joueur.dart';
 
 class GameTiledMap extends StatefulWidget {
   final int map;
   final PlatformType platformType;
 
-  const GameTiledMap({Key? key, this.map = 1, required this.platformType, }) : super(key: key);
+  const GameTiledMap({
+    Key? key,
+    this.map = 1,
+    required this.platformType,
+  }) : super(key: key);
 
   @override
   _GameTiledMapState createState() => _GameTiledMapState();
@@ -40,8 +42,8 @@ class _GameTiledMapState extends State<GameTiledMap> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return LayoutBuilder(
       builder: (context, constraints) {
-        DungeonMap.tileSize = max(constraints.maxHeight, constraints.maxWidth) /
-            (kIsWeb ? 20 : 22);
+        mapTileSize = max(constraints.maxHeight, constraints.maxWidth) /
+            (kIsWeb ? 35 : 22);
         return Stack(
           children: [
             BonfireTiledWidget(
@@ -53,64 +55,69 @@ class _GameTiledMapState extends State<GameTiledMap> {
                   ),
                   spriteKnobDirectional: Sprite.load('joystick_knob.png'),
                   size: 100,
-                  isFixed: false,
+                  isFixed: true,
                 ),
                 actions: [
                   JoystickAction(
-                    actionId: PlayerAttackType.AttackMelee,
+                    actionId: PlayerActionType.Interaction,
                     sprite: Sprite.load('joystick_atack.png'),
                     align: JoystickActionAlign.BOTTOM_RIGHT,
-                    size: 80,
+                    size: 100,
                     margin: EdgeInsets.only(bottom: 50, right: 50),
                   ),
-                  JoystickAction(
-                    actionId: PlayerAttackType.AttackRange,
-                    sprite: Sprite.load('joystick_atack_range.png'),
-                    spriteBackgroundDirection: Sprite.load(
-                      'joystick_background.png',
-                    ),
-                    enableDirection: true,
-                    size: 50,
-                    margin: EdgeInsets.only(bottom: 50, right: 160),
-                  )
                 ],
               ),
-              player: Knight(
-                Vector2((8 * DungeonMap.tileSize), (5 * DungeonMap.tileSize)),
-              ),
-              interface: KnightInterface(),
+              player: Joueur(Vector2((5 * mapTileSize), (12 * mapTileSize))),
+              interface: JoueurInterface(),
               map: TiledWorldMap(
-                'tiled/mapa${widget.map}.json',
-                forceTileSize: Size(DungeonMap.tileSize, DungeonMap.tileSize),
+                'tiled 2/mapa1.json',
+                forceTileSize: Size(mapTileSize, mapTileSize),
                 objectsBuilder: {
-                  'goblin': (properties) => Goblin(properties.position),
-                  'torch': (properties) => Torch(properties.position),
-                  'barrel': (properties) => BarrelDraggable(properties.position),
-                  'spike': (properties) => Spikes(properties.position),
-                  'column': (properties) => ColumnDecoration(properties.position),
-                  'chest': (properties) => Chest(properties.position),
+                  'client': (properties) => ClientNPC(
+                        properties.position,
+                        dialogFilename: 'client.json',
+                      ),
+                  'Designer': (properties) => DesignerNPC(
+                        properties.position,
+                        dialogFilename: 'client.json',
+                      ),
+                  'BackDev': (properties) => BackEndDevNPC(
+                        properties.position,
+                        dialogFilename: 'client.json',
+                      ),
+                  'FrontDev': (properties) => FrontEndDevNPC(
+                        properties.position,
+                        dialogFilename: 'client.json',
+                      ),
                 },
               ),
               background: BackgroundColorGame(Colors.black),
               lightingColorGame: Colors.black.withOpacity(0.1),
             ),
             if (MediaQuery.of(context).orientation == Orientation.portrait)
-              Opacity(opacity: .75, child: Scaffold(
-              backgroundColor: Color.fromRGBO(16, 16, 17, 1),
-              body: Center(child: TextButton(
-                onPressed: () async {
-                  await SystemChrome.setPreferredOrientations([
-                    DeviceOrientation.landscapeLeft,
-                    DeviceOrientation.landscapeRight,
-                  ]);
-                },
-                child: Text('Changez l\'orientation'.toUpperCase(), style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w600,
-                ),),
-              )),
-            ),),
+              Opacity(
+                opacity: .75,
+                child: Scaffold(
+                  backgroundColor: Color.fromRGBO(16, 16, 17, 1),
+                  body: Center(
+                      child: TextButton(
+                    onPressed: () async {
+                      await SystemChrome.setPreferredOrientations([
+                        DeviceOrientation.landscapeLeft,
+                        DeviceOrientation.landscapeRight,
+                      ]);
+                    },
+                    child: Text(
+                      'Changez l\'orientation'.toUpperCase(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  )),
+                ),
+              ),
           ],
         );
       },

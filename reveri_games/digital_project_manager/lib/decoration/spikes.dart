@@ -2,7 +2,8 @@ import 'dart:async' as async;
 
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/util/priority_layer.dart';
-import '../manual_map/dungeon_map.dart';
+import 'package:digital_project_manager/main.dart';
+
 import '../util/common_sprite_sheet.dart';
 
 class Spikes extends GameDecoration with Sensor {
@@ -14,8 +15,8 @@ class Spikes extends GameDecoration with Sensor {
       : super.withSprite(
           CommonSpriteSheet.spikesSprite,
           position: position,
-          width: DungeonMap.tileSize / 1.5,
-          height: DungeonMap.tileSize / 1.5,
+          width: mapTileSize / 1.5,
+          height: mapTileSize / 1.5,
         );
 
   @override
