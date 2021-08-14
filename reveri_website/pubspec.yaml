@@ -29,7 +29,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0-nullsafety.0
   material_floating_search_bar: ^0.3.4
-  bonfire: ^1.1.6
+  bonfire:
+    git:
+      url: git@github.com:JIGSIG/jigsig.github.io.git
+      path: bonfire_custom/
 
   digital_project_manager:
     git:
