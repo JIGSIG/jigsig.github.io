@@ -16,7 +16,7 @@ packages:
     source: hosted
     version: "2.6.1"
   bonfire:
-    dependency: "direct main"
+    dependency: transitive
     description:
       path: "bonfire_custom/"
       ref: HEAD
