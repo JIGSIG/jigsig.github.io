@@ -29,7 +29,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   bonfire:
-    path: ../../bonfire_custom/
+    git:
+      url: git@github.com:JIGSIG/jigsig.github.io.git
+      path: bonfire_custom/
   shared_preferences: ^2.0.6
   path_provider: ^2.0.2
   intl: ^0.17.0
