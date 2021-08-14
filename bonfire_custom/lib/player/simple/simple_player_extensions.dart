@@ -7,7 +7,6 @@ import 'package:bonfire/util/direction.dart';
 import 'package:flutter/widgets.dart';
 
 extension SimplePlayerExtensions on SimplePlayer {
-
   bool simpleCloseInteraction({
     dynamic id,
     double height = 32,
@@ -15,9 +14,8 @@ extension SimplePlayerExtensions on SimplePlayer {
     Direction? direction,
   }) {
     Direction playerDirection = direction ?? this.lastDirection;
-    return this.simpleCloseInteractionByDirection(direction: playerDirection, 
-        height:
-    height, width: width, id: id);
+    return this.simpleCloseInteractionByDirection(
+        direction: playerDirection, height: height, width: width, id: id);
   }
 
   void simpleAttackMelee({
@@ -33,7 +31,7 @@ extension SimplePlayerExtensions on SimplePlayer {
     bool withPush = true,
   }) {
     Direction attackDirection = direction ?? this.lastDirection;
-    this.simpleAttackMeleeByDirection (
+    this.simpleAttackMeleeByDirection(
       direction: attackDirection,
       animationRight: animationRight,
       animationBottom: animationBottom,

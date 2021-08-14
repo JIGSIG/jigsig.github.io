@@ -1,0 +1,14 @@
+{ "columns":16,
+ "image":"Office_walls_floors_16x16.png",
+ "imageheight":192,
+ "imagewidth":256,
+ "margin":0,
+ "name":"Office_walls_floors_16x16",
+ "spacing":0,
+ "tilecount":192,
+ "tiledversion":"1.7.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.6"
+}

@@ -11,11 +11,13 @@ import 'package:flame/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../objects/animated_object.dart';
 import '../util/direction.dart';
 import '../util/mixins/attackable.dart';
 
 /// It is used to represent your enemies.
-class NPC extends GameComponent with Movement, Attackable, MoveToPositionAlongThePath {
+class NPC extends GameComponent
+    with Movement, Attackable, MoveToPositionAlongThePath {
   /// Life of the Npc.
   double life;
 
@@ -123,8 +125,8 @@ class NPC extends GameComponent with Movement, Attackable, MoveToPositionAlongTh
   }
 
   @override
-  void receiveInteraction(interactionType type, dynamic from, {Direction?
-  direction, List? options}) {
+  void receiveInteraction(interactionType type, dynamic from,
+      {Direction? direction, List? options}) {
     switch (direction) {
       case Direction.left:
         this.moveRight(0);
@@ -195,7 +197,6 @@ class NPC extends GameComponent with Movement, Attackable, MoveToPositionAlongTh
     }
   }
 
-
   void moveTo(Vector2 position) {
     print('NPC moving to position ($position)');
     this.moveToPositionAlongThePath(position, speed);
@@ -203,5 +204,4 @@ class NPC extends GameComponent with Movement, Attackable, MoveToPositionAlongTh
   }
 
   void actionAtDestination() {}
-
 }

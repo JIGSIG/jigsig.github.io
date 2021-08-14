@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:bonfire/collision/collision_config.dart';
 import 'package:bonfire/collision/object_collision.dart';
+import 'package:bonfire/lighting/lighting_config.dart';
 import 'package:bonfire/non_playable_character/extensions.dart';
 import 'package:bonfire/non_playable_character/rotation/rotation_npc.dart';
-import 'package:bonfire/lighting/lighting_config.dart';
 import 'package:bonfire/objects/animated_object_once.dart';
 import 'package:bonfire/objects/flying_attack_angle_object.dart';
 import 'package:bonfire/player/player.dart';

@@ -93,4 +93,19 @@ class GameDecoration extends AnimatedObject {
   Future<void> onLoad() {
     return _loader.load();
   }
+
+  @override
+  void onInteractionReceived() {
+    super.onInteractionReceived();
+  }
+
+  @override
+  void endInteraction({required dynamic id}) {
+    super.endInteraction(id: id);
+  }
+
+  @override
+  void hasInteraction({bool? isInteractionObject}) {
+    super.hasInteraction(isInteractionObject: isInteractionObject);
+  }
 }

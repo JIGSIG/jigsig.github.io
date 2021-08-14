@@ -7,6 +7,7 @@ import 'package:flame/components.dart';
 
 abstract class GameListener {
   void updateGame();
+
   void changeCountLiveEnemies(int count);
 }
 

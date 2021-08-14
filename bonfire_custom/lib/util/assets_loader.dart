@@ -3,6 +3,7 @@ class AssetToLoad<T> {
   final Future<T>? future;
 
   AssetToLoad(this.future, this.callback);
+
   Future<void> load() async {
     if (future == null) {
       return Future.value();

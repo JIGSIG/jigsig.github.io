@@ -8,6 +8,7 @@ class PolygonShape extends Shape {
   final List<Vector2> relativePoints;
   final List<Vector2> points;
   final RectangleShape rect;
+
   PolygonShape(this.relativePoints, {Vector2? position})
       : assert(relativePoints.length > 2),
         this.points = _initPoints(relativePoints, position ?? Vector2.zero()),

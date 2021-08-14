@@ -82,6 +82,7 @@ class BonfireTiledWidget extends StatefulWidget {
     this.overlayBuilderMap,
     this.initialActiveOverlays,
   }) : super(key: key);
+
   @override
   _BonfireTiledWidgetState createState() => _BonfireTiledWidgetState();
 }

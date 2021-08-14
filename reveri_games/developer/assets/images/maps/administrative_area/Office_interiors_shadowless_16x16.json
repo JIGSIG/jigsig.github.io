@@ -1,0 +1,14 @@
+{ "columns":22,
+ "image":"Office_interiors_shadowless_16x16.png",
+ "imageheight":384,
+ "imagewidth":352,
+ "margin":0,
+ "name":"Office_interiors_shadowless_16x16",
+ "spacing":0,
+ "tilecount":528,
+ "tiledversion":"1.7.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.6"
+}

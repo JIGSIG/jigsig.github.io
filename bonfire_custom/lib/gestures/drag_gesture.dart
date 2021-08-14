@@ -100,8 +100,11 @@ mixin DragGesture on GameComponent {
   }
 
   void onStartDrag(int pointer, Offset position) {}
+
   void onMoveDrag(int pointer, Offset position) {}
+
   void onEndDrag(int pointer) {}
+
   void onCancelDrag(int pointer) {}
 
   bool get receiveInteraction => _pointer != -1;

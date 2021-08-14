@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum PersonSayDirection { LEFT, RIGHT }
 
-enum DialogItemType {SIMPLETEXT, INTERACTIVETEXT}
+enum DialogItemType { SIMPLETEXT, INTERACTIVETEXT }
 
 class DialogItem {
   final String text;

@@ -70,7 +70,7 @@ class _GameTiledMapState extends State<GameTiledMap> {
               player: Joueur(Vector2((5 * mapTileSize), (12 * mapTileSize))),
               interface: JoueurInterface(),
               map: TiledWorldMap(
-                'tiled 2/mapa1.json',
+                'maps/office.json',
                 forceTileSize: Size(mapTileSize, mapTileSize),
                 objectsBuilder: {
                   'client': (properties) => ClientNPC(

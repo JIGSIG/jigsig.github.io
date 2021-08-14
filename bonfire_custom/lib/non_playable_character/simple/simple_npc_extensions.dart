@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/collision/collision_config.dart';
 import 'package:bonfire/collision/object_collision.dart';
+import 'package:bonfire/lighting/lighting_config.dart';
 import 'package:bonfire/non_playable_character/extensions.dart';
 import 'package:bonfire/non_playable_character/simple/simple_npc.dart';
-import 'package:bonfire/lighting/lighting_config.dart';
 import 'package:bonfire/objects/animated_object_once.dart';
 import 'package:bonfire/objects/flying_attack_object.dart';
 import 'package:bonfire/player/player.dart';
@@ -45,7 +45,7 @@ extension SimpleNpcExtensions on SimpleNPC {
             : position;
 
         translateX =
-        rectToMove.rect.center.dx > centerXPlayer ? (-1 * speed) : speed;
+            rectToMove.rect.center.dx > centerXPlayer ? (-1 * speed) : speed;
 
         translateX = _adjustTranslate(
           translateX,
@@ -54,7 +54,7 @@ extension SimpleNpcExtensions on SimpleNPC {
           speed,
         );
         translateY =
-        rectToMove.rect.center.dy > centerYPlayer ? (-1 * speed) : speed;
+            rectToMove.rect.center.dy > centerYPlayer ? (-1 * speed) : speed;
         translateY = _adjustTranslate(
           translateY,
           rectToMove.rect.center.dy,
@@ -119,8 +119,7 @@ extension SimpleNpcExtensions on SimpleNPC {
     );
   }
 
-  void moveAlongPathToPlayer(Player player) {
-  }
+  void moveAlongPathToPlayer(Player player) {}
 
   bool isClosedToPlayer({double margin = 10, required Function() action}) {
     Rect rectPlayerCollision = Rect.fromLTWH(
@@ -177,14 +176,14 @@ extension SimpleNpcExtensions on SimpleNPC {
         direction: direction, options: options);
   }
 
-  void simpleEndChat({
+  void endInteraction({
     dynamic id,
     VoidCallback? execute,
     Direction? direction,
   }) {
     if (isDead) return;
-    gameRef.player?.receiveInteraction(interactionType.ENDCHAT, id,
-        direction: direction);
+    gameRef.player
+        ?.receiveInteraction(interactionType.END, id, direction: direction);
   }
 
   ///Execute simple attack melee using animation
@@ -333,10 +332,7 @@ extension SimpleNpcExtensions on SimpleNPC {
 
     gameRef.visibleAttackables().where((a) {
       return a.receivesAttackFromNpc() &&
-          a
-              .rectAttackable()
-              .rect
-              .overlaps(positionAttack);
+          a.rectAttackable().rect.overlaps(positionAttack);
     }).forEach((attackable) {
       attackable.receiveDamage(damage, id);
 
@@ -523,7 +519,7 @@ extension SimpleNpcExtensions on SimpleNPC {
             : position;
 
         translateX =
-        rectToMove.rect.center.dx > centerXPlayer ? (-1 * speed) : speed;
+            rectToMove.rect.center.dx > centerXPlayer ? (-1 * speed) : speed;
         translateX = _adjustTranslate(
           translateX,
           rectToMove.rect.center.dx,
@@ -532,7 +528,7 @@ extension SimpleNpcExtensions on SimpleNPC {
         );
 
         translateY =
-        rectToMove.rect.center.dy > centerYPlayer ? (-1 * speed) : speed;
+            rectToMove.rect.center.dy > centerYPlayer ? (-1 * speed) : speed;
         translateY = _adjustTranslate(
           translateY,
           rectToMove.rect.center.dy,
@@ -618,10 +614,12 @@ extension SimpleNpcExtensions on SimpleNPC {
     );
   }
 
-  double _adjustTranslate(double translate,
-      double centerNpc,
-      double centerPlayer,
-      double speed,) {
+  double _adjustTranslate(
+    double translate,
+    double centerNpc,
+    double centerPlayer,
+    double speed,
+  ) {
     double innerTranslate = translate;
     if (innerTranslate > 0) {
       double diffX = centerPlayer - centerNpc;

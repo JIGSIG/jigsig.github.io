@@ -44,10 +44,15 @@ class RectangleShape extends Shape {
   Rect get rect => _rect;
 
   double get height => _rect.height;
+
   double get width => _rect.width;
+
   double get left => _rect.left;
+
   double get top => _rect.top;
+
   double get right => _rect.right;
+
   double get bottom => _rect.bottom;
 
   @override

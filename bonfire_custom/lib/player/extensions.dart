@@ -4,8 +4,8 @@ import 'dart:ui';
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/collision/collision_config.dart';
 import 'package:bonfire/collision/object_collision.dart';
-import 'package:bonfire/non_playable_character/npc.dart';
 import 'package:bonfire/lighting/lighting_config.dart';
+import 'package:bonfire/non_playable_character/npc.dart';
 import 'package:bonfire/objects/animated_object_once.dart';
 import 'package:bonfire/objects/flying_attack_angle_object.dart';
 import 'package:bonfire/objects/flying_attack_object.dart';
@@ -15,6 +15,7 @@ import 'package:bonfire/util/vector2rect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../objects/animated_object.dart';
 import '../util/mixins/attackable.dart';
 
 extension PlayerExtensions on Player {
@@ -80,6 +81,43 @@ extension PlayerExtensions on Player {
 
     if (enemiesObserved.isNotEmpty) {
       observed(enemiesObserved);
+    } else {
+      notObserved?.call();
+    }
+  }
+
+  /// This method we notify when detect the npc when enter in [radiusVision] configuration
+  /// Method that bo used in [update] method.
+  void seeObject({
+    required Function(List<AnimatedObject>) observed,
+    VoidCallback? notObserved,
+    double radiusVision = 32,
+  }) {
+    if (isDead) return;
+
+    var objectsInLife = this.gameRef.visibleAnimatedObject();
+    if (objectsInLife.isEmpty) {
+      if (notObserved != null) notObserved();
+      return;
+    }
+
+    double visionWidth = radiusVision * 2;
+    double visionHeight = radiusVision * 2;
+
+    Rect fieldOfVision = Rect.fromLTWH(
+      this.position.center.dx - radiusVision,
+      this.position.center.dy - radiusVision,
+      visionWidth,
+      visionHeight,
+    );
+
+    List<AnimatedObject> objectsObserved = objectsInLife.where((object) {
+      return fieldOfVision.overlaps(object.position.rect);
+    }).toList();
+
+    if (objectsObserved.isNotEmpty) {
+      observed(objectsObserved);
+      print('objectsObserved.isNotEmpty: ${objectsObserved.length}');
     } else {
       notObserved?.call();
     }
@@ -305,7 +343,6 @@ extension PlayerExtensions on Player {
           height,
         );
     }
-
   }
 
   bool simpleCloseInteractionByDirection({
@@ -322,21 +359,39 @@ extension PlayerExtensions on Player {
         ? (this as ObjectCollision).rectCollision
         : position;
 
-    Rect positionAttack = getPositionAttack(playerDirection: playerDirection,
-        rectBase: rectBase, height: height, width: width);
+    Rect positionAttack = getPositionAttack(
+        playerDirection: playerDirection,
+        rectBase: rectBase,
+        height: height,
+        width: width);
 
+    /*
+    final npcs = gameRef.visibleAttackables().where((a) {
+      return a.receivesAttackFromPlayer() &&
+          a.rectAttackable().rect.overlaps(positionAttack);
+    }); */
     final npcs = gameRef.visibleAttackables().where((a) {
       return a.receivesAttackFromPlayer() &&
           a.rectAttackable().rect.overlaps(positionAttack);
     });
+    final animatedObjects = gameRef.visibleAnimatedObject().where((element) {
+      return element.rectTouchable().rect.overlaps(positionAttack);
+    });
+    print('animatedObjects: ${animatedObjects.length}');
     if (npcs.isNotEmpty) {
       final npc = npcs.first;
-      npc.receiveInteraction(interactionType.STARTCHAT, id, direction: playerDirection);
+      npc.receiveInteraction(interactionType.STARTCHAT, id,
+          direction: playerDirection);
       return true;
     }
+    if (animatedObjects.isNotEmpty) {
+      final animatedObject = animatedObjects.first;
+      animatedObject.onInteractionReceived();
+      return animatedObject.isInteractionObject;
+    }
+
     return false;
   }
-
 
   ///Execute simple attack melee using animation
   void simpleAttackMeleeByDirection({

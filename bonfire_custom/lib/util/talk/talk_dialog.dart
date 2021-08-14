@@ -16,15 +16,16 @@ class TalkDialog extends StatefulWidget {
     this.padding,
   }) : super(key: key);
 
-  static Future<String?> show(BuildContext context,
-      List<DialogItem> dialogItemList, {
-        VoidCallback? finish,
-        ValueChanged<int>? onChangeTalk,
-        Color? backgroundColor,
-        double boxTextHeight = 100,
-        LogicalKeyboardKey? logicalKeyboardKeyToNext,
-        EdgeInsetsGeometry? padding,
-      }) async {
+  static Future<String?> show(
+    BuildContext context,
+    List<DialogItem> dialogItemList, {
+    VoidCallback? finish,
+    ValueChanged<int>? onChangeTalk,
+    Color? backgroundColor,
+    double boxTextHeight = 100,
+    LogicalKeyboardKey? logicalKeyboardKeyToNext,
+    EdgeInsetsGeometry? padding,
+  }) async {
     return await showDialog(
       barrierColor: backgroundColor,
       context: context,
@@ -63,7 +64,7 @@ class _TalkDialogState extends State<TalkDialog> {
   Size personSize = Size(100, 100);
 
   StreamController<String> _textShowController =
-  StreamController<String>.broadcast();
+      StreamController<String>.broadcast();
 
   bool playerMadeChoice = false;
 
@@ -105,8 +106,7 @@ class _TalkDialogState extends State<TalkDialog> {
             if (widget.keyboardKeyToNext == null && raw is RawKeyDownEvent) {
               _nextOrFinish();
               playerMadeChoice = false;
-            }
-            else if (raw.logicalKey == widget.keyboardKeyToNext &&
+            } else if (raw.logicalKey == widget.keyboardKeyToNext &&
                 raw is RawKeyDownEvent) {
               _nextOrFinish();
               playerMadeChoice = false;
@@ -138,13 +138,13 @@ class _TalkDialogState extends State<TalkDialog> {
                           currentDialogItem.header ?? SizedBox.shrink(),
                           Container(
                             width: double.maxFinite,
-                            padding: currentDialogItem.padding ??
-                                EdgeInsets.all(10),
+                            padding:
+                                currentDialogItem.padding ?? EdgeInsets.all(10),
                             margin: currentDialogItem.margin,
                             constraints: widget.textBoxMinHeight != null
                                 ? BoxConstraints(
-                              minHeight: widget.textBoxMinHeight!,
-                            )
+                                    minHeight: widget.textBoxMinHeight!,
+                                  )
                                 : null,
                             decoration: currentDialogItem.boxDecoration ??
                                 BoxDecoration(
@@ -166,36 +166,32 @@ class _TalkDialogState extends State<TalkDialog> {
                                     child: Container(
                                       child: Align(
                                         alignment: Alignment.bottomRight,
-                                        child: Text(finishCurrentTalk
-                                            ? 'Suivant'
-                                            : 'Passer', style:
-                                        currentDialogItem.textStyle?.copyWith
-                                          (color: (
-                                            finishCurrentTalk &&
-                                                choice == null && DialogItemType
-                                                .INTERACTIVETEXT ==
-                                                currentDialogItem.dialogItemType
-                                                ?
-                                            currentDialogItem
-                                                .textStyle?.color?.withOpacity(.6)
-                                                : currentDialogItem
-                                                .textStyle?.color ??
-                                                Colors.white
-                                        )) ??
-                                            TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18,
-                                            ).copyWith
-                                              (color: (
-                                                finishCurrentTalk &&
-                                                    choice == null &&
-                                                    DialogItemType
-                                                        .INTERACTIVETEXT ==
-                                                        currentDialogItem
-                                                            .dialogItemType ?
-                                                Colors.white.withOpacity(.6)
-                                                    : Colors.white
-                                            )),
+                                        child: Text(
+                                          finishCurrentTalk
+                                              ? 'Suivant'
+                                              : 'Passer',
+                                          style: currentDialogItem.textStyle?.copyWith(
+                                                  color: (finishCurrentTalk &&
+                                                          choice == null &&
+                                                          DialogItemType.INTERACTIVETEXT ==
+                                                              currentDialogItem
+                                                                  .dialogItemType
+                                                      ? currentDialogItem
+                                                          .textStyle?.color
+                                                          ?.withOpacity(.6)
+                                                      : currentDialogItem.textStyle?.color ??
+                                                          Colors.white)) ??
+                                              TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                              ).copyWith(
+                                                  color: (finishCurrentTalk &&
+                                                          choice == null &&
+                                                          DialogItemType.INTERACTIVETEXT ==
+                                                              currentDialogItem
+                                                                  .dialogItemType
+                                                      ? Colors.white.withOpacity(.6)
+                                                      : Colors.white)),
                                         ),
                                       ),
                                     ),
@@ -245,8 +241,7 @@ class _TalkDialogState extends State<TalkDialog> {
   }
 
   void startShowText() {
-    if (currentDialogItem.text.isEmpty)
-      return;
+    if (currentDialogItem.text.isEmpty) return;
     timer = Timer.periodic(Duration(milliseconds: 50), (timer) {
       _textShowController.add(currentDialogItem.text.substring(0, countLetter));
       countLetter++;
@@ -294,8 +289,7 @@ class _TalkDialogState extends State<TalkDialog> {
     if (finishCurrentTalk) {
       if (currentDialogItem.dialogItemType == DialogItemType.SIMPLETEXT)
         _nextTalk();
-      else if (playerMadeChoice)
-        _nextTalk();
+      else if (playerMadeChoice) _nextTalk();
     } else {
       _finishTalk();
     }
@@ -308,41 +302,36 @@ class _TalkDialogState extends State<TalkDialog> {
   }
 
   Widget choiceWidget() {
-    if (currentDialogItem.dialogItemType !=
-        DialogItemType.INTERACTIVETEXT ||
-        !finishCurrentTalk)
-      return Container();
+    if (currentDialogItem.dialogItemType != DialogItemType.INTERACTIVETEXT ||
+        !finishCurrentTalk) return Container();
     return Column(
       children: List<Widget>.generate(
         currentDialogItem.choices!.length,
-            (index) =>
-            RadioListTile<String>(
-              dense: true,
-              title: Text(
-                "${currentDialogItem.choices!.elementAt(index)[0]
-                    .toUpperCase()}${currentDialogItem.choices!
-                    .elementAt(index)
-                    .substring(1)}",
-                style: currentDialogItem.textStyle ??
-                    TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-              ),
-              activeColor: currentDialogItem.textStyle?.color ?? Colors.white,
-              value: currentDialogItem.choices!.elementAt(index),
-              groupValue: choice,
-              onChanged: (String? value) {
-                setState(() {
-                  choice = value;
-                  if (value == null || value.isEmpty) {
-                    playerMadeChoice = false;
-                  } else {
-                    playerMadeChoice = true;
-                  }
-                });
-              },
-            ),
+        (index) => RadioListTile<String>(
+          dense: true,
+          title: Text(
+            "${currentDialogItem.choices!.elementAt(index)[0].toUpperCase()}${currentDialogItem.choices!.elementAt(index).substring(1)}",
+            style: currentDialogItem.textStyle ??
+                TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+          ),
+          toggleable: true,
+          activeColor: currentDialogItem.textStyle?.color ?? Colors.white,
+          value: currentDialogItem.choices!.elementAt(index),
+          groupValue: choice,
+          onChanged: (String? value) {
+            setState(() {
+              choice = value;
+              if (value == null || value.isEmpty) {
+                playerMadeChoice = false;
+              } else {
+                playerMadeChoice = true;
+              }
+            });
+          },
+        ),
       ),
     );
   }
@@ -351,14 +340,9 @@ class _TalkDialogState extends State<TalkDialog> {
     return Row(
       children: [
         Container(
-          width: MediaQuery
-              .of(context)
-              .size
-              .width - 200.0 - personSize.width,
+          width: MediaQuery.of(context).size.width - 200.0 - personSize.width,
           child: Text(
-            snapshot.hasData
-                ? (snapshot.data ?? '')
-                : '',
+            snapshot.hasData ? (snapshot.data ?? '') : '',
             overflow: TextOverflow.clip,
             style: currentDialogItem.textStyle ??
                 TextStyle(
@@ -380,8 +364,7 @@ class _TalkDialogState extends State<TalkDialog> {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-              if (currentDialogItem.text.isNotEmpty)
-                textWidget(snapshot),
+              if (currentDialogItem.text.isNotEmpty) textWidget(snapshot),
               choiceWidget(),
             ],
           ),

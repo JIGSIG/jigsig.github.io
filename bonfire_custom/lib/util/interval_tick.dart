@@ -5,6 +5,7 @@ class IntervalTick {
   final VoidCallback? tick;
   double _timeMax = 1000.0;
   double _currentTime = 0;
+
   IntervalTick(this.interval, {this.tick});
 
   bool update(double dt) {

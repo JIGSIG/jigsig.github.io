@@ -48,7 +48,9 @@ class JoystickActionEvent {
 
 abstract class JoystickListener {
   void joystickChangeDirectional(JoystickDirectionalEvent event);
+
   void joystickAction(JoystickActionEvent event);
+
   void moveTo(Vector2 position);
 }
 

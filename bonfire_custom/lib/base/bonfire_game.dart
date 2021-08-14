@@ -5,12 +5,12 @@ import 'package:bonfire/camera/camera.dart';
 import 'package:bonfire/camera/camera_config.dart';
 import 'package:bonfire/collision/object_collision.dart';
 import 'package:bonfire/decoration/decoration.dart';
-import 'package:bonfire/non_playable_character/npc.dart';
 import 'package:bonfire/game_interface/game_interface.dart';
 import 'package:bonfire/joystick/joystick_controller.dart';
 import 'package:bonfire/lighting/lighting.dart';
 import 'package:bonfire/lighting/lighting_component.dart';
 import 'package:bonfire/map/map_game.dart';
+import 'package:bonfire/non_playable_character/npc.dart';
 import 'package:bonfire/player/player.dart';
 import 'package:bonfire/util/color_filter_component.dart';
 import 'package:bonfire/util/game_color_filter.dart';
@@ -24,6 +24,8 @@ import 'package:flame/keyboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../objects/animated_object.dart';
 
 /// Is a customGame where all magic of the Bonfire happen.
 class BonfireGame extends CustomBaseGame with KeyboardEvents {
@@ -173,6 +175,12 @@ class BonfireGame extends CustomBaseGame with KeyboardEvents {
         .cast();
   }
 
+  Iterable<AnimatedObject> visibleAnimatedObject() {
+    return _visibleComponents
+        .where((element) => (element is AnimatedObject))
+        .cast();
+  }
+
   Iterable<GameDecoration> decorations() {
     return components.where((element) => (element is GameDecoration)).cast();
   }
@@ -196,6 +204,7 @@ class BonfireGame extends CustomBaseGame with KeyboardEvents {
   }
 
   Iterable<ObjectCollision> collisions() => _collisions;
+
   Iterable<ObjectCollision> visibleCollisions() => _visibleCollisions;
 
   ValueGeneratorComponent getValueGenerator(

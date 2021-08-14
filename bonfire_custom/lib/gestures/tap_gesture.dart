@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 mixin TapGesture on GameComponent {
   bool enableTab = true;
   int _pointer = -1;
+
   void handlerPointerDown(PointerDownEvent event) {
     final pointer = event.pointer;
     final position = event.localPosition;
@@ -64,8 +65,11 @@ mixin TapGesture on GameComponent {
   }
 
   void onTapDown(int pointer, Offset position);
+
   void onTapUp(int pointer, Offset position);
+
   void onTapCancel();
+
   void onTap();
 
   bool get receiveInteraction => _pointer != -1;

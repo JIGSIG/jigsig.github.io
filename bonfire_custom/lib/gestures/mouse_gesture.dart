@@ -164,14 +164,22 @@ mixin MouseGesture on GameComponent {
   void onScroll(int pointer, Offset position, Offset scrollDelta);
 
   void onMouseTapDownLeft(int pointer, Offset position) {}
+
   void onMouseTapDownRight(int pointer, Offset position) {}
+
   void onMouseTapDownMiddle(int pointer, Offset position) {}
+
   void onMouseTapUpLeft(int pointer, Offset position) {}
+
   void onMouseTapUpRight(int pointer, Offset position) {}
+
   void onMouseTapUpMiddle(int pointer, Offset position) {}
 
   void onMouseTapLeft();
+
   void onMouseTapRight();
+
   void onMouseTapMiddle();
+
   void onMouseCancel();
 }

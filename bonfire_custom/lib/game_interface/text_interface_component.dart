@@ -11,6 +11,7 @@ class TextInterfaceComponent extends InterfaceComponent {
   double? _measuredWidth;
   double? _measuredHeight;
   late TextPaint textConfig;
+
   TextInterfaceComponent({
     required int id,
     required Vector2 position,

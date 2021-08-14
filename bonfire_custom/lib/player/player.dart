@@ -83,8 +83,8 @@ class Player extends GameComponent
   }
 
   @override
-  void receiveInteraction(interactionType type, dynamic from, {Direction?
-  direction, List? options}) {
+  void receiveInteraction(interactionType type, dynamic from,
+      {Direction? direction, List? options}) {
     this.idle();
   }
 

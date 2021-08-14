@@ -60,14 +60,12 @@ mixin MoveToPositionAlongThePath on GameComponent {
         NPC npc = this as NPC;
         isInteracting = npc.isInteracting;
       }
-      if (!isInteracting)
-        _move(dt);
+      if (!isInteracting) _move(dt);
     }
     if (_currentPath.isEmpty) {
       if (this is NPC) {
         NPC npc = this as NPC;
-        if (npc.wasMoving)
-          npc.actionAtDestination();
+        if (npc.wasMoving) npc.actionAtDestination();
       }
     }
     super.update(dt);

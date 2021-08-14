@@ -5,19 +5,29 @@ import 'package:flutter/gestures.dart';
 
 mixin PointerDetector {
   void onPointerDown(PointerDownEvent event) {}
+
   void onPointerMove(PointerMoveEvent event) {}
+
   void onPointerUp(PointerUpEvent event) {}
+
   void onPointerCancel(PointerCancelEvent event) {}
+
   void onPointerHover(PointerHoverEvent event) {}
+
   void onPointerSignal(PointerSignalEvent event) {}
 }
 
 abstract class PointerDetectorHandler {
   void handlerPointerDown(PointerDownEvent event) {}
+
   void handlerPointerMove(PointerMoveEvent event) {}
+
   void handlerPointerUp(PointerUpEvent event) {}
+
   void handlerPointerCancel(PointerCancelEvent event) {}
+
   void handlerPointerHover(PointerHoverEvent event) {}
+
   void handlerPointerSignal(PointerSignalEvent event) {}
 
   bool hasGesture() {
