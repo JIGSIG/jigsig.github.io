@@ -1,5 +1,5 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:digital_project_manager/main.dart';
+import 'package:developer/main.dart';
 import 'package:flutter/material.dart';
 
 import '../util/common_sprite_sheet.dart';

@@ -1,8 +1,8 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:digital_project_manager/area/administrative_level_map.dart';
-import 'package:digital_project_manager/area/patio_map.dart';
-import 'package:digital_project_manager/area/reception_map.dart';
-import 'package:digital_project_manager/main.dart';
+import 'package:developer/area/administrative_level_map.dart';
+import 'package:developer/area/patio_map.dart';
+import 'package:developer/area/reception_map.dart';
+import 'package:developer/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

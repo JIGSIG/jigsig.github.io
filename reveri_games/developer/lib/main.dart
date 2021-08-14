@@ -27,15 +27,15 @@ late final PlatformType? platformType;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(DPMApp());
+  runApp(DevApp());
 }
 
-class DPMApp extends StatelessWidget {
+class DevApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Digital Project Manager',
+      title: 'Developer',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

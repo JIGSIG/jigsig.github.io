@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:digital_project_manager/main.dart';
-import 'package:digital_project_manager/npc/inkle_reader.dart';
+import 'package:developer/main.dart';
+import 'package:developer/npc/inkle_reader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:digital_project_manager/main.dart';
+import 'package:developer/main.dart';
 
 class GoblinRotation extends RotationNpc {
   GoblinRotation(Vector2 position)

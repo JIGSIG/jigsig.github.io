@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/util/vector2rect.dart';
-import 'package:digital_project_manager/main.dart';
+import 'package:developer/main.dart';
 import 'package:flutter/material.dart';
 
 import '../decoration/potion_life.dart';

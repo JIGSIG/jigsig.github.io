@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:digital_project_manager/decoration/elevatorButton.dart';
-import 'package:digital_project_manager/npc/back_end_dev.dart';
-import 'package:digital_project_manager/npc/front_end_dev.dart';
-import 'package:digital_project_manager/utils.dart';
+import 'package:developer/decoration/elevatorButton.dart';
+import 'package:developer/npc/back_end_dev.dart';
+import 'package:developer/npc/front_end_dev.dart';
+import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -133,7 +133,9 @@ class _PatioMapState extends State<PatioMap> {
         },
       );
     return Container(
-      child: Center(child: CircularProgressIndicator(),),
+      child: Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }
