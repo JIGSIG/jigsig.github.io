@@ -29,16 +29,17 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0-nullsafety.0
   material_floating_search_bar: ^0.3.4
+  url_launcher: ^6.0.9
 
-  digital_project_manager:
-    git:
-      url: git@github.com:JIGSIG/jigsig.github.io.git
-      path: reveri_games/digital_project_manager/
+  #digital_project_manager:
+  #  git:
+  #    url: git@github.com:JIGSIG/jigsig.github.io.git
+  #    path: reveri_games/digital_project_manager/
 
-  developer:
-    git:
-      url: git@github.com:JIGSIG/jigsig.github.io.git
-      path: reveri_games/developer/
+  #developer:
+  #  git:
+  #    url: git@github.com:JIGSIG/jigsig.github.io.git
+  #    path: reveri_games/developer/
 
 dev_dependencies:
   flutter_test:

@@ -1,11 +1,12 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
-import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:reveri_website/main.dart';
 import 'package:reveri_website/ui/common/label_value_widget.dart';
 import 'package:reveri_website/ui/styleguide/text_styles.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'forum_card.dart';
 
@@ -117,12 +118,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
                         SystemChrome.setEnabledSystemUIOverlays([]);
                         if (!platformType!.isIos)
                           document.documentElement!.requestFullscreen();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  gameToDisplay.elementAt(index).game),
-                        );
+                        launch('${gameToDisplay.elementAt(index).gameUrl}');
                       },
                       child: Container(
                         height: 90,

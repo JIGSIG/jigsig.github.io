@@ -1,8 +1,7 @@
-import 'package:developer/main.dart';
-import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/common/forum_details_widget.dart';
 import 'package:reveri_website/ui/common/forum_name_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MenuCard extends StatelessWidget {
   final Game game;
@@ -13,10 +12,7 @@ class MenuCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => game.game),
-        );
+        launch('${game.gameUrl}');
       },
       child: Container(
         width: 275,
@@ -64,7 +60,7 @@ class Game {
   final int games;
   final int completed;
   final double stars;
-  final Widget game;
+  final String gameUrl;
 
   Game({
     required this.title,
@@ -73,7 +69,7 @@ class Game {
     required this.completed,
     required this.stars,
     required this.games,
-    required this.game,
+    required this.gameUrl,
   });
 }
 
@@ -84,7 +80,7 @@ final digitalProjectManagerGame = Game(
   completed: 112,
   stars: 4.0,
   games: 600,
-  game: DPMApp(),
+  gameUrl: "",
 );
 
 final pubgMenu = Game(
@@ -94,7 +90,7 @@ final pubgMenu = Game(
   completed: 488,
   stars: 2.5,
   games: 1000,
-  game: DevApp(),
+  gameUrl: "",
 );
 
 final games = [
