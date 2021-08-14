@@ -85,7 +85,7 @@ final digitalProjectManagerGame = Game(
   completed: 112,
   stars: 4.0,
   games: 600,
-  game: GameTiledMap(),
+  game: DPMApp(),
 );
 
 final pubgMenu = Game(
@@ -95,7 +95,7 @@ final pubgMenu = Game(
   completed: 488,
   stars: 2.5,
   games: 1000,
-  game: Container(),
+  game: DevApp(),
 );
 
 final games = [

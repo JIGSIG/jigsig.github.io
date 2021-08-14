@@ -142,7 +142,7 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
   @override
   void receiveInteraction(interactionType type, from,
       {Direction? direction, List? options}) {
-    if (type == interactionType.ENDCHAT) isInteracting = false;
+    if (type == interactionType.END) isInteracting = false;
     if (type == interactionType.ANSWER_RESQUESTED) actionInteraction();
     super.receiveInteraction(type, from, direction: direction);
   }

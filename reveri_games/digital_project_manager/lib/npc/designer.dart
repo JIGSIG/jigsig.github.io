@@ -103,7 +103,7 @@ class DesignerNPC extends SimpleNPC with ObjectCollision {
 
   void endDialogWithPlayer() {
     if (gameRef.player != null && gameRef.player?.isDead == true) return;
-    this.simpleEndChat(id: this);
+    this.endInteraction(id: this);
     gameRef.camera.moveToPlayerAnimated();
     isInteracting = false;
     print("endDialogWithPlayer");
