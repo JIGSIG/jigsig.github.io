@@ -1,7 +1,9 @@
+// ignore: avoid_web_libraries_in_flutter
+
+import 'package:digital_project_manager/game_tiled_map.dart';
 import 'package:flutter/material.dart';
 import 'package:reveri_website/ui/common/forum_details_widget.dart';
 import 'package:reveri_website/ui/common/forum_name_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MenuCard extends StatelessWidget {
   final Game game;
@@ -12,7 +14,10 @@ class MenuCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        launch('${game.gameUrl}');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => game.game),
+        );
       },
       child: Container(
         width: 275,
@@ -60,7 +65,7 @@ class Game {
   final int games;
   final int completed;
   final double stars;
-  final String gameUrl;
+  final Widget game;
 
   Game({
     required this.title,
@@ -69,7 +74,7 @@ class Game {
     required this.completed,
     required this.stars,
     required this.games,
-    required this.gameUrl,
+    required this.game,
   });
 }
 
@@ -80,7 +85,7 @@ final digitalProjectManagerGame = Game(
   completed: 112,
   stars: 4.0,
   games: 600,
-  gameUrl: "",
+  game: GameTiledMap(),
 );
 
 final pubgMenu = Game(
@@ -90,7 +95,7 @@ final pubgMenu = Game(
   completed: 488,
   stars: 2.5,
   games: 1000,
-  gameUrl: "",
+  game: Container(),
 );
 
 final games = [

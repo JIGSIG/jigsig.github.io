@@ -14,15 +14,13 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.6.1"
+    version: "2.5.0"
   bonfire:
     dependency: "direct main"
     description:
-      path: "bonfire_custom/"
-      ref: HEAD
-      resolved-ref: "012b7dfb23aa5798bfc398aacea39a21957a146a"
-      url: "git@github.com:JIGSIG/jigsig.github.io.git"
-    source: git
+      path: "../../bonfire_custom"
+      relative: true
+    source: path
     version: "1.2.2"
   boolean_selector:
     dependency: transitive
@@ -281,7 +279,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.8.0"
   stack_trace:
     dependency: transitive
     description:
@@ -316,7 +314,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.2.19"
   tiledjsonreader:
     dependency: transitive
     description:
