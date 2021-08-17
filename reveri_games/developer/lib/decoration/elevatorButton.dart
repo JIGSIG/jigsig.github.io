@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/area/administrative_level_map.dart';
+import 'package:developer/area/office_level_map.dart';
 import 'package:developer/area/patio_map.dart';
 import 'package:developer/area/reception_map.dart';
 import 'package:developer/main.dart';
@@ -177,7 +178,7 @@ class ElevatorButton extends GameDecoration {
                 Navigator.pushReplacement<void, void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => AdministrativeMap(
+                    builder: (BuildContext context) => OfficeMap(
                       platformType: new PlatformType(isIos: true),
                     ),
                   ),

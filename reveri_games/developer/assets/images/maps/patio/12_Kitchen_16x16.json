@@ -10,6 +10,10 @@
  "tileheight":16,
  "tiles":[
         {
+         "id":90,
+         "type":"above"
+        }, 
+        {
          "animation":[
                 {
                  "duration":1500,
@@ -22,11 +26,18 @@
          "id":105
         }, 
         {
+         "id":188,
+         "type":"above"
+        }, 
+        {
+         "id":189,
+         "type":"above"
+        }, 
+        {
          "id":200,
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -52,7 +63,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -78,7 +88,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -104,7 +113,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -130,7 +138,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -152,11 +159,22 @@
             }
         }, 
         {
+         "id":258,
+         "type":"above"
+        }, 
+        {
+         "id":272,
+         "type":"above"
+        }, 
+        {
+         "id":273,
+         "type":"above"
+        }, 
+        {
          "id":338,
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -182,7 +200,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -208,7 +225,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -234,7 +250,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -256,11 +271,38 @@
             }
         }, 
         {
+         "id":377,
+         "type":"above"
+        }, 
+        {
+         "id":378,
+         "type":"above"
+        }, 
+        {
+         "id":379,
+         "type":"above"
+        }, 
+        {
+         "id":380,
+         "type":"above"
+        }, 
+        {
+         "id":381,
+         "type":"above"
+        }, 
+        {
+         "id":382,
+         "type":"above"
+        }, 
+        {
+         "id":383,
+         "type":"above"
+        }, 
+        {
          "id":391,
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -297,7 +339,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -319,11 +360,18 @@
             }
         }, 
         {
+         "id":413,
+         "type":"above"
+        }, 
+        {
+         "id":414,
+         "type":"above"
+        }, 
+        {
          "id":423,
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -345,6 +393,18 @@
             }
         }, 
         {
+         "id":477,
+         "type":"above"
+        }, 
+        {
+         "id":478,
+         "type":"above"
+        }, 
+        {
+         "id":479,
+         "type":"above"
+        }, 
+        {
          "animation":[
                 {
                  "duration":3000,
@@ -355,6 +415,22 @@
                  "tileid":525
                 }],
          "id":493
+        }, 
+        {
+         "id":506,
+         "type":"above"
+        }, 
+        {
+         "id":509,
+         "type":"above"
+        }, 
+        {
+         "id":510,
+         "type":"above"
+        }, 
+        {
+         "id":511,
+         "type":"above"
         }, 
         {
          "animation":[

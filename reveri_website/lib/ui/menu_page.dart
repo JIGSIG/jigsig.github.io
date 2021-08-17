@@ -1,3 +1,4 @@
+import 'package:digital_project_manager/main.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:reveri_website/ui/common/horizontal_tab_layout.dart';

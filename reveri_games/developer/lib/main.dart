@@ -1,11 +1,10 @@
 import 'dart:async';
 
+import 'package:developer/area/patio_map.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-
-import 'area/reception_map.dart';
 
 double mapTileSize = 16;
 
@@ -41,9 +40,9 @@ class DevApp extends StatelessWidget {
       ),
       home: Stack(
         children: [
-          ReceptionMap(
+          PatioMap(
             platformType: new PlatformType(isIos: true),
-            initState: true,
+            //initState: true,
           ),
           Positioned(
             top: 25,

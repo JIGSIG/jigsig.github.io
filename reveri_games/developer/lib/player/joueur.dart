@@ -47,7 +47,7 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
           CollisionArea.rectangle(
             size: Size(
               mapTileSize / 2,
-              mapTileSize - 3,
+              mapTileSize - 1,
             ),
             align: Vector2(
               mapTileSize / 3.5,
