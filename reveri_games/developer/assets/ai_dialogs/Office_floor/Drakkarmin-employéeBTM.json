@@ -1,0 +1,30 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "jaiApprisQueTuTa": {
+                "content": [
+                    "Oui ?",
+                    {
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            }
+        },
+        "initial": "jaiApprisQueTuTa",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "blankStitch",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72384
+}

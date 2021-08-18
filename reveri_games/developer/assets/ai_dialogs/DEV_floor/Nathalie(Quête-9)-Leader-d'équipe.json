@@ -1,0 +1,70 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "alorsFini": {
+                "content": [
+                    "Alors fini ?",
+                    {
+                        "option": "Le rapport sur X. Et il y a des trucs bizarres.",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Le fameux problème que ‘vous ne vouliez pas résoudre’.",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Le fameux problème que ‘vous ne vouliez pas résoudre’.",
+                        "linkPath": "ohIlSestPassQuel",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "ohIlSestPassQuel": {
+                "content": [
+                    "Oh, il s’est passé quelque chose ?",
+                    {
+                        "option": "Euh, non. Rien de spécial.",
+                        "linkPath": "superCtaitLeBonC",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Oui, je crois qu’on devrait reconsidérer notre choix.",
+                        "linkPath": "laissonsluiUnPeu",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "superCtaitLeBonC": {
+                "content": [
+                    "Super, c’était le bon choix alors. Bon, je crois qu’on a fait le tour ?"
+                ]
+            },
+            "laissonsluiUnPeu": {
+                "content": [
+                    "Laissons-lui un peu plus de temps. A sa troisième erreur, on le dégage en revanche. Bon, je crois qu’on a fait le tour ? Maintenant j’aimerai te parler de…"
+                ]
+            }
+        },
+        "initial": "alorsFini",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "superCtaitLeBonC",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72411
+}

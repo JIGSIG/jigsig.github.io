@@ -1,0 +1,36 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "ahVousDevezTreLe": {
+                "content": [
+                    "Ah, vous devez être le nouveau, 'Nom du Joueur'. Ravi de vous compter parmi nous.",
+                    {
+                        "option": "Merci, c’est un plaisir également pour moi. ",
+                        "linkPath": "dordinaireMonsie",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "dordinaireMonsie": {
+                "content": [
+                    "D'ordinaire, Monsieur Elias aime se joindre aux rencontres avec les nouvelles recrues mais il est retenu. Moi je n’ai pas grand-chose à vous dire. Lors de notre entretien, j’ai eu plaisir à vous rencontrer donc je crois que pour l’instant, vous devriez essayez de vous rendre dans l'espace des développeurs et parlez à Sebastian ou Etienne. Ils vous guideront pour la suite. Mon assistante vous préviendra lorsque Monsieur Elias sera Disponible."
+                ]
+            }
+        },
+        "initial": "ahVousDevezTreLe",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "dordinaireMonsie",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72384
+}
