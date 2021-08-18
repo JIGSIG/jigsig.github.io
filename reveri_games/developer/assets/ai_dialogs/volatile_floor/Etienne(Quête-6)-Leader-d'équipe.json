@@ -1,0 +1,120 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "onPeutYAller": {
+                "content": [
+                    "On peut y aller ?",
+                    {
+                        "option": "Vous pouvez m’accordez un instant.",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "C’est parti.",
+                        "linkPath": "superAlorsJeCroi",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "superAlorsJeCroi": {
+                "content": [
+                    "Super. Alors je crois que tout le monde ici me connait. Alors on va y aller et surtout n’hésitez pas à m’arrêter si le besoin se fait sentir. On se comprend ?",
+                    {
+                        "option": "Oui",
+                        "linkPath": "superDoncJeCrois",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ne rien dire",
+                        "linkPath": "onVaMettreASurLe",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "superDoncJeCrois": {
+                "content": [
+                    "Super. Donc je crois que vous savez tous pourquoi vous êtes là. BTM a eu des hauts et beaucoup de bas mais si vous êtes là, c’est parce que la boîte veut retrouver les sommets. Je vais donc vous briefer sur la méthode de travail. On travaillera en équipe avec trois DEV et au dessus un leader d'équipe, moi où Nathalie...qui devait être là normalement mais bon...Je viens de vous envoyer par mail les infos en ce qui concerne la division des équipes. Veuillez les consulter dès la fin de notre entrevue.",
+                    {
+                        "option": "Il est possible de pouvoir demander des changements ?",
+                        "linkPath": "EnCasDeProblmesR",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ne rien dire.",
+                        "linkPath": "bienPoursuivonsJ",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "onVaMettreASurLe": {
+                "content": [
+                    "On va mettre ça sur le coup de la timidité, c’est normal mais que ça ne devienne pas une habitude messieurs et mesdames. On va y aller étape par étape. Donc je crois que vous savez tous pourquoi vous êtes là. BTM a eu des hauts et beaucoup de bas mais si vous êtes là, c’est parce que la boîte veut retrouver les sommets. Je vais donc vous briefer sur la méthode de travail. On travaillera en équipe avec trois DEV et au dessus un leader d'équipe, moi où Nathalie...qui devait être là normalement mais bon...Je viens de vous envoyer par mail les infos en ce qui concerne la division des équipes. Veuillez les consulter dès la fin de notre entrevue.",
+                    {
+                        "option": "Il est possible que les équipes changent ?",
+                        "linkPath": "EnCasDeProblmesR",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Ne rien dire",
+                        "linkPath": "bienPoursuivonsJ",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "EnCasDeProblmesR": {
+                "content": [
+                    ": En cas de problèmes relativement sérieux. Oui, s’il également constaté que certaines associations ne fonctionne pas, alors les changements viendront d’eux-mêmes.",
+                    {
+                        "option": "Pouvons-nous avoir des détails sur le projet X.",
+                        "linkPath": "euhMonsieurElias",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "bienPoursuivonsJ": {
+                "content": [
+                    "Bien, poursuivons…Je tenais à vous présenter une des anciennes têtes pensantes de la boîte, Nathalie mais…elle n’est pas là pour l’instant donc ce sera pour une autre fois. Je crois que le tour est fait. Vous avez tous reçu vos tâches du jour par mail. Il est vital que vous le consultiez, il contient toutes les informations dont vous aurez besoin. Bien, ce sera tout pour l’instant.",
+                    {
+                        "option": "Pouvons-nous avoir des détails sur le projet X.",
+                        "linkPath": "euhMonsieurElias1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "euhMonsieurElias": {
+                "content": [
+                    "Euh, Monsieur Elias a souhaité vous faire part en personne des détails du projet. Lorsqu’il sera là, vous aurez les réponses à vos questions. Bien, vous pouvez y aller."
+                ]
+            },
+            "euhMonsieurElias1": {
+                "content": [
+                    "Euh, Monsieur Elias a souhaité vous faire part en personne des détails du projet. Lorsqu’il sera là, vous aurez les réponses à vos questions. Bien, vous pouvez y aller."
+                ]
+            }
+        },
+        "initial": "onPeutYAller",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "euhMonsieurElias",
+            "libraryVisible": true,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72395
+}

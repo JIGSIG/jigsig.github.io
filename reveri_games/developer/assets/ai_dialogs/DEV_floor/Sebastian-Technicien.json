@@ -1,0 +1,87 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "ahBesoinDeMonAid": {
+                "content": [
+                    "Ah, besoin de mon aide ?",
+                    {
+                        "option": "Salut.",
+                        "linkPath": "salutJeSuisLeTec",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Un briefing rapide",
+                        "linkPath": "ilTeFaudraTrouve",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": " Les autres développeurs",
+                        "linkPath": "tousDesJuniorsCo",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": " Mes codes d’accès.",
+                        "linkPath": "LesVoilBonTuDevr",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "salutJeSuisLeTec": {
+                "content": [
+                    "Salut, je suis le technicien en charge de vos machines. Tu dois être là pour tes codes d’accès.",
+                    {
+                        "option": "",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "ilTeFaudraTrouve": {
+                "content": [
+                    "Il te faudra trouver Etienne pour ça. Je ne peux te briefer que sur vos armes. Quoi de plus beau qu’une machine.",
+                    {
+                        "option": "",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "tousDesJuniorsCo": {
+                "content": [
+                    "Tous des juniors comme toi. La boîte préfère. Nouvelles idées, nouvelles visions. Bosse dure et tu auras peut-être un droit à la parole d’ici peu. La grande table est sensible aux idées.",
+                    {
+                        "option": "",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "LesVoilBonTuDevr": {
+                "content": [
+                    ": Les voilà. Bon, tu devrais peut-être faire un petit checkup de ta machine. Je m’en suis occupé mais tu as sûrement tes configs persos. Ton poste est le troisième dans la première rangée."
+                ]
+            }
+        },
+        "initial": "ahBesoinDeMonAid",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "LesVoilBonTuDevr",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72384
+}
