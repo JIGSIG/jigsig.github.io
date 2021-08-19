@@ -21,9 +21,9 @@ class DesignerNPC extends SimpleNPC with ObjectCollision {
       : super(
           animation: DesignerSpriteSheet.simpleDirectionAnimation,
           position: position,
-          width: mapTileSize * 1,
-          height: mapTileSize * 1.5,
-          initDirection: Direction.left,
+          width: mapTileSize * 1.1,
+          height: mapTileSize * 1.75,
+          initDirection: Direction.down,
           speed: mapTileSize * 1.6,
           life: 100,
         ) {
@@ -107,7 +107,9 @@ class DesignerNPC extends SimpleNPC with ObjectCollision {
     gameRef.camera.moveToPlayerAnimated();
     isInteracting = false;
     print("endInteractionWithPlayer");
-    Future.delayed(Duration(seconds: 1), () => moveTo(Vector2(40.62, 842.97)));
+    this.moveDown(1);
+    this.idle();
+    //Future.delayed(Duration(seconds: 1), () => moveTo(Vector2(40.62, 842.97)));
   }
 
   void showEmote() {

@@ -21,9 +21,9 @@ class FrontEndDevNPC extends SimpleNPC with ObjectCollision {
       : super(
           animation: FrontEndDevSpriteSheet.simpleDirectionAnimation,
           position: position,
-          width: mapTileSize * 1,
-          height: mapTileSize * 1.5,
-          initDirection: Direction.left,
+          width: mapTileSize * 1.1,
+          height: mapTileSize * 1.75,
+          initDirection: Direction.up,
           speed: mapTileSize * 1.6,
           life: 100,
         ) {
@@ -107,7 +107,9 @@ class FrontEndDevNPC extends SimpleNPC with ObjectCollision {
     gameRef.camera.moveToPlayerAnimated();
     isInteracting = false;
     print("endInteractionWithPlayer");
-    Future.delayed(Duration(seconds: 1), () => moveTo(Vector2(40.62, 842.97)));
+    this.moveUp(1);
+    this.idle();
+    //Future.delayed(Duration(seconds: 1), () => moveTo(Vector2(40.62, 842.97)));
   }
 
   void showEmote() {

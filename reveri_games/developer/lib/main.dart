@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:developer/area/patio_map.dart';
+import 'package:developer/area/office_level_map.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -40,7 +40,7 @@ class DevApp extends StatelessWidget {
       ),
       home: Stack(
         children: [
-          PatioMap(
+          OfficeMap(
             platformType: new PlatformType(isIos: true),
             //initState: true,
           ),

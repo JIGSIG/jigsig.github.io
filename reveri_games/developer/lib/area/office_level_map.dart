@@ -2,6 +2,9 @@ import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/decoration/elevatorButton.dart';
+import 'package:developer/npc/back_end_dev.dart';
+import 'package:developer/npc/designer.dart';
+import 'package:developer/npc/front_end_dev.dart';
 import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -83,6 +86,62 @@ class _OfficeMapState extends State<OfficeMap> {
                   objectsBuilder: {
                     'elevatorButton': (properties) => ElevatorButton(
                           properties.position,
+                        ),
+                    'BackDev': (properties) => BackEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'FrontDev': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc1': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc2': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc3': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc4': (properties) => DesignerNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc5': (properties) => DesignerNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc6': (properties) => DesignerNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc7': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc8': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc9': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc10': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc11': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
+                        ),
+                    'npc12': (properties) => FrontEndDevNPC(
+                          properties.position,
+                          dialogFilename: 'client.json',
                         ),
                   },
                 ),

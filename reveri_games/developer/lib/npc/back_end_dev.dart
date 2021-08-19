@@ -21,10 +21,10 @@ class BackEndDevNPC extends SimpleNPC with ObjectCollision {
       : super(
           animation: BackEndDevSpriteSheet.simpleDirectionAnimation,
           position: position,
-          width: mapTileSize * 1,
-          height: mapTileSize * 1.5,
+          width: mapTileSize * 1.1,
+          height: mapTileSize * 1.75,
           speed: mapTileSize * 1.6,
-          initDirection: Direction.right,
+          initDirection: Direction.up,
           life: 100,
         ) {
     _inkleReader = InkleReader(path: 'assets/ai_dialogs/$dialogFilename');
@@ -33,14 +33,14 @@ class BackEndDevNPC extends SimpleNPC with ObjectCollision {
         collisions: [
           CollisionArea.rectangle(
             size: Size(
-              mapTileSize,
-              mapTileSize,
+              mapTileSize / 2,
+              mapTileSize - 1,
             ),
             align: Vector2(
-              mapTileSize * 0.15,
-              mapTileSize,
+              mapTileSize / 3.5,
+              mapTileSize * .8,
             ),
-          ),
+          )
         ],
       ),
     );
@@ -107,7 +107,9 @@ class BackEndDevNPC extends SimpleNPC with ObjectCollision {
     gameRef.camera.moveToPlayerAnimated();
     isInteracting = false;
     print("endInteractionWithPlayer");
-    Future.delayed(Duration(seconds: 1), () => moveTo(Vector2(40.62, 842.97)));
+    this.moveUp(1);
+    this.idle();
+    //Future.delayed(Duration(seconds: 1), () => moveTo(Vector2(40.62, 842.97)));
   }
 
   void showEmote() {
