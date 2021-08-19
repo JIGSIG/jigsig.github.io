@@ -1,0 +1,111 @@
+    {
+        "title": "Untitled Story",
+        "data": {
+            "stitches": {
+                "jesuisoccup": {
+                    "content": [
+                        "Je…suis…occupé.",
+                        {
+                            "option": "Pourquoi le bureau est là ?",
+                            "linkPath": "lnergieDeLaSalle",
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        },
+                        {
+                            "option": "A vous faire du mal.",
+                            "linkPath": "aRflchirIlYAUneG",
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        },
+                        {
+                            "option": "Vous avez un problème ?",
+                            "linkPath": "jeDouteQueTuPuis",
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        },
+                        {
+                            "pageNum": 1
+                        }
+                    ]
+                },
+                "lnergieDeLaSalle": {
+                    "content": [
+                        "L’énergie de la salle de DEV est bizarre depuis un moment."
+                    ]
+                },
+                "aRflchirIlYAUneG": {
+                    "content": [
+                        "A réfléchir, il y a une grande différence.",
+                        {
+                            "option": "",
+                            "linkPath": null,
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        }
+                    ]
+                },
+                "jeDouteQueTuPuis": {
+                    "content": [
+                        "Je doute que tu puisses m’être utile.",
+                        {
+                            "option": "On parie ?",
+                            "linkPath": "tuMasLairBienSrD",
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        }
+                    ]
+                },
+                "tuMasLairBienSrD": {
+                    "content": [
+                        "Tu m’as l’air bien sûr de toi. Mais je crois",
+                        {
+                            "divert": "queCeTypeEtienne"
+                        }
+                    ]
+                },
+                "queCeTypeEtienne": {
+                    "content": [
+                        "que ce type, Etienne me cherche. Il n’arrête pas de m’appeler. Cependant je ne t’oublie pas. Ton nom ?",
+                        {
+                            "option": "Je m’appelle…",
+                            "linkPath": "bienNomDuJoueurJ",
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        },
+                        {
+                            "option": "Allons-y",
+                            "linkPath": "humJeTeSuisSiTuP",
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        }
+                    ]
+                },
+                "bienNomDuJoueurJ": {
+                    "content": [
+                        "Bien ‘Nom du joueur’. J’ai un souci avec mon ordi. Il s’allume mais un truc bizarre apparaît et m’empêche de travailler. Résous-le et je te suis gentiment autrement…Je te fais pas un dessin.",
+                        {
+                            "option": "",
+                            "linkPath": null,
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        }
+                    ]
+                },
+                "humJeTeSuisSiTuP": {
+                    "content": [
+                        "Hum. Je te suis si tu parviens à résoudre un problème sur mon ordi autrement tu vas devoir expliquer à Etienne que ton incompétence est la cause de mon absence. Et je tiens aux termes ‘ton’ et ‘incompétence’. Chiche ?"
+                    ]
+                }
+            },
+            "initial": "jesuisoccup",
+            "optionMirroring": true,
+            "allowCheckpoints": false,
+            "editorData": {
+                "playPoint": "humJeTeSuisSiTuP",
+                "libraryVisible": true,
+                "authorName": "Anonymous",
+                "textSize": 0
+            }
+        },
+        "url_key": 72392
+    }

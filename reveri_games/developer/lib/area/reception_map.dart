@@ -85,9 +85,9 @@ class _ReceptionMapState extends State<ReceptionMap> {
                   'maps/reception/reception.json',
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
-                    'receptioniste': (properties) => ClientNPC(
+                    'receptioniste': (properties) => ReceptionNPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename: 'Reception/folami-reception.json',
                         ),
                     'elevatorButton': (properties) => ElevatorButton(
                           properties.position,

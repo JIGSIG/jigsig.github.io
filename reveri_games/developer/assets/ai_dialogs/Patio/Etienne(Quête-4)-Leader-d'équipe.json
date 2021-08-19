@@ -1,0 +1,69 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "ahNomDuJoueur": {
+                "content": [
+                    "Ah, ‘Nom du joueur’.",
+                    {
+                        "option": "Je suis…",
+                        "linkPath": "ceNestPasNcessai",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "C’est un honneur d’être de la partie.",
+                        "linkPath": "merciTousEnsembl",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Puis-je avoir un point rapide ?",
+                        "linkPath": "ouiMaisPasIciRet",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "ceNestPasNcessai": {
+                "content": [
+                    "Ce n’est pas nécessaire, on sait qui on embauche."
+                ]
+            },
+            "merciTousEnsembl": {
+                "content": [
+                    "Merci, tous ensemble on arrivera à faire quelque chose de grand."
+                ]
+            },
+            "ouiMaisPasIciRet": {
+                "content": [
+                    "Oui mais pas ici. Retrouve-moi en salle de briefing avec les autres mais il faudrait que tu retrouves Nathalie d’abord. Retrouve là et venez en salle de briefing pour le point du jour. On est bon ?",
+                    {
+                        "option": "Ok",
+                        "linkPath": "BienAlorsJeVousV",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "BienAlorsJeVousV": {
+                "content": [
+                    "Bien, alors je vous vois après. Et…fais attention.Nathalie est…spécial…Je cherche un autre mot mais le seul qui convienne est spécial. Néanmoins, elle est vitale donc fais de ton mieux."
+                ]
+            }
+        },
+        "initial": "ahNomDuJoueur",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "BienAlorsJeVousV",
+            "libraryVisible": true,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72384
+}

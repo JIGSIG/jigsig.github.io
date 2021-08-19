@@ -84,7 +84,7 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
-                    'receptioniste': (properties) => ClientNPC(
+                    'receptioniste': (properties) => ReceptionNPC(
                           properties.position,
                           dialogFilename: 'client.json',
                         ),

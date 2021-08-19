@@ -1,0 +1,80 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "leDestinEstTrsDr": {
+                "content": [
+                    "Le destin est très drôle. Tu trouves pas ?",
+                    {
+                        "option": "C’est pas possible",
+                        "linkPath": "ohSiCestPossible",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Et qu’est-ce-que ça implique maintenant ?",
+                        "linkPath": "queCestMoiQuiVai",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "ohSiCestPossible": {
+                "content": [
+                    "Oh si, c’est possible. Hihi."
+                ]
+            },
+            "queCestMoiQuiVai": {
+                "content": [
+                    "Que c’est moi qui vais jauger ton travail, t’assigner tes tâches et surtout décider si tu gardes ton boulot ou non. Alors ne me déçois pas. Sur ceux commençons. L’équipe doit compter au moins trois membres. J’ai le choix de mon équipe alors je peux prendre un autre des développeurs présents ici.",
+                    {
+                        "option": "Et qui ce sera ?",
+                        "linkPath": "aucuneIdeVuQueCe",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "aucuneIdeVuQueCe": {
+                "content": [
+                    "Aucune idée, vu que c’est toi qui vas choisir. Ça me permettra de jauger ton jugement et ce qui pour toi est ‘un bon développeur’. Alors choisis avec soin, un équipier, c’est un type sur qui tu peux compter et qui est fiable. Voici le fichier de recrutement, il n’y a que deux choix possibles donc ça devrait être facile. Alors ?",
+                    {
+                        "option": "Olufemi",
+                        "linkPath": "clairementLeMeil",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Steven",
+                        "linkPath": "lamiPourquoiPasF",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "clairementLeMeil": {
+                "content": [
+                    "Clairement le meilleur choix technique. Mais la boîte est en pleine reconstruction et elle est pas très fiable. Si les choses se gâtent, elle pourrait juste s’enfuir. Néanmoins, elle va clairement être un plus non négligeable. Donc c'est parti alors, au boulot !"
+                ]
+            },
+            "lamiPourquoiPasF": {
+                "content": [
+                    "‘L’ami’. Pourquoi pas ? Fiable et sûrement très sympathique. Mais techniquement, tu devras être derrière lui sinon, il risque de nous pondre une vraie bombe. Néanmoins, s’il est convaincu par notre travail et qu’il arrive un jour à atteindre son potentiel, on a gagné le gros lot. Donc que le show commence."
+                ]
+            }
+        },
+        "initial": "leDestinEstTrsDr",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "aucuneIdeVuQueCe",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72404
+}   

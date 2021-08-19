@@ -4,11 +4,12 @@ import 'package:developer/npc/inkle_reader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../util/client_sprite_sheet.dart';
 import '../util/common_sprite_sheet.dart';
 
-class ClientNPC extends SimpleNPC with ObjectCollision {
+class ReceptionNPC extends SimpleNPC with ObjectCollision {
   double attack = 20;
   bool _seePlayerClose = false;
   bool interactionAsked = false;
@@ -17,8 +18,11 @@ class ClientNPC extends SimpleNPC with ObjectCollision {
   late final InkleReader _inkleReader;
   final String? dialogFilename;
   bool discussionDone = false;
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  ClientNPC(Vector2 position, {this.dialogFilename})
+  late final SharedPreferences preferences;
+
+  ReceptionNPC(Vector2 position, {this.dialogFilename})
       : super(
           animation: ClientSpriteSheet.simpleDirectionAnimation,
           position: position,
@@ -28,6 +32,10 @@ class ClientNPC extends SimpleNPC with ObjectCollision {
           initDirection: Direction.up,
           life: 100,
         ) {
+    _prefs.then((value) {
+      preferences = value;
+    });
+
     _inkleReader = InkleReader(path: 'assets/ai_dialogs/$dialogFilename');
     setupCollision(
       CollisionConfig(
@@ -102,6 +110,8 @@ class ClientNPC extends SimpleNPC with ObjectCollision {
     gameRef.camera.moveToPlayerAnimated();
     isInteracting = false;
     print("endInteractionWithPlayer");
+    preferences.setString("playPoint-assets/ai_dialogs/$dialogFilename",
+        _inkleReader.dialogTree.playPoint!);
   }
 
   void showEmote() {

@@ -84,7 +84,7 @@ class _PatioMapState extends State<PatioMap> {
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
-                    'receptioniste': (properties) => ClientNPC(
+                    'receptioniste': (properties) => ReceptionNPC(
                           properties.position,
                           dialogFilename: 'client.json',
                         ),

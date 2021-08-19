@@ -11,7 +11,7 @@ class InkleReader {
     getFileLines().then((value) {
       String jsonString = value;
       Map<String, dynamic> inkleContent = json.decode(jsonString);
-      dialogTree = new DialogTree(inkleContent);
+      dialogTree = new DialogTree(inkleContent, path: path);
     });
   }
 
@@ -28,7 +28,7 @@ class DialogTree {
   late final String aiKey;
   late String? playPoint;
 
-  DialogTree(final Map<String, dynamic> inkleContent) {
+  DialogTree(final Map<String, dynamic> inkleContent, {required String path}) {
     stiches = List.generate(inkleContent["data"]["stitches"].length, (index) {
       return DialogStich(
           stich: (inkleContent["data"]["stitches"] as Map<String, dynamic>)
@@ -39,7 +39,7 @@ class DialogTree {
     initial = inkleContent["data"]["initial"];
     _prefs.then((value) {
       SharedPreferences preferences = value;
-      playPoint = preferences.getString("playPoint") ?? initial;
+      playPoint = preferences.getString("playPoint-$path") ?? initial;
     });
     aiKey = inkleContent["url_key"].toString();
   }

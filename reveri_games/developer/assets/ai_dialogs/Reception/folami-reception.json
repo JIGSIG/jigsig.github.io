@@ -1,0 +1,70 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "bTMEst": {
+                "content": [
+                    "BTM est  ..."
+                ]
+            },
+            "bonjourQuePuisje": {
+                "content": [
+                    "Bonjour. Que puis-je faire pour vous ?",
+                    {
+                        "option": "Parlez-moi un peu de BTM",
+                        "linkPath": "bTMEst1",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Je suis attendu au Bureau de Monsieur Thomas André",
+                        "linkPath": "prenezUneDesDeux",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            },
+            "bTMEst1": {
+                "content": [
+                    "BTM est ... Avez-vous besoin d'autre chose ?",
+                    {
+                        "option": "Non",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "option": "Oui, bureau de Thomas André, s'il vous plaît.",
+                        "linkPath": "prenezUneDesDeux",
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            },
+            "prenezUneDesDeux": {
+                "content": [
+                    "Prenez un des deux ascenseurs derrière moi, ils vous mèneront où vous le souhaitez dans le bâtiment. Le bureau du directeur André se trouve au 3éme étage.",
+                    {
+                        "option": "Ok merci",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
+                ]
+            }
+        },
+        "initial": "bonjourQuePuisje",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "prenezUneDesDeux",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72384
+}
