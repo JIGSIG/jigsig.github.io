@@ -67,6 +67,7 @@ flutter:
     - assets/images/maps/office/
     - assets/images/maps/administrative_area/
     - assets/images/maps/patio/
+    - assets/images/maps/Map/
     - assets/images/tiled/japanese_house/
     - assets/images/itens/
   #   - images/a_dot_burr.jpeg

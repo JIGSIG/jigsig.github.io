@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"building_center_N.png",
+ "imageheight":352,
+ "imagewidth":256,
+ "margin":0,
+ "name":"building_center_N",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.7.2",
+ "tileheight":352,
+ "tilewidth":256,
+ "type":"tileset",
+ "version":"1.6"
+}

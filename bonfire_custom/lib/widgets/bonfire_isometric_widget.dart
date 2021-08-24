@@ -4,15 +4,16 @@ import 'package:bonfire/base/game_component.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/camera/camera_config.dart';
 import 'package:bonfire/game_interface/game_interface.dart';
+import 'package:bonfire/isometric/isometric_world_map.dart';
+import 'package:bonfire/isometric/model/isometric_world_data.dart';
 import 'package:bonfire/joystick/joystick_controller.dart';
 import 'package:bonfire/player/player.dart';
-import 'package:bonfire/tiled/model/tiled_world_data.dart';
 import 'package:bonfire/util/game_color_filter.dart';
 import 'package:bonfire/util/game_controller.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-class BonfireTiledWidget extends StatefulWidget {
+class BonfireIsometricWidget extends StatefulWidget {
   /// The player-controlling component.
   final JoystickController? joystick;
 
@@ -47,7 +48,7 @@ class BonfireTiledWidget extends StatefulWidget {
   final Color? lightingColorGame;
 
   /// Represents a map (or world) where the game occurs.
-  final TiledWorldMap map;
+  final IsometricWorldMap map;
 
   final Map<String, OverlayWidgetBuilder<BonfireGame>>? overlayBuilderMap;
   final List<String>? initialActiveOverlays;
@@ -58,7 +59,7 @@ class BonfireTiledWidget extends StatefulWidget {
   final Duration? progressTransitionDuration;
   final GameColorFilter? colorFilter;
 
-  const BonfireTiledWidget({
+  const BonfireIsometricWidget({
     Key? key,
     required this.map,
     this.joystick,
@@ -83,16 +84,16 @@ class BonfireTiledWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BonfireTiledWidgetState createState() => _BonfireTiledWidgetState();
+  _BonfireIsometricWidgetState createState() => _BonfireIsometricWidgetState();
 }
 
-class _BonfireTiledWidgetState extends State<BonfireTiledWidget>
+class _BonfireIsometricWidgetState extends State<BonfireIsometricWidget>
     with TickerProviderStateMixin {
   BonfireGame? _game;
   bool _loading = true;
 
   @override
-  void didUpdateWidget(BonfireTiledWidget oldWidget) {
+  void didUpdateWidget(BonfireIsometricWidget oldWidget) {
     if (widget.constructionMode) {
       widget.map.build().then((value) async {
         await _game?.map.updateTiles(value.map.tiles);
@@ -122,16 +123,16 @@ class _BonfireTiledWidgetState extends State<BonfireTiledWidget>
 
   void _loadGame() async {
     try {
-      TiledWorldData tiled = await widget.map.build();
+      IsometricWorldData isometric = await widget.map.build();
 
-      List<GameComponent> components = (tiled.components ?? []);
+      List<GameComponent> components = (isometric.components ?? []);
       if (widget.components != null) components.addAll(widget.components!);
       _game = BonfireGame(
         context: context,
         joystickController: widget.joystick,
         player: widget.player,
         interface: widget.interface,
-        map: tiled.map,
+        map: isometric.map,
         components: components,
         background: widget.background,
         constructionMode: widget.constructionMode,
@@ -151,7 +152,7 @@ class _BonfireTiledWidgetState extends State<BonfireTiledWidget>
         _loading = false;
       });
     } catch (e) {
-      print('(BonfireTiledWidget) Error: $e');
+      print('(BonfireIsometricWidget) Error: $e');
     }
   }
 
