@@ -6,12 +6,10 @@
                 "content": [
                     "Salut.",
                     {
+                        "option": "Salut",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null
-                    },
-                    {
-                        "pageNum": 1
                     }
                 ]
             }

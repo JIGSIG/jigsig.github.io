@@ -43,7 +43,7 @@
                     "Oui mais pas ici. Retrouve-moi en salle de briefing avec les autres mais il faudrait que tu retrouves Nathalie d’abord. Retrouve là et venez en salle de briefing pour le point du jour. On est bon ?",
                     {
                         "option": "Ok",
-                        "linkPath": "BienAlorsJeVousV",
+                        "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null
                     }
@@ -51,7 +51,13 @@
             },
             "BienAlorsJeVousV": {
                 "content": [
-                    "Bien, alors je vous vois après. Et…fais attention.Nathalie est…spécial…Je cherche un autre mot mais le seul qui convienne est spécial. Néanmoins, elle est vitale donc fais de ton mieux."
+                    "Bien, alors je vous vois après. Et…fais attention.Nathalie est…spécial…Je cherche un autre mot mais le seul qui convienne est spécial. Néanmoins, elle est vitale donc fais de ton mieux.",
+                    {
+                        "option": "Ok",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             }
         },

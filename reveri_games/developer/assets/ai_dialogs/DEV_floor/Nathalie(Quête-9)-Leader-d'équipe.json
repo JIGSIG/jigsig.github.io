@@ -47,12 +47,24 @@
             },
             "superCtaitLeBonC": {
                 "content": [
-                    "Super, c’était le bon choix alors. Bon, je crois qu’on a fait le tour ?"
+                    "Super, c’était le bon choix alors. Bon, je crois qu’on a fait le tour ?",
+                    {
+                        "option": "Je pense bien, oui.",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             },
             "laissonsluiUnPeu": {
                 "content": [
-                    "Laissons-lui un peu plus de temps. A sa troisième erreur, on le dégage en revanche. Bon, je crois qu’on a fait le tour ? Maintenant j’aimerai te parler de…"
+                    "Laissons-lui un peu plus de temps. A sa troisième erreur, on le dégage en revanche. Bon, je crois qu’on a fait le tour ? Maintenant j’aimerai te parler de…",
+                    {
+                        "option": "Je pense bien, oui.",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             }
         },

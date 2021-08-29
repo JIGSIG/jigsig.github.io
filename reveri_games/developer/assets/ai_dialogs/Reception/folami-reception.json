@@ -48,7 +48,11 @@
                 "content": [
                     "Prenez un des deux ascenseurs derrière moi, ils vous mèneront où vous le souhaitez dans le bâtiment. Le bureau du directeur André se trouve au 3éme étage.",
                     {
+<<<<<<< HEAD
+                        "option": "Merci",
+=======
                         "option": "Ok merci",
+>>>>>>> 3ccb8a0219523253444ba2dc017a63dff28a6228
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null

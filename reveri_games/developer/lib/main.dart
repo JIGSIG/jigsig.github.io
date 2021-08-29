@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'Quêtes/Quête-1.dart';
 
 double mapTileSize = 16;
 
@@ -26,7 +27,9 @@ late final PlatformType? platformType;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(DevApp());
+  runApp(MaterialApp(
+    home: PrinterStatus(),
+  ));
 }
 
 class DevApp extends StatelessWidget {

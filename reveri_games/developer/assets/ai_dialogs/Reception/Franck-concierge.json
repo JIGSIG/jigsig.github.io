@@ -6,6 +6,7 @@
                 "content": [
                     "(Chantonne une chanson à voix basse).",
                     {
+                        "option": "Euh...",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null

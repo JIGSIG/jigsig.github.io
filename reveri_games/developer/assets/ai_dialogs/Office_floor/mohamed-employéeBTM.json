@@ -6,6 +6,7 @@
                 "content": [
                     "J'ai appris que tu étais un des nouveaux développeurs. J'espère que tu es moins bruyant que tous les autres. Même les morts les entendent.",
                     {
+                        "option": "...",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null

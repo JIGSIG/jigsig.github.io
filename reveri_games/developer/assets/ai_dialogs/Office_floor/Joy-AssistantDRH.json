@@ -6,6 +6,7 @@
                 "content": [
                     "Bonjour, 'Nom du joueur', je crois ? Monsieur André vous attend dans son bureau.",
                     {
+                        "option": "Merci.",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null
