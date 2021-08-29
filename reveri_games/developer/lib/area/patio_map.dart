@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/npc/back_end_dev.dart';
@@ -8,6 +9,8 @@ import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../interface/knight_interface.dart';
 import '../main.dart';
@@ -31,10 +34,12 @@ class PatioMap extends StatefulWidget {
 class _PatioMapState extends State<PatioMap> {
   late final Vector2 playerSpawn;
   bool loading = true;
+  bool quest1 = false;
   final String map = "maps/patio/patio.json";
 
   @override
   void initState() {
+    checkQuestAvailable();
     findPlayerLocation(map: "assets/images/$map").then((value) {
       playerSpawn = value;
       loading = false;
@@ -128,6 +133,7 @@ class _PatioMapState extends State<PatioMap> {
                     )),
                   ),
                 ),
+              if (quest1 == true) questWidget(context, 1),
             ],
           );
         },
@@ -137,5 +143,41 @@ class _PatioMapState extends State<PatioMap> {
         child: CircularProgressIndicator(),
       ),
     );
+  }
+
+  Widget questWidget(BuildContext context, int questnumber) {
+    return Container(
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: DefaultTextStyle(
+          style: GoogleFonts.ubuntu(
+            textStyle: Theme.of(context).textTheme.headline4,
+            fontSize: 28,
+            fontWeight: FontWeight.w700,
+            fontStyle: FontStyle.italic,
+            color: Colors.white,
+          ),
+          child: AnimatedTextKit(
+            totalRepeatCount: 1,
+            animatedTexts: [
+              TypewriterAnimatedText(
+                'Quête' '$questnumber' ': Rendez-vous au ...',
+                speed: const Duration(milliseconds: 30),
+              ),
+            ],
+            onTap: () {},
+          ),
+        ),
+      ),
+    );
+  }
+
+  void checkQuestAvailable() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getBool('_quest1_available') == true) {
+      setState(() {
+        quest1 = true;
+      });
+    }
   }
 }

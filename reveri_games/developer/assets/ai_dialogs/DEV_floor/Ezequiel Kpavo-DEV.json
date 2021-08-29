@@ -6,6 +6,7 @@
                 "content": [
                     "Tu dois être le nouveau. Ravi de te rencontrer. Tu peux m'appeler Flash, parce que je code comme l'éclair.",
                     {
+                        "option": "De même.",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null

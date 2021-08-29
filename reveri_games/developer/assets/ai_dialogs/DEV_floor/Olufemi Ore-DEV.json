@@ -6,6 +6,7 @@
                 "content": [
                     "Olufemi, ravi de te rencontrer. Je cherche Etienne, tu ne saurais pas où le trouver ?",
                     {
+                        "option": "Je te tiens informé.",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null

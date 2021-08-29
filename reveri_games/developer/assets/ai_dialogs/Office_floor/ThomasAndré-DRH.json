@@ -18,7 +18,13 @@
             },
             "dordinaireMonsie": {
                 "content": [
-                    "D'ordinaire, Monsieur Elias aime se joindre aux rencontres avec les nouvelles recrues mais il est retenu. Moi je n’ai pas grand-chose à vous dire. Lors de notre entretien, j’ai eu plaisir à vous rencontrer donc je crois que pour l’instant, vous devriez essayez de vous rendre dans l'espace des développeurs et parlez à Sebastian ou Etienne. Ils vous guideront pour la suite. Mon assistante vous préviendra lorsque Monsieur Elias sera Disponible."
+                    "D'ordinaire, Monsieur Elias aime se joindre aux rencontres avec les nouvelles recrues mais il est retenu. Moi je n’ai pas grand-chose à vous dire. Lors de notre entretien, j’ai eu plaisir à vous rencontrer donc je crois que pour l’instant, vous devriez essayez de vous rendre dans l'espace des développeurs et parlez à Sebastian ou Etienne. Ils vous guideront pour la suite. Mon assistante vous préviendra lorsque Monsieur Elias sera Disponible.",
+                    {
+                        "option": "Merci.",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             }
         },

@@ -38,8 +38,8 @@
                 "content": [
                     "Salut, je suis le technicien en charge de vos machines. Tu dois être là pour tes codes d’accès.",
                     {
-                        "option": "",
-                        "linkPath": null,
+                        "option": "Oui",
+                        "linkPath": "LesVoilBonTuDevr",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
@@ -49,8 +49,8 @@
                 "content": [
                     "Il te faudra trouver Etienne pour ça. Je ne peux te briefer que sur vos armes. Quoi de plus beau qu’une machine.",
                     {
-                        "option": "",
-                        "linkPath": null,
+                        "option": "C'est noté",
+                        "linkPath": "ahBesoinDeMonAid",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
@@ -60,8 +60,8 @@
                 "content": [
                     "Tous des juniors comme toi. La boîte préfère. Nouvelles idées, nouvelles visions. Bosse dure et tu auras peut-être un droit à la parole d’ici peu. La grande table est sensible aux idées.",
                     {
-                        "option": "",
-                        "linkPath": null,
+                        "option": "J'ai vu ça.",
+                        "linkPath": "ahBesoinDeMonAid",
                         "ifConditions": null,
                         "notIfConditions": null
                     }
@@ -69,7 +69,13 @@
             },
             "LesVoilBonTuDevr": {
                 "content": [
-                    ": Les voilà. Bon, tu devrais peut-être faire un petit checkup de ta machine. Je m’en suis occupé mais tu as sûrement tes configs persos. Ton poste est le troisième dans la première rangée."
+                    ": Les voilà. Bon, tu devrais peut-être faire un petit checkup de ta machine. Je m’en suis occupé mais tu as sûrement tes configs persos. Ton poste est le troisième dans la première rangée.",
+                    {
+                        "option": "Merci",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             }
         },

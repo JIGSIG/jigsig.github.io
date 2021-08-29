@@ -57,12 +57,24 @@
             },
             "clairementLeMeil": {
                 "content": [
-                    "Clairement le meilleur choix technique. Mais la boîte est en pleine reconstruction et elle est pas très fiable. Si les choses se gâtent, elle pourrait juste s’enfuir. Néanmoins, elle va clairement être un plus non négligeable. Donc c'est parti alors, au boulot !"
+                    "Clairement le meilleur choix technique. Mais la boîte est en pleine reconstruction et elle est pas très fiable. Si les choses se gâtent, elle pourrait juste s’enfuir. Néanmoins, elle va clairement être un plus non négligeable. Donc c'est parti alors, au boulot !",
+                    {
+                        "option": "C'est bon alors",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             },
             "lamiPourquoiPasF": {
                 "content": [
-                    "‘L’ami’. Pourquoi pas ? Fiable et sûrement très sympathique. Mais techniquement, tu devras être derrière lui sinon, il risque de nous pondre une vraie bombe. Néanmoins, s’il est convaincu par notre travail et qu’il arrive un jour à atteindre son potentiel, on a gagné le gros lot. Donc que le show commence."
+                    "‘L’ami’. Pourquoi pas ? Fiable et sûrement très sympathique. Mais techniquement, tu devras être derrière lui sinon, il risque de nous pondre une vraie bombe. Néanmoins, s’il est convaincu par notre travail et qu’il arrive un jour à atteindre son potentiel, on a gagné le gros lot. Donc que le show commence.",
+                    {
+                        "option": "On peut y aller alors",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             }
         },

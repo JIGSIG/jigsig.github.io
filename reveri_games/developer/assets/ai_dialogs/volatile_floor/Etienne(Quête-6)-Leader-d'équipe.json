@@ -97,12 +97,24 @@
             },
             "euhMonsieurElias": {
                 "content": [
-                    "Euh, Monsieur Elias a souhaité vous faire part en personne des détails du projet. Lorsqu’il sera là, vous aurez les réponses à vos questions. Bien, vous pouvez y aller."
+                    "Euh, Monsieur Elias a souhaité vous faire part en personne des détails du projet. Lorsqu’il sera là, vous aurez les réponses à vos questions. Bien, vous pouvez y aller.",
+                    {
+                        "option": "Je présume que je n'aurai rien de plus",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             },
             "euhMonsieurElias1": {
                 "content": [
-                    "Euh, Monsieur Elias a souhaité vous faire part en personne des détails du projet. Lorsqu’il sera là, vous aurez les réponses à vos questions. Bien, vous pouvez y aller."
+                    "Euh, Monsieur Elias a souhaité vous faire part en personne des détails du projet. Lorsqu’il sera là, vous aurez les réponses à vos questions. Bien, vous pouvez y aller.",
+                    {
+                        "option": "Je présume que je n'aurai rien de plus",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    }
                 ]
             }
         },

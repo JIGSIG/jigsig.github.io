@@ -6,6 +6,7 @@
                 "content": [
                     "Je suis occupé jeune homme.",
                     {
+                        "option": "...",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null

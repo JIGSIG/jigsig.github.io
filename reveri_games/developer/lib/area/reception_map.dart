@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/tiled/tiled_world_map.dart';
 import 'package:bonfire/widgets/bonfire_tiled_widget.dart';
@@ -10,6 +11,8 @@ import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../interface/knight_interface.dart';
 import '../main.dart';
@@ -33,10 +36,12 @@ class ReceptionMap extends StatefulWidget {
 class _ReceptionMapState extends State<ReceptionMap> {
   late final Vector2 playerSpawn;
   bool loading = true;
+  bool quest1 = false;
   final String map = "maps/reception/reception.json";
 
   @override
   void initState() {
+    checkQuestAvailable();
     findPlayerLocation(map: "assets/images/$map", isElevator: !widget.initState)
         .then((value) {
       playerSpawn = value;
@@ -131,6 +136,7 @@ class _ReceptionMapState extends State<ReceptionMap> {
                     )),
                   ),
                 ),
+              if (quest1 == true) questWidget(context, 1),
             ],
           );
         return Container(
@@ -140,5 +146,41 @@ class _ReceptionMapState extends State<ReceptionMap> {
         );
       },
     );
+  }
+
+  Widget questWidget(BuildContext context, int questnumber) {
+    return Container(
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: DefaultTextStyle(
+          style: GoogleFonts.ubuntu(
+            textStyle: Theme.of(context).textTheme.headline4,
+            fontSize: 28,
+            fontWeight: FontWeight.w700,
+            fontStyle: FontStyle.italic,
+            color: Colors.white,
+          ),
+          child: AnimatedTextKit(
+            totalRepeatCount: 1,
+            animatedTexts: [
+              TypewriterAnimatedText(
+                'Quête' '$questnumber' ': Rendez-vous au ...',
+                speed: const Duration(milliseconds: 30),
+              ),
+            ],
+            onTap: () {},
+          ),
+        ),
+      ),
+    );
+  }
+
+  void checkQuestAvailable() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getBool('_quest1_available') == true) {
+      setState(() {
+        quest1 = true;
+      });
+    }
   }
 }

@@ -6,6 +6,7 @@
                 "content": [
                     "Si je te dis Projet X ? Tu dis quoi ? Rien, je me disais aussi. On est tous venus sans rien savoir. Hum...",
                     {
+                        "option": "...",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null

@@ -6,6 +6,7 @@
                 "content": [
                     "Yo. Tu pourrais m’aider ? Mon ordi a buggé mais je comprends pas pourquoi. La honte ! Le premier jour en plus ! Mon ordi est le premier en commençant par la droite sur la deuxième rangée…Si tu pouvais garder le secret.",
                     {
+                        "option": "On verra",
                         "linkPath": null,
                         "ifConditions": null,
                         "notIfConditions": null
