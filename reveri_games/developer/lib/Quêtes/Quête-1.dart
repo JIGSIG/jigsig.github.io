@@ -3,9 +3,13 @@ import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:developer/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:developer/Sound/sound.dart';
+import 'package:soundpool/soundpool.dart';
+import 'package:developer/area/reception_map.dart';
 
 class PrinterStatus extends StatefulWidget {
   @override
@@ -24,6 +28,10 @@ class PrinterState extends State<PrinterStatus> {
       await prefs.setBool('seen', true);
       return DevApp();
     }
+  }
+
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -53,21 +61,22 @@ class Quest1Title extends StatelessWidget {
             child: DefaultTextStyle(
               style: GoogleFonts.ubuntu(
                 textStyle: Theme.of(context).textTheme.headline4,
-                fontSize: 48,
+                fontSize: MediaQuery.of(context).size.width > 850 ? 48 : 22,
                 fontWeight: FontWeight.w700,
                 fontStyle: FontStyle.italic,
                 color: Colors.black,
               ),
               child: AnimatedTextKit(
                 totalRepeatCount: 1,
-                onFinished: () {
-                  Timer(Duration(milliseconds: 50), () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DevApp()),
-                    );
-                  });
-                },
+                // onFinished: () {
+                //   onLoad();
+                //   Timer(Duration(milliseconds: 50), () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => DevApp()),
+                //     );
+                //   });
+                // },
                 animatedTexts: [
                   TypewriterAnimatedText(
                     'Quête 1 : Rendez-vous au ...',
@@ -78,8 +87,51 @@ class Quest1Title extends StatelessWidget {
               ),
             ),
           ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+              child: Icon(Icons.arrow_right),
+              backgroundColor: Colors.blue,
+              onPressed: () {
+                onLoad();
+                Timer(Duration(milliseconds: 50), () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DevApp()),
+                  );
+                });
+              },
+            ),
+          )
         ],
       ),
     );
   }
+}
+
+Widget questWidget(BuildContext context, int questnumber) {
+  return Container(
+    child: Align(
+      alignment: Alignment.topLeft,
+      child: DefaultTextStyle(
+        style: GoogleFonts.ubuntu(
+          textStyle: Theme.of(context).textTheme.headline4,
+          fontSize: 28,
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.italic,
+          color: Colors.white,
+        ),
+        child: AnimatedTextKit(
+          totalRepeatCount: 1,
+          animatedTexts: [
+            TypewriterAnimatedText(
+              'Quête' '$questnumber' ': Rendez-vous au ...',
+              speed: const Duration(milliseconds: 30),
+            ),
+          ],
+          onTap: () {},
+        ),
+      ),
+    ),
+  );
 }

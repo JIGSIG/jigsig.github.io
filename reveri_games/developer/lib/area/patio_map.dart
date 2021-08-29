@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bonfire/bonfire.dart';
+import 'package:developer/Qu%C3%AAtes/Qu%C3%AAte-1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/front_end_dev.dart';
@@ -141,33 +142,6 @@ class _PatioMapState extends State<PatioMap> {
     return Container(
       child: Center(
         child: CircularProgressIndicator(),
-      ),
-    );
-  }
-
-  Widget questWidget(BuildContext context, int questnumber) {
-    return Container(
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: DefaultTextStyle(
-          style: GoogleFonts.ubuntu(
-            textStyle: Theme.of(context).textTheme.headline4,
-            fontSize: 28,
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.italic,
-            color: Colors.white,
-          ),
-          child: AnimatedTextKit(
-            totalRepeatCount: 1,
-            animatedTexts: [
-              TypewriterAnimatedText(
-                'Quête' '$questnumber' ': Rendez-vous au ...',
-                speed: const Duration(milliseconds: 30),
-              ),
-            ],
-            onTap: () {},
-          ),
-        ),
       ),
     );
   }
