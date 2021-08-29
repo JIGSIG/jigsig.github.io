@@ -4,6 +4,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/tiled/tiled_world_map.dart';
 import 'package:bonfire/widgets/bonfire_tiled_widget.dart';
+import 'package:developer/Qu%C3%AAtes/Qu%C3%AAte-1.dart';
+import 'package:developer/Sound/sound.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/front_end_dev.dart';
@@ -13,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:soundpool/soundpool.dart';
 
 import '../interface/knight_interface.dart';
 import '../main.dart';
@@ -145,33 +148,6 @@ class _ReceptionMapState extends State<ReceptionMap> {
           ),
         );
       },
-    );
-  }
-
-  Widget questWidget(BuildContext context, int questnumber) {
-    return Container(
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: DefaultTextStyle(
-          style: GoogleFonts.ubuntu(
-            textStyle: Theme.of(context).textTheme.headline4,
-            fontSize: 28,
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.italic,
-            color: Colors.white,
-          ),
-          child: AnimatedTextKit(
-            totalRepeatCount: 1,
-            animatedTexts: [
-              TypewriterAnimatedText(
-                'Quête' '$questnumber' ': Rendez-vous au ...',
-                speed: const Duration(milliseconds: 30),
-              ),
-            ],
-            onTap: () {},
-          ),
-        ),
-      ),
     );
   }
 
