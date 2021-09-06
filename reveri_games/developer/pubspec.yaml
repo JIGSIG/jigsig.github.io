@@ -36,6 +36,7 @@ dependencies:
   animated_text_kit: ^4.2.1
   google_fonts: ^2.1.0
   soundpool: ^2.1.0
+  confetti: ^0.5.5
 
 dev_dependencies:
   flutter_test:
@@ -65,12 +66,14 @@ flutter:
     - assets/images/enemy/
     - assets/images/characters/
     - assets/images/tiled/
+    - assets/images/tile/
     - assets/images/maps/
     - assets/images/maps/reception/
     - assets/images/maps/office/
     - assets/images/maps/administrative_area/
     - assets/images/maps/patio/
     - assets/images/maps/Map/
+    - assets/images/maps/robozzle/
     - assets/images/tiled/japanese_house/
     - assets/images/itens/
     - assets/images/music/

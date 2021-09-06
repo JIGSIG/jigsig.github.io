@@ -9,7 +9,16 @@ import 'package:flutter/services.dart';
 import '../util/common_sprite_sheet.dart';
 import '../util/player_sprite_sheet.dart';
 
-enum PlayerActionType { Interaction, AttackRange }
+enum PlayerActionType {
+  Interaction,
+  AttackRange,
+  RoboZZleEmpty,
+  RoboZZleUp,
+  RoboZZleDown,
+  RoboZZleLeft,
+  RoboZZleRight,
+  RoboZZleStart,
+}
 
 class Joueur extends SimplePlayer with Lighting, ObjectCollision {
   double attack = 20;
@@ -24,13 +33,13 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
   bool execAttackRange = false;
   bool isInteracting = false;
 
-  Joueur(Vector2 position)
+  Joueur(Vector2 position, {Direction? direction})
       : super(
           animation: PlayerSpriteSheet.simpleDirectionAnimation,
           width: mapTileSize * 1.1,
           height: mapTileSize * 1.75,
           position: position,
-          initDirection: Direction.down,
+          initDirection: direction ?? Direction.up,
           life: 200,
           speed: mapTileSize * 3,
         ) {
@@ -40,6 +49,10 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
         blurBorder: width * 1.5,
         color: Colors.transparent,
       ),
+    );
+    setupMoveToPositionAlongThePath(
+      pathLineColor: Colors.transparent,
+      barriersCalculatedColor: Colors.transparent,
     );
     setupCollision(
       CollisionConfig(
@@ -82,6 +95,12 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
     }
 
     super.joystickAction(event);
+  }
+
+  @override
+  void revive() {
+    // TODO: implement revive
+    super.revive();
   }
 
   @override

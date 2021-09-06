@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/Qu%C3%AAtes/Qu%C3%AAte-1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
@@ -11,10 +10,8 @@ import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../interface/knight_interface.dart';
 import '../main.dart';
 import '../player/joueur.dart';
 
@@ -85,7 +82,6 @@ class _OfficeMapState extends State<OfficeMap> {
                   ],
                 ),
                 player: Joueur(playerSpawn),
-                interface: JoueurInterface(),
                 map: TiledWorldMap(
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),

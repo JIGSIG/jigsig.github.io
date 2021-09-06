@@ -1,15 +1,12 @@
 import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:developer/Sound/sound.dart';
+import 'package:developer/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:developer/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:developer/Sound/sound.dart';
-import 'package:soundpool/soundpool.dart';
-import 'package:developer/area/reception_map.dart';
 
 class PrinterStatus extends StatefulWidget {
   @override
@@ -18,6 +15,7 @@ class PrinterStatus extends StatefulWidget {
 
 class PrinterState extends State<PrinterStatus> {
   bool _seen = false;
+
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _seen = (prefs.getBool('seen') ?? false);

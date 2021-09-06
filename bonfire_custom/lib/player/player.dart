@@ -19,10 +19,13 @@ class Player extends GameComponent
   double life;
 
   late double maxLife;
+  late final Vector2 spawn;
 
   bool _isDead = false;
   bool isFocusCamera = true;
   JoystickMoveDirectional _currentDirectional = JoystickMoveDirectional.IDLE;
+
+  bool _invisible = false;
 
   Player({
     required Vector2 position,
@@ -31,6 +34,7 @@ class Player extends GameComponent
     this.life = 100,
     this.speed = 100,
   }) {
+    this.spawn = position;
     receivesAttackFrom = ReceivesAttackFromEnum.NPC;
     this.position = Rect.fromLTWH(
       position.x,
@@ -45,6 +49,7 @@ class Player extends GameComponent
   @override
   void update(double dt) {
     if (isDead) return;
+    if (isInvisible) return;
 
     final diagonalSpeed = this.speed * REDUCTION_SPEED_DIAGONAL;
 
@@ -109,7 +114,14 @@ class Player extends GameComponent
     _isDead = true;
   }
 
+  void revive() {
+    this._invisible = true;
+    this.moveToPositionAlongThePath(spawn, 1000);
+    this._invisible = false;
+  }
+
   bool get isDead => _isDead;
+  bool get isInvisible => _invisible;
 
   /// increase life in the player
   void addLife(double life) {

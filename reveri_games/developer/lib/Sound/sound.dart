@@ -4,12 +4,6 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/date_symbol_data_local.dart';
-import 'package:intl/intl.dart';
-import 'package:flame/components.dart';
-import 'package:flame/extensions.dart';
-import 'package:flame/game.dart';
-import 'package:flame/palette.dart';
 import 'package:soundpool/soundpool.dart';
 
 class SoundGlobal extends StatefulWidget {
@@ -23,6 +17,7 @@ class SoundGlobal extends StatefulWidget {
 
 class _SoundGlobalState extends State<SoundGlobal> {
   String json = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

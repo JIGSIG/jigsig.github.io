@@ -47,7 +47,7 @@ class BonfireWidget extends StatefulWidget {
 
   final Map<String, OverlayWidgetBuilder<BonfireGame>>? overlayBuilderMap;
   final List<String>? initialActiveOverlays;
-  final List<NPC>? enemies;
+  final List<NPC>? npcs;
   final List<GameDecoration>? decorations;
   final List<GameComponent>? components;
   final GameBackground? background;
@@ -61,7 +61,7 @@ class BonfireWidget extends StatefulWidget {
     this.joystick,
     this.player,
     this.interface,
-    this.enemies,
+    this.npcs,
     this.decorations,
     this.gameController,
     this.background,
@@ -102,7 +102,7 @@ class _BonfireWidgetState extends State<BonfireWidget> {
       interface: widget.interface,
       map: widget.map,
       decorations: widget.decorations,
-      enemies: widget.enemies,
+      enemies: widget.npcs,
       components: widget.components ?? [],
       background: widget.background,
       constructionMode: widget.constructionMode,
@@ -136,6 +136,6 @@ class _BonfireWidgetState extends State<BonfireWidget> {
     widget.decorations?.forEach((d) => _game.addGameComponent(d));
 
     _game.enemies().forEach((e) => e.remove());
-    widget.enemies?.forEach((e) => _game.addGameComponent(e));
+    widget.npcs?.forEach((e) => _game.addGameComponent(e));
   }
 }

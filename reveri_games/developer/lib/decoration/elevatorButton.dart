@@ -19,7 +19,7 @@ class ElevatorButton extends GameDecoration {
 
   ElevatorButton(Vector2 position)
       : super.withAnimation(
-          CommonSpriteSheet.ElevatorButtonAnimated,
+          CommonSpriteSheet.elevatorButtonAnimated,
           width: mapTileSize * 0.6,
           height: mapTileSize * 0.6,
           position: position,

@@ -114,6 +114,8 @@ class GameInterface extends GameComponent {
   @override
   bool hasGesture() => true;
 
+  List<InterfaceComponent> get interfaceComponents => _components;
+
   bool get receiveInteraction =>
       _components.where((element) => element.receiveInteraction).isNotEmpty;
 }

@@ -162,7 +162,7 @@ class CommonSpriteSheet {
         ),
       );
 
-  static Future<SpriteAnimation> get ElevatorButtonAnimated =>
+  static Future<SpriteAnimation> get elevatorButtonAnimated =>
       SpriteAnimation.load(
         "itens/chest_spritesheet.png",
         SpriteAnimationData.sequenced(
