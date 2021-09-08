@@ -37,6 +37,12 @@ dependencies:
   google_fonts: ^2.1.0
   soundpool: ^2.1.0
   confetti: ^0.5.5
+  flutter_animated_button: ^2.0.0
+  bmprogresshud: ^1.0.0
+  liquid_progress_indicator: ^0.4.0
+  spring: ^2.0.2
+  carousel_slider: ^4.0.0
+  splash_screen_view: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +73,7 @@ flutter:
     - assets/images/characters/
     - assets/images/tiled/
     - assets/images/tile/
+    - assets/images/intro/
     - assets/images/maps/
     - assets/images/maps/reception/
     - assets/images/maps/office/

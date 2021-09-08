@@ -138,15 +138,37 @@
                  "y":87.2121212121212
                 }, 
                 {
-                 "height":8.66666666666669,
-                 "id":12,
-                 "name":"npc6",
+                 "height":0,
+                 "id":21,
+                 "name":"sebastian",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":13,
-                 "x":280.212121212121,
-                 "y":87.1212121212121
+                 "width":0,
+                 "x":357.666666666666,
+                 "y":123.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":22,
+                 "name":"magi",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":770,
+                 "y":235.666666666667
+                }, 
+                {
+                 "height":24.25,
+                 "id":23,
+                 "name":"olufemi",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":22.75,
+                 "x":592.583333333333,
+                 "y":44.4166666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -263,17 +285,6 @@
                  "y":183.363636363636
                 }, 
                 {
-                 "height":8.18181818181817,
-                 "id":15,
-                 "name":"npc8",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":10.3939393939395,
-                 "x":655.787878787879,
-                 "y":104.545454545455
-                }, 
-                {
                  "height":8,
                  "id":16,
                  "name":"npc9",
@@ -285,26 +296,15 @@
                  "y":104.909090909091
                 }, 
                 {
-                 "height":7.54545454545455,
+                 "height":18.2121212121212,
                  "id":17,
-                 "name":"npc10",
+                 "name":"ezequiel",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":8.12121212121224,
-                 "x":816.515151515151,
-                 "y":104.636363636364
-                }, 
-                {
-                 "height":0.696969696969688,
-                 "id":18,
-                 "name":"npc11",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0.939393939393881,
-                 "x":896.121212121212,
-                 "y":105
+                 "width":21.787878787879,
+                 "x":227.181818181817,
+                 "y":72.9696969696973
                 }, 
                 {
                  "height":8.57575757575756,
@@ -316,6 +316,28 @@
                  "width":10.0303030303031,
                  "x":895.606060606061,
                  "y":183.484848484848
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":27,
+         "name":"computer",
+         "objects":[
+                {
+                 "height":0,
+                 "id":20,
+                 "name":"computer",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":903.666666666667,
+                 "y":110.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -408,19 +430,8 @@
                  "type":"",
                  "visible":true,
                  "width":31.4332346007375,
-                 "x":479.654066363684,
-                 "y":29.421705418319
-                }, 
-                {
-                 "height":8.05648560619761,
-                 "id":6,
-                 "name":"FrontDev",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":12.1406245963888,
-                 "x":734.6166098599,
-                 "y":182.527820611171
+                 "x":463.987399697017,
+                 "y":30.0883720849857
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -428,11 +439,11 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":27,
- "nextobjectid":20,
+ "nextlayerid":28,
+ "nextobjectid":24,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.2",
+ "tiledversion":"1.7.0",
  "tileheight":16,
  "tilesets":[
         {

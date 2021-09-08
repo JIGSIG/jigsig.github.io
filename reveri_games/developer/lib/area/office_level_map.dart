@@ -1,10 +1,14 @@
 import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:developer/Qu%C3%AAtes/Qu%C3%AAte-1.dart';
+import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/designer.dart';
+import 'package:developer/npc/dev-employees/dev-employee2.dart';
+import 'package:developer/npc/dev-employees/dev-employee3.dart';
+import 'package:developer/npc/dev-employees/dev-employee4.dart';
+import 'package:developer/npc/dev-employees/dev-employee6.dart';
 import 'package:developer/npc/front_end_dev.dart';
 import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -117,29 +121,29 @@ class _OfficeMapState extends State<OfficeMap> {
                           properties.position,
                           dialogFilename: 'client.json',
                         ),
-                    'npc6': (properties) => DesignerNPC(
+                    'sebastian': (properties) => DevEmployee4NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename: 'DEV_floor/Sebastian-Technicien.json',
                         ),
                     'npc7': (properties) => FrontEndDevNPC(
                           properties.position,
                           dialogFilename: 'client.json',
                         ),
-                    'npc8': (properties) => FrontEndDevNPC(
+                    'ezequiel': (properties) => DevEmployee1NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename: 'DEV_floor/Ezequiel Kpavo-DEV.json',
                         ),
                     'npc9': (properties) => FrontEndDevNPC(
                           properties.position,
                           dialogFilename: 'client.json',
                         ),
-                    'npc10': (properties) => FrontEndDevNPC(
+                    'magi': (properties) => DevEmploye2NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename: 'DEV_floor/Magi-DEV.json',
                         ),
-                    'npc11': (properties) => FrontEndDevNPC(
+                    'olufemi': (properties) => DevEmployee3NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename: 'DEV_floor/Olufemi Ore-DEV.json',
                         ),
                     'npc12': (properties) => FrontEndDevNPC(
                           properties.position,

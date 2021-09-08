@@ -1,10 +1,13 @@
 import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:developer/Qu%C3%AAtes/Qu%C3%AAte-1.dart';
+import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/front_end_dev.dart';
+import 'package:developer/npc/patio_employees/employee1.dart';
+import 'package:developer/npc/patio_employees/employee2.dart';
+import 'package:developer/npc/patio_employees/etienne.dart';
 import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -86,20 +89,18 @@ class _PatioMapState extends State<PatioMap> {
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
-                    'receptioniste': (properties) => ReceptionNPC(
+                    'chef2': (properties) => PatioEmployee2NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename: 'chef2.json',
                         ),
-                    'elevatorButton': (properties) => ElevatorButton(
+                    'chef1': (properties) => PatioEmployee1NPC(
                           properties.position,
+                          dialogFilename: 'chef1.json',
                         ),
-                    'BackDev': (properties) => BackEndDevNPC(
+                    'etienne': (properties) => PatioEmployee3NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
-                        ),
-                    'FrontDev': (properties) => FrontEndDevNPC(
-                          properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename:
+                              "Patio/Etienne(Quête-4)-Leader-d'équipe.json",
                         ),
                   },
                 ),

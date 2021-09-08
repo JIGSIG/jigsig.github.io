@@ -1,12 +1,17 @@
 import 'dart:async';
 
+import 'package:developer/area/administrative_level_map.dart';
+import 'package:developer/area/office_level_map.dart';
+import 'package:developer/area/patio_map.dart';
+import 'package:developer/area/reception_map.dart';
+import 'package:developer/game_interface/choiceGame.dart';
 import 'package:developer/manual_map/game_manual_map.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
-import 'Quêtes/Quête-1.dart';
+import 'Quests/Quest1.dart';
 
 double mapTileSize = 16;
 
@@ -29,7 +34,7 @@ late final PlatformType? platformType;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
-    home: PrinterStatus(),
+    home: ChoiceGame(),
   ));
 }
 
@@ -44,14 +49,11 @@ class DevApp extends StatelessWidget {
       ),
       home: Stack(
         children: [
-          /*
-                    ReceptionMap(
+          AdministrativeMap(
             platformType: new PlatformType(isIos: true),
-            initState: true,
           ),
 
-           */
-          RoboZZle(),
+          // RoboZZle(),
           Positioned(
             top: 25,
             right: 25,

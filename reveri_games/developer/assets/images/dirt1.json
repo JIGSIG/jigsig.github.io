@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"dirt1.png",
+ "imageheight":129,
+ "imagewidth":129,
+ "margin":0,
+ "name":"dirt1",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.7.0",
+ "tileheight":129,
+ "tilewidth":129,
+ "type":"tileset",
+ "version":"1.6"
+}
