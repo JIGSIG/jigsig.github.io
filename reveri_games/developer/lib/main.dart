@@ -49,7 +49,7 @@ class DevApp extends StatelessWidget {
       ),
       home: Stack(
         children: [
-          AdministrativeMap(
+          ReceptionMap(
             platformType: new PlatformType(isIos: true),
           ),
 

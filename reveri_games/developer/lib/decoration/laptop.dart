@@ -3,13 +3,14 @@ import 'package:developer/area/administrative_level_map.dart';
 import 'package:developer/area/office_level_map.dart';
 import 'package:developer/area/patio_map.dart';
 import 'package:developer/area/reception_map.dart';
+import 'package:developer/game_interface/laptop_screen.dart';
 import 'package:developer/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../util/common_sprite_sheet.dart';
 
-class ElevatorButton extends GameDecoration {
+class LapTop extends GameDecoration {
   bool _observedPlayer = false;
 
   late TextPaint _textConfig;
@@ -17,7 +18,7 @@ class ElevatorButton extends GameDecoration {
   final List<String> choices = ['Etage 1', 'Etage 2', 'Etage 3', 'Etage 4'];
   String? choice;
 
-  ElevatorButton(Vector2 position)
+  LapTop(Vector2 position)
       : super.withAnimation(
           CommonSpriteSheet.elevatorButtonAnimated,
           width: mapTileSize * 0.6,
@@ -140,49 +141,17 @@ class ElevatorButton extends GameDecoration {
           onTap: () {
             choice = 'Etage ${index + 1}';
             switch (choice) {
-              case 'Etage 1':
+              case 'Lancez votre session':
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => ReceptionMap(
-                      platformType: new PlatformType(isIos: true),
-                    ),
+                    builder: (BuildContext context) => LapTopScreen(),
                   ),
                 );
                 break;
-              case 'Etage 2':
+              case 'Eteindre':
                 Navigator.of(context).pop();
-                Navigator.pushReplacement<void, void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => AdministrativeMap(
-                      platformType: new PlatformType(isIos: true),
-                    ),
-                  ),
-                );
-                break;
-              case 'Etage 3':
-                Navigator.of(context).pop();
-                Navigator.pushReplacement<void, void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => PatioMap(
-                      platformType: new PlatformType(isIos: true),
-                    ),
-                  ),
-                );
-                break;
-              case 'Etage 4':
-                Navigator.of(context).pop();
-                Navigator.pushReplacement<void, void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => OfficeMap(
-                      platformType: new PlatformType(isIos: true),
-                    ),
-                  ),
-                );
                 break;
             }
           },
