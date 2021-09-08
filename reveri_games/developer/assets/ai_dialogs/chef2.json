@@ -1,0 +1,31 @@
+{
+    "title": "Untitled Story",
+    "data": {
+        "stitches": {
+            "jaiApprisQueTuTa": {
+                "content": [
+                    "Il y a une sombre histoire d'indigestion. Mais cela ne concerne que le plat du Mardi...",
+                    {
+                        "option": "(Il vaut mieux éviter la cafétéria).",
+                        "linkPath": null,
+                        "ifConditions": null,
+                        "notIfConditions": null
+                    },
+                    {
+                        "pageNum": 1
+                    }
+                ]
+            }
+        },
+        "initial": "jaiApprisQueTuTa",
+        "optionMirroring": true,
+        "allowCheckpoints": false,
+        "editorData": {
+            "playPoint": "blankStitch",
+            "libraryVisible": false,
+            "authorName": "Anonymous",
+            "textSize": 0
+        }
+    },
+    "url_key": 72384
+}

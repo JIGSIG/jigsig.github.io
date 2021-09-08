@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/tiled/tiled_world_map.dart';
 import 'package:bonfire/widgets/bonfire_tiled_widget.dart';
-import 'package:developer/Qu%C3%AAtes/Qu%C3%AAte-1.dart';
+import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/front_end_dev.dart';

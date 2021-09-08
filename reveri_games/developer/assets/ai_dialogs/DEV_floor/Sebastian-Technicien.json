@@ -69,7 +69,7 @@
             },
             "LesVoilBonTuDevr": {
                 "content": [
-                    ": Les voilà. Bon, tu devrais peut-être faire un petit checkup de ta machine. Je m’en suis occupé mais tu as sûrement tes configs persos. Ton poste est le troisième dans la première rangée.",
+                    "Les voilà. Bon, tu devrais peut-être faire un petit checkup de ta machine. Je m’en suis occupé mais tu as sûrement tes configs persos. Ton poste est le secteur à droite. Il doit être le seul vide, tu devrais pouvoir t'en sortir.",
                     {
                         "option": "Merci",
                         "linkPath": null,

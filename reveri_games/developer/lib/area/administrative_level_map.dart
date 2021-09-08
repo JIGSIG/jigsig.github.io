@@ -1,8 +1,15 @@
 import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:developer/Qu%C3%AAtes/Qu%C3%AAte-1.dart';
+import 'package:bonfire/isometric/isometric_world_map.dart';
+import 'package:bonfire/widgets/bonfire_isometric_widget.dart';
+import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
+import 'package:developer/npc/admin-employees/employee1.dart';
+import 'package:developer/npc/admin-employees/employee2.dart';
+import 'package:developer/npc/admin-employees/employee3.dart';
+import 'package:developer/npc/admin-employees/ThomasAndre.dart';
+import 'package:developer/npc/admin-employees/employee5.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/front_end_dev.dart';
 import 'package:developer/utils.dart';
@@ -32,12 +39,11 @@ class AdministrativeMap extends StatefulWidget {
 class _AdministrativeMapState extends State<AdministrativeMap> {
   late final Vector2 playerSpawn;
   bool loading = true;
-  bool quest1 = false;
   final String map = "maps/administrative_area/admin.json";
+  final String map2 = "sample.json";
 
   @override
   void initState() {
-    checkQuestAvailable();
     findPlayerLocation(map: "assets/images/$map").then((value) {
       playerSpawn = value;
       loading = false;
@@ -86,18 +92,24 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
-                    'receptioniste': (properties) => ReceptionNPC(
+                    'employee-1': (properties) => AdminEmployee1NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename:
+                              'Office_floor/Drakkarmin-employéeBTM.json',
                         ),
-                    'elevatorButton': (properties) => ElevatorButton(
+                    'employee-2': (properties) => AdminEmployee2NPC(
                           properties.position,
+                          dialogFilename: 'Office_floor/Hervé-employéeBTM.json',
                         ),
-                    'BackDev': (properties) => BackEndDevNPC(
+                    'employee-3': (properties) => AdminEmployee3NPC(
                           properties.position,
-                          dialogFilename: 'client.json',
+                          dialogFilename: 'Office_floor/Joy-AssistantDRH.json',
                         ),
-                    'FrontDev': (properties) => FrontEndDevNPC(
+                    'employee-4': (properties) => AdminEmployee4NPC(
+                          properties.position,
+                          dialogFilename: 'Office_floor/ThomasAndré-DRH.json',
+                        ),
+                    'employee-5': (properties) => AdminEmployee5NPC(
                           properties.position,
                           dialogFilename: 'client.json',
                         ),
@@ -106,6 +118,32 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
                 background: BackgroundColorGame(Colors.black),
                 lightingColorGame: Colors.black.withOpacity(0.1),
               ),
+              // BonfireIsometricWidget(
+              //   joystick: Joystick(
+              //     keyboardEnable: true,
+              //     directional: JoystickDirectional(
+              //       spriteBackgroundDirectional: Sprite.load(
+              //         'joystick_background.png',
+              //       ),
+              //       spriteKnobDirectional: Sprite.load('joystick_knob.png'),
+              //       size: 100,
+              //       isFixed: true,
+              //     ),
+              //     actions: [
+              //       JoystickAction(
+              //         actionId: PlayerActionType.Interaction,
+              //         sprite: Sprite.load('A1.png'),
+              //         align: JoystickActionAlign.BOTTOM_RIGHT,
+              //         size: 70,
+              //         margin: EdgeInsets.only(bottom: 60, right: 100),
+              //       ),
+              //     ],
+              //   ),
+              //   map: IsometricWorldMap(
+              //     map2,
+              //     forceTileSize: Size(mapTileSize, mapTileSize),
+              //   ),
+              // ),
               if (MediaQuery.of(context).orientation == Orientation.portrait)
                 Opacity(
                   opacity: .75,
@@ -130,7 +168,7 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
                     )),
                   ),
                 ),
-              if (quest1 == true) questWidget(context, 1),
+              // if (quest1 == true) questWidget(context, 1),
             ],
           );
         },
@@ -140,14 +178,5 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
         child: CircularProgressIndicator(),
       ),
     );
-  }
-
-  void checkQuestAvailable() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (prefs.getBool('_quest1_available') == true) {
-      setState(() {
-        quest1 = true;
-      });
-    }
   }
 }
