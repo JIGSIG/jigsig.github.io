@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
+import 'package:developer/decoration/laptop.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/designer.dart';
 import 'package:developer/npc/dev-employees/dev-employee2.dart';
@@ -91,6 +92,9 @@ class _OfficeMapState extends State<OfficeMap> {
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
                     'elevatorButton': (properties) => ElevatorButton(
+                          properties.position,
+                        ),
+                    'computer': (properties) => Computer(
                           properties.position,
                         ),
                     'BackDev': (properties) => BackEndDevNPC(

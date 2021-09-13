@@ -6,7 +6,7 @@
  "name":"Interiors_16x16",
  "spacing":0,
  "tilecount":14512,
- "tiledversion":"1.7.2",
+ "tiledversion":"1.7.0",
  "tileheight":16,
  "tiles":[
         {
@@ -429,6 +429,7 @@
          "objectgroup":
             {
              "draworder":"index",
+             "id":2,
              "name":"",
              "objects":[
                     {
@@ -448,7 +449,7 @@
                      "name":"",
                      "rotation":0,
                      "type":"",
-                     "visible":true,
+                     "visible":false,
                      "width":10.1884,
                      "x":2.9704090146663,
                      "y":15.3717578810916
@@ -470,6 +471,7 @@
          "objectgroup":
             {
              "draworder":"index",
+             "id":2,
              "name":"",
              "objects":[
                     {
@@ -489,7 +491,7 @@
                      "name":"",
                      "rotation":0,
                      "type":"",
-                     "visible":true,
+                     "visible":false,
                      "width":10.1884,
                      "x":3.02981679337232,
                      "y":15.3717578810916
@@ -511,6 +513,7 @@
          "objectgroup":
             {
              "draworder":"index",
+             "id":2,
              "name":"",
              "objects":[
                     {
@@ -530,7 +533,7 @@
                      "name":"",
                      "rotation":0,
                      "type":"",
-                     "visible":true,
+                     "visible":false,
                      "width":10.1884,
                      "x":2.9704090146663,
                      "y":15.3717578810916

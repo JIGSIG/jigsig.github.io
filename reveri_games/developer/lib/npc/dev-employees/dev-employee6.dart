@@ -1,6 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/main.dart';
 import 'package:developer/npc/inkle_reader.dart';
+import 'package:developer/util/dev-employee_sprite_sheet/dev-employee5-sprite-sheet.dart';
 import 'package:developer/util/patio-employee_sprite_sheet/patio-employee1-sprite-sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class DevEmployee1NPC extends SimpleNPC with ObjectCollision {
 
   DevEmployee1NPC(Vector2 position, {this.dialogFilename})
       : super(
-          animation: PatioEmployee1SpriteSheet.simpleDirectionAnimation,
+          animation: DevEmployee5SpriteSheet.simpleDirectionAnimation,
           position: position,
           width: mapTileSize * 1.3,
           height: mapTileSize * 1.3,

@@ -75,6 +75,7 @@ flutter:
     - assets/images/tile/
     - assets/images/intro/
     - assets/images/maps/
+    - assets/images/laptop-icons/
     - assets/images/maps/reception/
     - assets/images/maps/office/
     - assets/images/maps/administrative_area/

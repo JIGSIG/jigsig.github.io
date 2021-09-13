@@ -49,7 +49,7 @@ class DevApp extends StatelessWidget {
       ),
       home: Stack(
         children: [
-          AdministrativeMap(
+          OfficeMap(
             platformType: new PlatformType(isIos: true),
           ),
 

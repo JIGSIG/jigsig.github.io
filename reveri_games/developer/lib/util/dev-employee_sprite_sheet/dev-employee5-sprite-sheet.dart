@@ -2,7 +2,7 @@ import 'package:bonfire/bonfire.dart';
 
 class DevEmployee5SpriteSheet {
   static Future<SpriteAnimation> get idleUp => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -12,7 +12,7 @@ class DevEmployee5SpriteSheet {
       );
 
   static Future<SpriteAnimation> get runUp => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -22,7 +22,7 @@ class DevEmployee5SpriteSheet {
       );
 
   static Future<SpriteAnimation> get idleDown => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -32,7 +32,7 @@ class DevEmployee5SpriteSheet {
       );
 
   static Future<SpriteAnimation> get runDown => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -42,7 +42,7 @@ class DevEmployee5SpriteSheet {
       );
 
   static Future<SpriteAnimation> get idleLeft => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -52,7 +52,7 @@ class DevEmployee5SpriteSheet {
       );
 
   static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -62,7 +62,7 @@ class DevEmployee5SpriteSheet {
       );
 
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -72,7 +72,7 @@ class DevEmployee5SpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "characters/dev_map/Kid_Mitty_16x16.png",
+        "characters/dev_map/Fishmonger_1_16x16.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
