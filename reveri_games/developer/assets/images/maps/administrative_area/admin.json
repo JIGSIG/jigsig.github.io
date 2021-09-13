@@ -230,15 +230,15 @@
          "name":"GameDecoration",
          "objects":[
                 {
-                 "height":8.375,
+                 "height":9.125,
                  "id":1,
                  "name":"elevatorButton",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":6,
-                 "x":69,
-                 "y":224.375
+                 "width":6.75,
+                 "x":66.5,
+                 "y":223.375
                 }, 
                 {
                  "ellipse":true,

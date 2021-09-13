@@ -1,8 +1,5 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/area/administrative_level_map.dart';
-import 'package:developer/area/office_level_map.dart';
-import 'package:developer/area/patio_map.dart';
-import 'package:developer/area/reception_map.dart';
 import 'package:developer/game_interface/laptop_screen.dart';
 import 'package:developer/main.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,15 +7,18 @@ import 'package:flutter/material.dart';
 
 import '../util/common_sprite_sheet.dart';
 
-class LapTop extends GameDecoration {
+class Computer extends GameDecoration {
   bool _observedPlayer = false;
 
   late TextPaint _textConfig;
 
-  final List<String> choices = ['Etage 1', 'Etage 2', 'Etage 3', 'Etage 4'];
+  final List<String> choices = [
+    'Lancez Votre Session',
+    'Mettre en Veille Votre Session'
+  ];
   String? choice;
 
-  LapTop(Vector2 position)
+  Computer(Vector2 position)
       : super.withAnimation(
           CommonSpriteSheet.elevatorButtonAnimated,
           width: mapTileSize * 0.6,
@@ -71,7 +71,7 @@ class LapTop extends GameDecoration {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text(
-            'Ascenseur',
+            '',
             style: TextStyle(
               color: Colors.white,
               fontSize: 20,
@@ -110,7 +110,7 @@ class LapTop extends GameDecoration {
         animation: CommonSpriteSheet.emoteButtonA,
         target: this,
         positionFromTarget:
-            Rect.fromLTWH(18, -6, mapTileSize, mapTileSize).toVector2Rect(),
+            Rect.fromLTWH(18, -5, mapTileSize, mapTileSize).toVector2Rect(),
       ),
     );
   }
@@ -139,21 +139,31 @@ class LapTop extends GameDecoration {
           ),
           selectedTileColor: Colors.white,
           onTap: () {
-            choice = 'Etage ${index + 1}';
-            switch (choice) {
-              case 'Lancez votre session':
-                Navigator.of(context).pop();
-                Navigator.pushReplacement<void, void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => LapTopScreen(),
-                  ),
-                );
-                break;
-              case 'Eteindre':
-                Navigator.of(context).pop();
-                break;
+            if (choices.elementAt(index) == "Lancez Votre Session") {
+              Navigator.of(context).pop();
+              Navigator.pushReplacement<void, void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => LapTopScreen(),
+                ),
+              );
+            } else {
+              Navigator.of(context).pop();
             }
+            // switch (choice) {
+            //   case 'Lancez votre session':
+            //     Navigator.of(context).pop();
+            //     Navigator.pushReplacement<void, void>(
+            //       context,
+            //       MaterialPageRoute<void>(
+            //         builder: (BuildContext context) => LapTopScreen(),
+            //       ),
+            //     );
+            //     break;
+            //   case 'Eteindre':
+            //     Navigator.of(context).pop();
+            //     break;
+            // }
           },
         ),
       ),

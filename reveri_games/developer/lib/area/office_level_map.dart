@@ -94,7 +94,7 @@ class _OfficeMapState extends State<OfficeMap> {
                     'elevatorButton': (properties) => ElevatorButton(
                           properties.position,
                         ),
-                    'computer': (properties) => LapTop(
+                    'computer': (properties) => Computer(
                           properties.position,
                         ),
                     'BackDev': (properties) => BackEndDevNPC(
