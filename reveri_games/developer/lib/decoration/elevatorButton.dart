@@ -143,7 +143,7 @@ class ElevatorButton extends GameDecoration {
           ),
           selectedTileColor: Colors.white,
           onTap: () {
-            choice = 'Etage ${index + 1}';
+            choice = choices.elementAt(index);
             switch (choice) {
               case 'Reception':
                 Navigator.of(context).pop();

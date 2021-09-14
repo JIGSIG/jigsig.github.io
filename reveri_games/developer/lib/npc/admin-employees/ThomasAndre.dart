@@ -102,7 +102,8 @@ class AdminEmployee4NPC extends SimpleNPC with ObjectCollision {
     print("endInteractionWithPlayer");
     preferences.setString("playPoint-assets/ai_dialogs/$dialogFilename",
         _inkleReader.dialogTree.playPoint!);
-    if (discussionDone == true && preferences.getInt('QuestIndex')! == 1)
+    print("discussionDone: $discussionDone");
+    if (discussionDone == true && (preferences.getInt('QuestIndex') ?? 1) == 1)
       preferences.setInt('QuestIndex', 2);
   }
 
