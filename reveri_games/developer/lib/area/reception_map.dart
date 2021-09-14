@@ -5,6 +5,7 @@ import 'package:bonfire/tiled/tiled_world_map.dart';
 import 'package:bonfire/widgets/bonfire_tiled_widget.dart';
 import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
+import 'package:developer/interface/joueur_quest_interface.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/front_end_dev.dart';
 import 'package:developer/utils.dart';
@@ -39,13 +40,16 @@ class _ReceptionMapState extends State<ReceptionMap> {
 
   @override
   void initState() {
-    checkQuestAvailable();
-    findPlayerLocation(map: "assets/images/$map", isElevator: !widget.initState)
-        .then((value) {
-      playerSpawn = value;
-      loading = false;
-      setState(() {});
-    });
+    if (mounted)
+      findPlayerLocation(
+              map: "assets/images/$map",
+              context: context,
+              isElevator: !widget.initState)
+          .then((value) {
+        playerSpawn = value;
+        loading = false;
+        setState(() {});
+      });
     if (!kIsWeb) {
       Flame.device.setLandscape();
       Flame.device.fullScreen();
@@ -54,12 +58,17 @@ class _ReceptionMapState extends State<ReceptionMap> {
   }
 
   @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return LayoutBuilder(
       builder: (context, constraints) {
-        mapTileSize = max(constraints.maxHeight, constraints.maxWidth) /
-            (kIsWeb ? 35 : 22);
+        mapTileSize = max(constraints.maxHeight, constraints.maxWidth) / 22;
         if (loading == false)
           return Stack(
             children: [
@@ -85,6 +94,7 @@ class _ReceptionMapState extends State<ReceptionMap> {
                   ],
                 ),
                 player: Joueur(playerSpawn),
+                interface: JoueurQuestInterface(),
                 map: TiledWorldMap(
                   'maps/reception/reception.json',
                   forceTileSize: Size(mapTileSize, mapTileSize),

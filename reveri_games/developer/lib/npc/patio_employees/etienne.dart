@@ -1,14 +1,12 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/main.dart';
 import 'package:developer/npc/inkle_reader.dart';
-import 'package:developer/util/patio-employee_sprite_sheet/patio-employee1-sprite-sheet.dart';
 import 'package:developer/util/patio-employee_sprite_sheet/patio-employee3-sprite-sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../util/admin-employees_sprite_sheet/admin-employee5-sprite-sheet.dart';
 import '../../util/common_sprite_sheet.dart';
 
 class PatioEmployee3NPC extends SimpleNPC with ObjectCollision {
@@ -114,6 +112,10 @@ class PatioEmployee3NPC extends SimpleNPC with ObjectCollision {
     print("endInteractionWithPlayer");
     preferences.setString("playPoint-assets/ai_dialogs/$dialogFilename",
         _inkleReader.dialogTree.playPoint!);
+    if (discussionDone == true && preferences.getInt('QuestIndex')! == 4)
+      preferences.setInt('QuestIndex', 5);
+    if (discussionDone == true && preferences.getInt('QuestIndex')! == 6)
+      preferences.setInt('QuestIndex', 7);
   }
 
   void EthienneAsKey() async {

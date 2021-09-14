@@ -2,13 +2,11 @@ import 'package:bonfire/bonfire.dart';
 import 'package:developer/main.dart';
 import 'package:developer/npc/inkle_reader.dart';
 import 'package:developer/util/dev-employee_sprite_sheet/dev-employee4-sprite-sheet.dart';
-import 'package:developer/util/patio-employee_sprite_sheet/patio-employee1-sprite-sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../util/admin-employees_sprite_sheet/admin-employee5-sprite-sheet.dart';
 import '../../util/common_sprite_sheet.dart';
 
 class DevEmployee4NPC extends SimpleNPC with ObjectCollision {
@@ -114,6 +112,8 @@ class DevEmployee4NPC extends SimpleNPC with ObjectCollision {
     print("endInteractionWithPlayer");
     preferences.setString("playPoint-assets/ai_dialogs/$dialogFilename",
         _inkleReader.dialogTree.playPoint!);
+    if (discussionDone == true && preferences.getInt('QuestIndex')! == 2)
+      preferences.setInt('QuestIndex', 3);
   }
 
   void showEmote() {

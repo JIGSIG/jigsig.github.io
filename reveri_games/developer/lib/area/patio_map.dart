@@ -3,8 +3,7 @@ import 'dart:math';
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
-import 'package:developer/npc/back_end_dev.dart';
-import 'package:developer/npc/front_end_dev.dart';
+import 'package:developer/interface/joueur_quest_interface.dart';
 import 'package:developer/npc/patio_employees/employee1.dart';
 import 'package:developer/npc/patio_employees/employee2.dart';
 import 'package:developer/npc/patio_employees/etienne.dart';
@@ -15,7 +14,6 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
-import '../npc/client.dart';
 import '../player/joueur.dart';
 
 class PatioMap extends StatefulWidget {
@@ -41,7 +39,8 @@ class _PatioMapState extends State<PatioMap> {
   @override
   void initState() {
     checkQuestAvailable();
-    findPlayerLocation(map: "assets/images/$map").then((value) {
+    findPlayerLocation(map: "assets/images/$map", context: context)
+        .then((value) {
       playerSpawn = value;
       loading = false;
       setState(() {});
@@ -59,8 +58,7 @@ class _PatioMapState extends State<PatioMap> {
     if (loading == false)
       return LayoutBuilder(
         builder: (context, constraints) {
-          mapTileSize = max(constraints.maxHeight, constraints.maxWidth) /
-              (kIsWeb ? 35 : 22);
+          mapTileSize = max(constraints.maxHeight, constraints.maxWidth) / 22;
           return Stack(
             children: [
               BonfireTiledWidget(
@@ -85,10 +83,14 @@ class _PatioMapState extends State<PatioMap> {
                   ],
                 ),
                 player: Joueur(playerSpawn),
+                interface: JoueurQuestInterface(),
                 map: TiledWorldMap(
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
+                    'elevatorButton': (properties) => ElevatorButton(
+                          properties.position,
+                        ),
                     'chef2': (properties) => PatioEmployee2NPC(
                           properties.position,
                           dialogFilename: 'chef2.json',

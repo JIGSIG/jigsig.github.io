@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../util/common_sprite_sheet.dart';
 
 class AdminEmployee1NPC extends SimpleNPC with ObjectCollision {
@@ -108,7 +109,7 @@ class AdminEmployee1NPC extends SimpleNPC with ObjectCollision {
     this.endInteraction(id: this);
     gameRef.camera.moveToPlayerAnimated();
     isInteracting = false;
-    print("endInteractionWithPlayer");
+    print("endInteractionWithPlayer 1");
     preferences.setString("playPoint-assets/ai_dialogs/$dialogFilename",
         _inkleReader.dialogTree.playPoint!);
   }

@@ -14,7 +14,12 @@ class ElevatorButton extends GameDecoration {
 
   late TextPaint _textConfig;
 
-  final List<String> choices = ['Etage 1', 'Etage 2', 'Etage 3', 'Etage 4'];
+  final List<String> choices = [
+    'Reception',
+    'Bureaux administratifs',
+    'Patio',
+    'Espace Developpeurs'
+  ];
   String? choice;
 
   ElevatorButton(Vector2 position)
@@ -140,46 +145,54 @@ class ElevatorButton extends GameDecoration {
           onTap: () {
             choice = 'Etage ${index + 1}';
             switch (choice) {
-              case 'Etage 1':
+              case 'Reception':
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => ReceptionMap(
-                      platformType: new PlatformType(isIos: true),
+                    builder: (BuildContext context) => CurrentMapWithInterface(
+                      gameMap: ReceptionMap(
+                        platformType: new PlatformType(isIos: true),
+                      ),
                     ),
                   ),
                 );
                 break;
-              case 'Etage 2':
+              case 'Bureaux administratifs':
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => AdministrativeMap(
-                      platformType: new PlatformType(isIos: true),
+                      builder: (BuildContext context) =>
+                          CurrentMapWithInterface(
+                            gameMap: AdministrativeMap(
+                              platformType: new PlatformType(isIos: true),
+                            ),
+                          )),
+                );
+                break;
+              case 'Patio':
+                Navigator.of(context).pop();
+                Navigator.pushReplacement<void, void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => CurrentMapWithInterface(
+                      gameMap: PatioMap(
+                        platformType: new PlatformType(isIos: true),
+                      ),
                     ),
                   ),
                 );
                 break;
-              case 'Etage 3':
+              case 'Espace Developpeurs':
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => PatioMap(
-                      platformType: new PlatformType(isIos: true),
-                    ),
-                  ),
-                );
-                break;
-              case 'Etage 4':
-                Navigator.of(context).pop();
-                Navigator.pushReplacement<void, void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => OfficeMap(
-                      platformType: new PlatformType(isIos: true),
+                    builder: (BuildContext context) => CurrentMapWithInterface(
+                      gameMap: OfficeMap(
+                        platformType: new PlatformType(isIos: true),
+                      ),
                     ),
                   ),
                 );

@@ -33,7 +33,7 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
   bool execAttackRange = false;
   bool isInteracting = false;
 
-  Joueur(Vector2 position, {Direction? direction})
+  Joueur(Vector2 position, {Size? collisionSize, Direction? direction})
       : super(
           animation: PlayerSpriteSheet.simpleDirectionAnimation,
           width: mapTileSize * 1.1,
@@ -41,7 +41,7 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
           position: position,
           initDirection: direction ?? Direction.up,
           life: 200,
-          speed: mapTileSize * 3,
+          speed: mapTileSize * 5,
         ) {
     setupLighting(
       LightingConfig(
@@ -58,10 +58,11 @@ class Joueur extends SimplePlayer with Lighting, ObjectCollision {
       CollisionConfig(
         collisions: [
           CollisionArea.rectangle(
-            size: Size(
-              mapTileSize / 2,
-              mapTileSize - 1,
-            ),
+            size: collisionSize ??
+                Size(
+                  mapTileSize / 2,
+                  mapTileSize - 1,
+                ),
             align: Vector2(
               mapTileSize / 3.5,
               mapTileSize * .8,

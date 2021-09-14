@@ -4,6 +4,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/decoration/laptop.dart';
+import 'package:developer/interface/joueur_quest_interface.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/designer.dart';
 import 'package:developer/npc/dev-employees/dev-employee2.dart';
@@ -43,7 +44,8 @@ class _OfficeMapState extends State<OfficeMap> {
   @override
   void initState() {
     checkQuestAvailable();
-    findPlayerLocation(map: "assets/images/$map").then((value) {
+    findPlayerLocation(map: "assets/images/$map", context: context)
+        .then((value) {
       playerSpawn = value;
       loading = false;
       setState(() {});
@@ -61,8 +63,7 @@ class _OfficeMapState extends State<OfficeMap> {
     if (loading == false)
       return LayoutBuilder(
         builder: (context, constraints) {
-          mapTileSize = max(constraints.maxHeight, constraints.maxWidth) /
-              (kIsWeb ? 35 : 22);
+          mapTileSize = max(constraints.maxHeight, constraints.maxWidth) / 22;
           return Stack(
             children: [
               BonfireTiledWidget(
@@ -87,6 +88,7 @@ class _OfficeMapState extends State<OfficeMap> {
                   ],
                 ),
                 player: Joueur(playerSpawn),
+                interface: JoueurQuestInterface(),
                 map: TiledWorldMap(
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),

@@ -1,9 +1,8 @@
-import 'package:developer/Quests/Quest1.dart';
-import 'package:developer/intro/storyline_intro.dart';
-import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
+
+import '../main.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -19,7 +18,7 @@ class SplashState extends State<Splash> {
       return ReverieIntro();
     } else {
       await prefs.setBool('seen', true);
-      return QuestPage1();
+      return DevApp();
     }
   }
 
@@ -33,7 +32,7 @@ class SplashState extends State<Splash> {
               child: CircularProgressIndicator(),
             );
           } else {
-            return _seen ? QuestPage1() : ReverieIntro();
+            return _seen ? DevApp() : ReverieIntro();
           }
         });
   }
@@ -53,7 +52,8 @@ class ReverieIntro extends StatelessWidget {
       backgroundColor: Colors.black,
       pageRouteTransition: PageRouteTransition.SlideTransition,
     );
-    return MaterialApp(title: '', home: reverie);
+    return MaterialApp(
+        debugShowCheckedModeBanner: false, title: '', home: reverie);
   }
 }
 
@@ -61,13 +61,14 @@ class EpitechIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget epitech = SplashScreenView(
-      navigateRoute: QuestPage1(),
+      navigateRoute: DevApp(),
       duration: 5000,
       imageSize: 230,
       imageSrc: "assets/images/intro/logo-epitech.png",
       backgroundColor: Colors.white,
       pageRouteTransition: PageRouteTransition.CupertinoPageRoute,
     );
-    return MaterialApp(title: '', home: epitech);
+    return MaterialApp(
+        debugShowCheckedModeBanner: false, title: '', home: epitech);
   }
 }

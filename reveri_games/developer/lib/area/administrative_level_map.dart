@@ -1,25 +1,19 @@
 import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:bonfire/isometric/isometric_world_map.dart';
-import 'package:bonfire/widgets/bonfire_isometric_widget.dart';
-import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
+import 'package:developer/interface/joueur_quest_interface.dart';
+import 'package:developer/npc/admin-employees/ThomasAndre.dart';
 import 'package:developer/npc/admin-employees/employee1.dart';
 import 'package:developer/npc/admin-employees/employee2.dart';
 import 'package:developer/npc/admin-employees/employee3.dart';
-import 'package:developer/npc/admin-employees/ThomasAndre.dart';
 import 'package:developer/npc/admin-employees/employee5.dart';
-import 'package:developer/npc/back_end_dev.dart';
-import 'package:developer/npc/front_end_dev.dart';
 import 'package:developer/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
-import '../npc/client.dart';
 import '../player/joueur.dart';
 
 class AdministrativeMap extends StatefulWidget {
@@ -44,7 +38,8 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
 
   @override
   void initState() {
-    findPlayerLocation(map: "assets/images/$map").then((value) {
+    findPlayerLocation(map: "assets/images/$map", context: context)
+        .then((value) {
       playerSpawn = value;
       loading = false;
       setState(() {});
@@ -62,8 +57,7 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
     if (loading == false)
       return LayoutBuilder(
         builder: (context, constraints) {
-          mapTileSize = max(constraints.maxHeight, constraints.maxWidth) /
-              (kIsWeb ? 35 : 22);
+          mapTileSize = max(constraints.maxHeight, constraints.maxWidth) / 22;
           return Stack(
             children: [
               BonfireTiledWidget(
@@ -87,11 +81,22 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
                     ),
                   ],
                 ),
-                player: Joueur(playerSpawn),
+                player: Joueur(
+                  playerSpawn,
+                  collisionSize: Size(
+                    mapTileSize / 2,
+                    mapTileSize - 7.5,
+                  ),
+                ),
+                interface: JoueurQuestInterface(),
+                //showCollisionArea: true,
                 map: TiledWorldMap(
                   map,
                   forceTileSize: Size(mapTileSize, mapTileSize),
                   objectsBuilder: {
+                    'elevatorButton': (properties) => ElevatorButton(
+                          properties.position,
+                        ),
                     'employee-1': (properties) => AdminEmployee1NPC(
                           properties.position,
                           dialogFilename:
@@ -116,34 +121,8 @@ class _AdministrativeMapState extends State<AdministrativeMap> {
                   },
                 ),
                 background: BackgroundColorGame(Colors.black),
-                lightingColorGame: Colors.black.withOpacity(0.1),
+                //lightingColorGame: Colors.black.withOpacity(0.1),
               ),
-              // BonfireIsometricWidget(
-              //   joystick: Joystick(
-              //     keyboardEnable: true,
-              //     directional: JoystickDirectional(
-              //       spriteBackgroundDirectional: Sprite.load(
-              //         'joystick_background.png',
-              //       ),
-              //       spriteKnobDirectional: Sprite.load('joystick_knob.png'),
-              //       size: 100,
-              //       isFixed: true,
-              //     ),
-              //     actions: [
-              //       JoystickAction(
-              //         actionId: PlayerActionType.Interaction,
-              //         sprite: Sprite.load('A1.png'),
-              //         align: JoystickActionAlign.BOTTOM_RIGHT,
-              //         size: 70,
-              //         margin: EdgeInsets.only(bottom: 60, right: 100),
-              //       ),
-              //     ],
-              //   ),
-              //   map: IsometricWorldMap(
-              //     map2,
-              //     forceTileSize: Size(mapTileSize, mapTileSize),
-              //   ),
-              // ),
               if (MediaQuery.of(context).orientation == Orientation.portrait)
                 Opacity(
                   opacity: .75,
