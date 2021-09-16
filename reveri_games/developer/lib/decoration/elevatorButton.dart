@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:bonfire/bonfire.dart';
+import 'package:developer/Sound/sound.dart';
 import 'package:developer/area/administrative_level_map.dart';
 import 'package:developer/area/office_level_map.dart';
 import 'package:developer/area/patio_map.dart';
@@ -146,6 +149,8 @@ class ElevatorButton extends GameDecoration {
             choice = choices.elementAt(index);
             switch (choice) {
               case 'Reception':
+                SoundGlobal().elevator();
+                Future.delayed(const Duration(seconds: 1));
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,
@@ -159,6 +164,8 @@ class ElevatorButton extends GameDecoration {
                 );
                 break;
               case 'Bureaux administratifs':
+                SoundGlobal().elevator();
+                Future.delayed(const Duration(seconds: 1));
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,
@@ -172,6 +179,8 @@ class ElevatorButton extends GameDecoration {
                 );
                 break;
               case 'Patio':
+                SoundGlobal().elevator();
+                Future.delayed(const Duration(seconds: 1));
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,
@@ -185,6 +194,8 @@ class ElevatorButton extends GameDecoration {
                 );
                 break;
               case 'Espace Developpeurs':
+                SoundGlobal().elevator();
+                Future.delayed(const Duration(seconds: 1));
                 Navigator.of(context).pop();
                 Navigator.pushReplacement<void, void>(
                   context,

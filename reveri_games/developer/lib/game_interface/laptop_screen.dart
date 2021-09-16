@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:developer/area/office_level_map.dart';
 import 'package:developer/game_interface/binary10001.dart';
+import 'package:developer/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bmprogresshud/bmprogresshud.dart';
@@ -19,10 +21,38 @@ class AcessState extends State<AccessGranted> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _seen = (prefs.getBool('granted') ?? false);
     if (_seen) {
-      return AccessScreen();
+      return showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+          contentPadding: EdgeInsets.zero,
+          content: Builder(
+            builder: (context) {
+              return Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: AccessScreen(context),
+              );
+            },
+          ),
+        ),
+      );
     } else {
       await prefs.setBool('granted', true);
-      return LapTopScreen();
+      return showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+          contentPadding: EdgeInsets.zero,
+          content: Builder(
+            builder: (context) {
+              return Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: LaptopScreen(context),
+              );
+            },
+          ),
+        ),
+      );
     }
   }
 
@@ -36,122 +66,122 @@ class AcessState extends State<AccessGranted> {
               child: CircularProgressIndicator(),
             );
           } else {
-            return _seen ? LapTopScreen() : AccessScreen();
+            return _seen ? AccessScreen(context) : LaptopScreen(context);
           }
         });
   }
 }
 
-class LapTopScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+Widget LaptopScreen(BuildContext context) {
+  return Scaffold(
 //      backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/laptop-icons/wolf.jpg"),
-              fit: BoxFit.cover,
-            ),
+    body: SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/laptop-icons/wolf.jpg"),
+            fit: BoxFit.cover,
           ),
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 6,
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    right:
-                        MediaQuery.of(context).size.width > 800 ? 1300 : 500),
-                child: Container(
-                  width: MediaQuery.of(context).size.width / 15,
-                  alignment: Alignment.centerLeft,
-                  child: Wrap(
-                    spacing: 8,
-                    runSpacing: 4.0,
-                    direction: Axis.vertical,
-                    children: [
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/laptop-icons/Service.ico"),
-                                      fit: BoxFit.fill,
-                                    ),
+        ),
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 6,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width > 800 ? 1300 : 500),
+              child: Container(
+                width: MediaQuery.of(context).size.width / 15,
+                alignment: Alignment.centerLeft,
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 4.0,
+                  direction: Axis.vertical,
+                  children: [
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/laptop-icons/Service.ico"),
+                                    fit: BoxFit.fill,
                                   ),
-                                  width: MediaQuery.of(context).size.width / 20,
-                                  height:
-                                      MediaQuery.of(context).size.width / 20,
                                 ),
+                                width: MediaQuery.of(context).size.width / 20,
+                                height: MediaQuery.of(context).size.width / 20,
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height > 900
-                                    ? MediaQuery.of(context).size.height / 8
-                                    : MediaQuery.of(context).size.height / 6,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push<void>(
-                                    context,
-                                    MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          BinaryMiniGame(),
-                                    ),
-                                  );
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/laptop-icons/Term CMD.ico"),
-                                      fit: BoxFit.fill,
-                                    ),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height > 900
+                                  ? MediaQuery.of(context).size.height / 8
+                                  : MediaQuery.of(context).size.height / 6,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(16.0)),
+                                      elevation: 0.0,
+                                      backgroundColor: Colors.transparent,
+                                      content: dialogContent(context),
+                                    );
+                                  },
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/laptop-icons/Windows Update.ico"),
+                                    fit: BoxFit.fill,
                                   ),
-                                  width: MediaQuery.of(context).size.width / 20,
-                                  height:
-                                      MediaQuery.of(context).size.width / 20,
                                 ),
+                                width: MediaQuery.of(context).size.width / 20,
+                                height: MediaQuery.of(context).size.width / 20,
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height > 900
-                                    ? MediaQuery.of(context).size.height / 8
-                                    : MediaQuery.of(context).size.height / 6,
-                              ),
-                              GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/laptop-icons/System Information.ico"),
-                                      fit: BoxFit.fill,
-                                    ),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height > 900
+                                  ? MediaQuery.of(context).size.height / 8
+                                  : MediaQuery.of(context).size.height / 6,
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/laptop-icons/System Information.ico"),
+                                    fit: BoxFit.fill,
                                   ),
-                                  width: MediaQuery.of(context).size.width / 20,
-                                  height:
-                                      MediaQuery.of(context).size.width / 20,
                                 ),
+                                width: MediaQuery.of(context).size.width / 20,
+                                height: MediaQuery.of(context).size.width / 20,
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 15,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 15,
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
-              Expanded(child: Container()),
-              Row(
+            ),
+            Expanded(
+              child: Row(
                 children: [
                   Expanded(
                     child: Container(
@@ -164,7 +194,22 @@ class LapTopScreen extends StatelessWidget {
                       child: new Row(
                         children: <Widget>[
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(16.0)),
+                                    elevation: 0.0,
+                                    backgroundColor: Colors.transparent,
+                                    content: makeYourChoice(context, 0),
+                                  );
+                                },
+                              );
+                            },
                             child: Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -279,14 +324,116 @@ class LapTopScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
 }
 
+Widget makeYourChoice(BuildContext context, int index) {
+  return Center(
+    child: Container(
+      width: MediaQuery.of(context).size.width > 850
+          ? MediaQuery.of(context).size.width / 1.20
+          : MediaQuery.of(context).size.width / 1.20,
+      height: MediaQuery.of(context).size.width > 850
+          ? MediaQuery.of(context).size.height / 5
+          : MediaQuery.of(context).size.height / 4,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (BuildContext context) => DevApp(),
+              //   ),
+              // );
+              Navigator.pop(context);
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width > 850
+                  ? MediaQuery.of(context).size.width / 5
+                  : MediaQuery.of(context).size.width / 7,
+              height: MediaQuery.of(context).size.width > 850
+                  ? MediaQuery.of(context).size.height / 5
+                  : MediaQuery.of(context).size.height / 7,
+              child: Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Container(
+                    padding: MediaQuery.of(context).size.width > 850
+                        ? EdgeInsets.only(bottom: 70, right: 72)
+                        : EdgeInsets.zero,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.home_filled,
+                        color: Colors.lightBlue,
+                        size:
+                            MediaQuery.of(context).size.width > 850 ? 100 : 25,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width > 850 ? 10 : 10,
+          ),
+          GestureDetector(
+            onTap: () {
+              int count = 0;
+              Navigator.of(context).popUntil((_) => count++ >= 3);
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width > 850
+                  ? MediaQuery.of(context).size.width / 5
+                  : MediaQuery.of(context).size.width / 7,
+              height: MediaQuery.of(context).size.width > 850
+                  ? MediaQuery.of(context).size.height / 5
+                  : MediaQuery.of(context).size.height / 7,
+              child: Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Container(
+                    padding: MediaQuery.of(context).size.width > 850
+                        ? EdgeInsets.only(bottom: 70, right: 72)
+                        : EdgeInsets.zero,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.close_rounded,
+                        color: Colors.red,
+                        size:
+                            MediaQuery.of(context).size.width > 850 ? 100 : 25,
+                      ),
+                      onPressed: () {
+                        int count = 0;
+                        Navigator.of(context).popUntil((_) => count++ >= 3);
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    ),
+  );
+}
 // Widget gameContent(Widget game, BuildContext context) {
 //   return Container(
 //     margin: EdgeInsets.only(left: 0.0, right: 0.0),
@@ -346,7 +493,7 @@ Widget dialogContent(BuildContext context) {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               SizedBox(
-                height: MediaQuery.of(context).size.width > 850 ? 90 : 5,
+                height: MediaQuery.of(context).size.width > 850 ? 20 : 1,
               ),
               Center(
                 child: Padding(
@@ -357,20 +504,17 @@ Widget dialogContent(BuildContext context) {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                            "assets/images/laptop-icons/Battery.ico"),
+                            "assets/images/laptop-icons/Windows Update.ico"),
                         fit: BoxFit.fill,
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
-              Container(
-                width: 20,
-                height: 50,
-                padding: EdgeInsets.only(left: 50, right: 50),
-                child: _AnimatedLiquidLinearProgressIndicator(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width > 850 ? 40 : 10,
               ),
+              UpdateScreenState(),
 
               // InkWell(
               //   child: Container(
@@ -394,14 +538,17 @@ Widget dialogContent(BuildContext context) {
           right: 0.0,
           child: GestureDetector(
             onTap: () {
-              Navigator.of(context).pop();
+              Navigator.pop(context);
             },
             child: Align(
               alignment: Alignment.topRight,
               child: CircleAvatar(
                 radius: 14.0,
                 backgroundColor: Colors.red,
-                child: Icon(Icons.close, color: Colors.white),
+                child: Icon(
+                  Icons.close,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
@@ -411,183 +558,234 @@ Widget dialogContent(BuildContext context) {
   );
 }
 
-class AccessScreen extends StatelessWidget {
+_showSuccessHud(BuildContext context) {
+  ProgressHud.of(context)
+      .showAndDismiss(ProgressHudType.success, "Ouverture de la session");
+  Future.delayed(const Duration(seconds: 5));
+  showDialog(
+    context: context,
+    builder: (_) => new AlertDialog(
+      contentPadding: EdgeInsets.zero,
+      content: Builder(
+        builder: (context) {
+          return Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: LaptopScreen(context),
+          );
+        },
+      ),
+    ),
+  );
+}
+
+Widget AccessScreen(BuildContext context) {
   GlobalKey<ProgressHudState> _hudKey = GlobalKey();
-  @override
-  Widget build(BuildContext context) {
-    var submitTextStyle = GoogleFonts.nunito(
-        fontSize: MediaQuery.of(context).size.width < 900 ? 15 : 28,
-        letterSpacing: 5,
-        color: Colors.white,
-        fontWeight: FontWeight.w300);
-    return Scaffold(
-      body: ProgressHud(
-        key: _hudKey,
-        maximumDismissDuration: Duration(seconds: 2),
-        child: Center(
-          child: Builder(builder: (context) {
-            return Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/laptop-icons/access.png"),
-                  fit: BoxFit.cover,
-                ),
+  var submitTextStyle = GoogleFonts.nunito(
+      fontSize: MediaQuery.of(context).size.width < 900 ? 15 : 28,
+      letterSpacing: 5,
+      color: Colors.white,
+      fontWeight: FontWeight.w300);
+  return Scaffold(
+    body: ProgressHud(
+      key: _hudKey,
+      maximumDismissDuration: Duration(seconds: 2),
+      child: Center(
+        child: Builder(builder: (context) {
+          return Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/laptop-icons/access.png"),
+                fit: BoxFit.cover,
               ),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 1.3,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        labelText: "Code d'accès",
-                        border: OutlineInputBorder(),
-                        suffixIcon: Icon(
-                          Icons.code,
-                        ),
+            ),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.3,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      labelText: "Code d'accès",
+                      border: OutlineInputBorder(),
+                      suffixIcon: Icon(
+                        Icons.code,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  AnimatedButton(
-                    onPress: () {
-                      _showSuccessHud(context);
-                    },
-                    height: MediaQuery.of(context).size.height / 10,
-                    width: MediaQuery.of(context).size.width / 1.75,
-                    text: "Rentrez vos codes d'accès",
-                    isReverse: true,
-                    selectedTextColor: Colors.black,
-                    transitionType: TransitionType.LEFT_TOP_ROUNDER,
-                    textStyle: submitTextStyle,
-                    backgroundColor: Colors.lightBlue,
-                    selectedBackgroundColor: Colors.lightGreen,
-                    borderColor: Colors.white,
-                    borderWidth: 1,
-                    borderRadius: 50,
-                  ),
-                ],
-              ),
-            );
-          }),
-        ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                AnimatedButton(
+                  onPress: () {
+                    _showSuccessHud(context);
+                  },
+                  height: MediaQuery.of(context).size.height / 10,
+                  width: MediaQuery.of(context).size.width / 1.75,
+                  text: "Rentrez vos codes d'accès",
+                  isReverse: true,
+                  selectedTextColor: Colors.black,
+                  transitionType: TransitionType.LEFT_TOP_ROUNDER,
+                  textStyle: submitTextStyle,
+                  backgroundColor: Colors.lightBlue,
+                  selectedBackgroundColor: Colors.lightGreen,
+                  borderColor: Colors.white,
+                  borderWidth: 1,
+                  borderRadius: 50,
+                ),
+              ],
+            ),
+          );
+        }),
       ),
-    );
-  }
-
-  _showLoadingHud(BuildContext context) async {
-    ProgressHud.of(context).show(ProgressHudType.loading, "loading...");
-    await Future.delayed(const Duration(seconds: 1));
-    _hudKey.currentState?.dismiss();
-  }
-
-  _showSuccessHud(BuildContext context) {
-    ProgressHud.of(context)
-        .showAndDismiss(ProgressHudType.success, "Ouverture de la session");
-    Future.delayed(const Duration(seconds: 5));
-    Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => LapTopScreen(),
-      ),
-    );
-  }
-
-  _showErrorHud(BuildContext context) {
-    ProgressHud.of(context).showAndDismiss(ProgressHudType.error, "load fail");
-  }
-
-  _showProgressHud(BuildContext context) {
-    var hud = ProgressHud.of(context);
-    hud.show(ProgressHudType.progress, "loading");
-
-    double current = 0;
-    Timer.periodic(Duration(milliseconds: 1000.0 ~/ 60), (timer) {
-      current += 1;
-      var progress = current / 100;
-      hud.updateProgress(progress, "loading $current%");
-      if (progress == 1) {
-        hud.showAndDismiss(ProgressHudType.success, "load success");
-        timer.cancel();
-      }
-    });
-  }
-
-  _showProgressHudGlobal() {
-    ProgressHud.show(ProgressHudType.progress, "loading");
-
-    double current = 0;
-    Timer.periodic(Duration(milliseconds: 1000.0 ~/ 60), (timer) {
-      current += 1;
-      var progress = current / 100;
-      ProgressHud.updateProgress(progress, "loading $current%");
-      if (progress == 1) {
-        ProgressHud.showAndDismiss(ProgressHudType.success, "load success");
-        timer.cancel();
-      }
-    });
-  }
+    ),
+  );
 }
 
-class _AnimatedLiquidLinearProgressIndicator extends StatefulWidget {
+class UpdateScreenState extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() =>
-      _AnimatedLiquidLinearProgressIndicatorState();
+  State<StatefulWidget> createState() => UpdateScreen();
 }
 
-class _AnimatedLiquidLinearProgressIndicatorState
-    extends State<_AnimatedLiquidLinearProgressIndicator>
+class UpdateScreen extends State<UpdateScreenState>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
+  Timer? timer;
+  int a = 0;
+  var percentage;
+
+  bool _UpdateDone = false;
+
+  List<String> list = [
+    "Lancement de l'Analyse de Sécurité.",
+    "Téléchargement des données de Mises à Jour...",
+    "Mise en place des Mises à jour de Sécurité...",
+    "Analyse Complète"
+  ];
+
+  var max;
 
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: Duration(seconds: 30),
     );
-
-    _animationController.addListener(() => setState(() {}));
+    _animationController.addListener(() => setState(() {
+          var f = _animationController.value * 100;
+          max = f.toStringAsFixed(0);
+          if (max == "100") {
+            _animationController.stop();
+            _save();
+          }
+        }));
     _animationController.repeat();
+    timer = Timer.periodic(Duration(seconds: 10), (Timer t) => a++);
+    timer = Timer.periodic(Duration(microseconds: 1), (Timer t) => _checker());
+  }
+
+  Future<bool> _read() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool boolValue = prefs.getBool('UpdateDone') ?? false;
+    return boolValue;
+  }
+
+  void _checker() async {
+    bool value = await _read();
+    if (value == true)
+      setState(() {
+        _UpdateDone = true;
+      });
+  }
+
+  _save() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'UpdateDone';
+    prefs.setBool(key, true);
+    _UpdateDone = true;
   }
 
   @override
   void dispose() {
+    timer?.cancel();
     _animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final percentage = _animationController.value * 100;
+    percentage = _animationController.value * 100;
     return Center(
-      child: Container(
-        width: double.infinity,
-        height: 75.0,
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
-        child: LiquidLinearProgressIndicator(
-          value: _animationController.value,
-          backgroundColor: Colors.white,
-          valueColor: AlwaysStoppedAnimation(Colors.blue),
-          borderRadius: 12.0,
-          center: Text(
-            "%",
-            style: TextStyle(
-              color: Colors.lightBlueAccent,
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+        child: Column(
+      children: [
+        Text(
+          _UpdateDone ? "Analyse Complète" : list[a > 3 ? list.length - 1 : a],
+          style: GoogleFonts.ubuntu(
+            textStyle: Theme.of(context).textTheme.headline4,
+            fontSize: MediaQuery.of(context).size.width > 850 ? 20 : 15,
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+          ),
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.width > 850 ? 40 : 20,
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width > 850
+              ? MediaQuery.of(context).size.width / 1.5
+              : double.infinity,
+          height: MediaQuery.of(context).size.width > 850
+              ? MediaQuery.of(context).size.height / 13
+              : 30.01,
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          child: LiquidLinearProgressIndicator(
+            value: _UpdateDone ? 100.00 : _animationController.value,
+            backgroundColor: Colors.white,
+            valueColor: AlwaysStoppedAnimation(Colors.blue),
+            borderRadius: 12.0,
+            center: Text(
+              _UpdateDone ? "100%" : "${percentage.toStringAsFixed(0)}%",
+              style: GoogleFonts.ubuntu(
+                textStyle: Theme.of(context).textTheme.headline4,
+                fontSize: MediaQuery.of(context).size.width > 850 ? 20 : 15,
+                fontWeight: FontWeight.w700,
+                color: Colors.lightBlue,
+              ),
             ),
           ),
         ),
-      ),
-    );
+        SizedBox(
+          height: MediaQuery.of(context).size.width > 850 ? 40 : 20,
+        ),
+        Center(
+          child: _UpdateDone
+              ? Text(
+                  "Votre sytème et vos services de sécurité sont à jour et prêt",
+                  style: GoogleFonts.ubuntu(
+                    textStyle: Theme.of(context).textTheme.headline4,
+                    fontSize: MediaQuery.of(context).size.width > 850 ? 20 : 15,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.green,
+                  ),
+                )
+              : Text(
+                  "Mise à Jour en cours . . .",
+                  style: GoogleFonts.ubuntu(
+                    textStyle: Theme.of(context).textTheme.headline4,
+                    fontSize: MediaQuery.of(context).size.width > 850 ? 20 : 15,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.red,
+                  ),
+                ),
+        ),
+      ],
+    ));
   }
 }

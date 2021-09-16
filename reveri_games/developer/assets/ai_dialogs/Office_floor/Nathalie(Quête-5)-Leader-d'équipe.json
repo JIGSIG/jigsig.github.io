@@ -6,14 +6,8 @@
                     "content": [
                         "Je…suis…occupé.",
                         {
-                            "option": "Pourquoi le bureau est là ?",
+                            "option": "Pourquoi vous êtes là ?",
                             "linkPath": "lnergieDeLaSalle",
-                            "ifConditions": null,
-                            "notIfConditions": null
-                        },
-                        {
-                            "option": "A vous faire du mal.",
-                            "linkPath": "aRflchirIlYAUneG",
                             "ifConditions": null,
                             "notIfConditions": null
                         },
@@ -30,15 +24,20 @@
                 },
                 "lnergieDeLaSalle": {
                     "content": [
-                        "L’énergie de la salle de DEV est bizarre depuis un moment."
+                        "L’énergie de la salle de DEV est bizarre depuis un moment.", {
+                            "option" : "Hein ...",
+                            "linkPath": "lnergieDeLaSalle",
+                            "ifConditions": null,
+                            "notIfConditions": null
+                        }
                     ]
                 },
-                "aRflchirIlYAUneG": {
+                "aR": {
                     "content": [
                         "A réfléchir, il y a une grande différence.",
                         {
-                            "option": "",
-                            "linkPath": null,
+                            "option" : "Okay...",
+                            "linkPath": "lnergieDeLaSalle",
                             "ifConditions": null,
                             "notIfConditions": null
                         }
@@ -82,7 +81,7 @@
                 },
                 "bienNomDuJoueurJ": {
                     "content": [
-                        "Bien ‘Nom du joueur’. J’ai un souci avec mon ordi. Il s’allume mais un truc bizarre apparaît et m’empêche de travailler. Résous-le et je te suis gentiment autrement…Je te fais pas un dessin.",
+                        "Bien ‘Nom du joueur’. J’ai un souci avec mon ordi. Il s’allume mais un truc bizarre apparaît et m’empêche de travailler\nRésous-le et je te suis gentiment autrement…Je te fais pas un dessin.",
                         {
                             "option": "Je me demande si il y a pire comme premier jour",
                             "linkPath": null,
@@ -93,7 +92,7 @@
                 },
                 "humJeTeSuisSiTuP": {
                     "content": [
-                        "Hum. Je te suis si tu parviens à résoudre un problème sur mon ordi autrement tu vas devoir expliquer à Etienne que ton incompétence est la cause de mon absence. Et je tiens aux termes ‘ton’ et ‘incompétence’. Chiche ?",
+                        "Hum. Je te suis si tu parviens à résoudre un problème sur mon ordi autrement tu vas devoir expliquer à Etienne que ton incompétence est la cause de mon absence\nEt je tiens aux termes ‘ton’ et ‘incompétence’. Chiche ?",
                         {
                             "option": "Je me demande si il y a pire comme premier jour",
                             "linkPath": null,

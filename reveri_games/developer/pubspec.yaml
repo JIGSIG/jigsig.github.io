@@ -35,7 +35,6 @@ dependencies:
   intl: ^0.17.0
   animated_text_kit: ^4.2.1
   google_fonts: ^2.1.0
-  soundpool: ^2.1.0
   confetti: ^0.5.5
   flutter_animated_button: ^2.0.0
   bmprogresshud: ^1.0.0
@@ -43,7 +42,9 @@ dependencies:
   spring: ^2.0.2
   carousel_slider: ^4.0.0
   splash_screen_view: ^3.0.0
-
+  just_audio: ^0.9.11
+  audio_session: ^0.1.6
+  rxdart: ^0.27.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

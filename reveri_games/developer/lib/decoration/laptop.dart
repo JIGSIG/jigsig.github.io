@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:developer/area/administrative_level_map.dart';
+import 'package:developer/game_interface/Laptop_Nathalie.dart';
 import 'package:developer/game_interface/laptop_screen.dart';
 import 'package:developer/main.dart';
 import 'package:flutter/cupertino.dart';
@@ -140,11 +141,19 @@ class Computer extends GameDecoration {
           selectedTileColor: Colors.white,
           onTap: () {
             if (choices.elementAt(index) == "Lancez Votre Session") {
-              Navigator.of(context).pop();
-              Navigator.pushReplacement<void, void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => LapTopScreen(),
+              showDialog(
+                context: context,
+                builder: (_) => new AlertDialog(
+                  contentPadding: EdgeInsets.zero,
+                  content: Builder(
+                    builder: (context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        child: AccessScreen(context),
+                      );
+                    },
+                  ),
                 ),
               );
             } else {

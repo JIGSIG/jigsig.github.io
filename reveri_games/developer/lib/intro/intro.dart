@@ -1,3 +1,5 @@
+import 'package:bonfire/bonfire.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
@@ -10,6 +12,14 @@ class Splash extends StatefulWidget {
 }
 
 class SplashState extends State<Splash> {
+  void initState() {
+    if (!kIsWeb) {
+      Flame.device.setLandscape();
+      Flame.device.fullScreen();
+    }
+    super.initState();
+  }
+
   bool _seen = false;
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -41,13 +51,10 @@ class SplashState extends State<Splash> {
 class ReverieIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SizedBox(
-      height: 80,
-    );
     Widget reverie = SplashScreenView(
       navigateRoute: EpitechIntro(),
       duration: 5000,
-      imageSize: 480,
+      imageSize: 230,
       imageSrc: "assets/images/intro/reverie.png",
       backgroundColor: Colors.black,
       pageRouteTransition: PageRouteTransition.SlideTransition,

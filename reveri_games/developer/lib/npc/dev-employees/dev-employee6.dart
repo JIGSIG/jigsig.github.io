@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:developer/main.dart';
 import 'package:developer/npc/inkle_reader.dart';
 import 'package:developer/util/dev-employee_sprite_sheet/dev-employee5-sprite-sheet.dart';
+import 'package:developer/util/dev-employee_sprite_sheet/nathalie-sprite-sheet.dart';
 import 'package:developer/util/patio-employee_sprite_sheet/patio-employee1-sprite-sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../util/admin-employees_sprite_sheet/admin-employee5-sprite-sheet.dart';
 import '../../util/common_sprite_sheet.dart';
 
-class DevEmployee1NPC extends SimpleNPC with ObjectCollision {
+class NathalieNPC extends SimpleNPC with ObjectCollision {
   double attack = 20;
   bool _seePlayerClose = false;
   bool interactionAsked = false;
@@ -24,9 +25,9 @@ class DevEmployee1NPC extends SimpleNPC with ObjectCollision {
 
   late final SharedPreferences preferences;
 
-  DevEmployee1NPC(Vector2 position, {this.dialogFilename})
+  NathalieNPC(Vector2 position, {this.dialogFilename})
       : super(
-          animation: DevEmployee5SpriteSheet.simpleDirectionAnimation,
+          animation: Nathalie.simpleDirectionAnimation,
           position: position,
           width: mapTileSize * 1.3,
           height: mapTileSize * 1.3,

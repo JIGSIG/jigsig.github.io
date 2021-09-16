@@ -1,45 +1,67 @@
-import 'dart:async';
-import 'dart:typed_data';
+import 'package:audio_session/audio_session.dart';
+import 'package:just_audio/just_audio.dart';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:soundpool/soundpool.dart';
+class SoundGlobal {
+  var _themeEntrance = new AudioPlayer();
 
-class SoundGlobal extends StatefulWidget {
-  SoundGlobal({Key? key, this.title}) : super(key: key);
+  final _elevator = new AudioPlayer();
 
-  final String? title;
+  final _reception = new AudioPlayer();
 
-  @override
-  _SoundGlobalState createState() => _SoundGlobalState();
-}
-
-class _SoundGlobalState extends State<SoundGlobal> {
-  String json = '';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title ?? ''),
-      ),
-      body: SingleChildScrollView(
-        child: Text(json),
-      ),
-    );
-  }
-}
-
-Future<void> onLoad() async {
-  Future.delayed(const Duration(milliseconds: 1000), () async {
-    Soundpool pool = Soundpool(streamType: StreamType.notification);
-
-    int soundId = await rootBundle
-        .load("images/music/venus.mp3")
-        .then((ByteData soundData) {
-      return pool.load(soundData);
+  void themeEntrance() async {
+    final session = await AudioSession.instance;
+    await session.configure(AudioSessionConfiguration.speech());
+    // Listen to errors during playback.
+    _themeEntrance.playbackEventStream.listen((event) {},
+        onError: (Object e, StackTrace stackTrace) {
+      print('A stream error occurred: $e');
     });
-    int streamId = await pool.play(soundId);
-  });
+    try {
+      await _themeEntrance.setAsset("images/music/Theme.mp3");
+      await _themeEntrance.play();
+    } catch (e) {
+      print("Error loading audio source: $e");
+    }
+  }
+
+  void elevator() async {
+    _themeEntrance.stop();
+    final session = await AudioSession.instance;
+    await session.configure(AudioSessionConfiguration.speech());
+    // Listen to errors during playback.
+    _elevator.playbackEventStream.listen((event) {},
+        onError: (Object e, StackTrace stackTrace) {
+      print('A stream error occurred: $e');
+    });
+    try {
+      await _elevator.setAsset("images/music/GoodNight.mp3");
+      await _elevator.play();
+    } catch (e) {
+      print("Error loading audio source: $e");
+    }
+  }
+
+  void Reception() async {
+    _themeEntrance.stop();
+    _elevator.stop();
+    final session = await AudioSession.instance;
+    await session.configure(AudioSessionConfiguration.speech());
+    // Listen to errors during playback.
+    _reception.playbackEventStream.listen((event) {},
+        onError: (Object e, StackTrace stackTrace) {
+      print('A stream error occurred: $e');
+    });
+    try {
+      await _reception.setAsset("images/music/Good Night.mp3");
+      await _reception.play();
+    } catch (e) {
+      print("Error loading audio source: $e");
+    }
+  }
+
+  void StopAll() {
+    _themeEntrance.stop();
+    _elevator.stop();
+    _reception.stop();
+  }
 }

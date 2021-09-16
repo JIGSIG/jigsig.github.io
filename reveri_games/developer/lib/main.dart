@@ -1,12 +1,18 @@
 import 'dart:async';
 
+import 'package:audio_session/audio_session.dart';
 import 'package:developer/area/reception_map.dart';
+import 'package:developer/game_interface/Laptop_Nathalie.dart';
+import 'package:developer/game_interface/binary10001.dart';
 import 'package:developer/game_interface/choiceGame.dart';
+import 'package:developer/game_interface/laptop_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'Sound/sound.dart';
 
 double mapTileSize = 16;
 

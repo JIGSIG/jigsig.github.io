@@ -4,9 +4,11 @@ import 'package:bonfire/bonfire.dart';
 import 'package:developer/Quests/Quest1.dart';
 import 'package:developer/decoration/elevatorButton.dart';
 import 'package:developer/decoration/laptop.dart';
+import 'package:developer/decoration/laptop_nathalie.dart';
 import 'package:developer/interface/joueur_quest_interface.dart';
 import 'package:developer/npc/back_end_dev.dart';
 import 'package:developer/npc/designer.dart';
+import 'package:developer/npc/dev-employees/dev-employee1.dart';
 import 'package:developer/npc/dev-employees/dev-employee2.dart';
 import 'package:developer/npc/dev-employees/dev-employee3.dart';
 import 'package:developer/npc/dev-employees/dev-employee4.dart';
@@ -99,6 +101,9 @@ class _OfficeMapState extends State<OfficeMap> {
                     'computer': (properties) => Computer(
                           properties.position,
                         ),
+                    'computer_nathalie': (properties) => Computer2(
+                          properties.position,
+                        ),
                     'BackDev': (properties) => BackEndDevNPC(
                           properties.position,
                           dialogFilename: 'client.json',
@@ -154,6 +159,11 @@ class _OfficeMapState extends State<OfficeMap> {
                     'npc12': (properties) => FrontEndDevNPC(
                           properties.position,
                           dialogFilename: 'client.json',
+                        ),
+                    'Nathalie': (properties) => NathalieNPC(
+                          properties.position,
+                          dialogFilename:
+                              "Office_floor/Nathalie(Quête-5)-Leader-d'équipe.json",
                         ),
                   },
                 ),
