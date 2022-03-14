@@ -1,0 +1,87 @@
+.carousel-control.left {
+    left: -12%;
+}
+
+.carousel-control.right {
+    right: -12%;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
+    color: #000;
+}
+
+@media all and (max-width: 700px) {
+
+    .carousel-control.left {
+        left: 5%;
+        top: 97%;
+    }
+
+    .carousel-control.right {
+        right: 5%;
+        top: 97%;
+    }
+}
+
+@media all and (min-width:701px) and (max-width: 1080px) {
+
+    .carousel-control.left {
+        left: -5%;
+    }
+
+    .carousel-control.right {
+        right: -5%;
+    }
+}
+
+@media all and (min-width:960px) and (max-width: 1024px) {
+    .about__visual {
+        max-height: 430px;
+        max-width: 326px;
+    }
+}
+
+@media all and (min-width:801px) and (max-width: 959px) {
+    .about__visual {
+        max-height: 400px;
+        max-width: 304px;
+    }
+}
+
+@media all and (min-width:769px) and (max-width: 800px) {
+    .about__visual {
+        max-height: 370px;
+        max-width: 281px;
+    }
+}
+
+@media all and (min-width:569px) and (max-width: 768px) {
+    .about__visual {
+        max-height: 340px;
+        max-width: 258px;
+    }
+}
+
+@media all and (min-width:481px) and (max-width: 568px) {
+    .about__visual {
+        max-height: 310px;
+        max-width: 235px;
+    }
+}
+
+@media all and (min-width:321px) and (max-width: 480px) {
+    .about__visual {
+        max-height: 280px;
+        max-width: 213px;
+    }
+
+}
+
+@media all and (min-width:0px) and (max-width: 320px) {
+    .about__visual {
+        max-height: 250px;
+        max-width: 190px;
+    }
+}
