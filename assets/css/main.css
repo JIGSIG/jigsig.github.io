@@ -926,26 +926,35 @@ input[type="button"]:focus {
 }
 .app-design__visual {
     position: absolute;
-    top: 35px;
-    left: 45%;
-    width: 1036px;
-    height: 659px;
-    margin: 0;
+    top: 60px;
+    left: 40%;
+    margin: 0px;
+    padding: 0px;
+    height: 450px;
+    border: none;
+    display: block;
+    width: 800px;
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 25px;
     /* background-image: url("../img/app-design-visual.png"); */
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
 }
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
     .app-design__content h2 {
         font-size: 48px;
     }
     .app-design__visual {
+        top: auto;
+        left: auto;
         width: 922px;
         height: 586px;
     }
-}
-@media (max-width: 767px) {
+} */
+@media (max-width: 991px) {
     .app-design {
         height: 400px;
         padding: 60px 0;
