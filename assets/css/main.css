@@ -937,7 +937,7 @@ input[type="button"]:focus {
     border: none;
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 25px;
+    border-radius: 25px;    
     /* background-image: url("../img/app-design-visual.png"); */
     background-position: center;
     background-size: 100%;
