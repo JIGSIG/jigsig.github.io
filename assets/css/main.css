@@ -1017,8 +1017,8 @@ input[type="button"]:focus {
     right: 52%;
     -webkit-transform: translateY(-45%);
     transform: translateY(-45%);
-    width: 828px;
-    height: 581px;
+    width: 700px;
+    height: 700px;
     margin: 0;
     background-image: url("../img/web-design-visual.png");
     background-position: center;
@@ -1031,7 +1031,7 @@ input[type="button"]:focus {
     }
     .web-design__visual {
         right: 45%;
-        width: 741px;
+        width: 520px;
         height: 520px;
     }
 }
@@ -1062,7 +1062,7 @@ input[type="button"]:focus {
         bottom: 0;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-        width: 523px;
+        width: 376px;
         height: 376px;
     }
 }
@@ -1071,7 +1071,7 @@ input[type="button"]:focus {
         height: 425px;
     }
     .web-design__visual {
-        width: 392px;
+        width: 275px;
         height: 275px;
     }
 }
