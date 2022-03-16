@@ -7,9 +7,12 @@ const dotNav = document.querySelector('.work__navigation');
 const dots = Array.from(dotNav.children);
 
 console.log(video.autoplay);
-// video.setAttribute("autoplay", "true")
-// console.log(video.autoplay)
-video.play();
+setTimeout(() => {
+    video.setAttribute("autoplay", "true")
+    video.play();
+    console.log(video.autoplay)
+}, 1200)
+
 // const slideSize = slides[0].getBoundingClientRect();
 // const slideWidth = slideSize.width;
 
