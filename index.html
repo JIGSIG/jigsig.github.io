@@ -95,8 +95,8 @@
 					<a class="transform-link" id="goToWorkUreport" href="#work">Check it out</a>
 				</div>
 			</div>
-			<video class="app-design__visual lazy" autoplay="false" playsinline muted loop
-				data-poster="https://ottball.com/content/images/2020/06/image-3.png">
+			<video class="app-design__visual" autoplay preload="none" muted loop
+				poster="https://ottball.com/content/images/2020/06/image-3.png">
 				<source src="assets/video/VID-20210826-WA0012.webm" type="video/webm">
 			</video>
 		</section>
@@ -425,35 +425,6 @@
 	<script src="assets/js/carousel.js"></script>
 	<script src="assets/js/ureport_modal.js"></script>
 	<script src="assets/js/app.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var videos = [].slice.call(document.querySelectorAll("video.lazy"));
-
-			if ("IntersectionObserver" in window) {
-				var videoObserver = new IntersectionObserver(function (entries, observer) {
-					entries.forEach(function (video) {
-						if (video.isIntersecting) {
-							video.poster = video.dataset.poster;
-							for (var source in video.target.children) {
-								var videoSource = video.target.children[source];
-								if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-									videoSource.src = videoSource.dataset.src;
-								}
-							}
-
-							video.target.load();
-							video.target.classList.remove("lazy");
-							videoObserver.unobserve(video.target);
-						}
-					});
-				});
-
-				videos.forEach(function (video) {
-					videoObserver.observe(video);
-				});
-			}
-		});
-	</script>
 
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID and uncomment -->
 	<!--
