@@ -1,10 +1,15 @@
 const track = document.querySelector('.work__list')
+const video = document.querySelector('video.lazy')
 const slides = Array.from(track.children);
 const nextButton = document.querySelector('.carousel-control.right');
 const prevButton = document.querySelector('.carousel-control.left');
 const dotNav = document.querySelector('.work__navigation');
 const dots = Array.from(dotNav.children);
 
+console.log(video.autoplay);
+// video.setAttribute("autoplay", "true")
+// console.log(video.autoplay)
+video.play();
 // const slideSize = slides[0].getBoundingClientRect();
 // const slideWidth = slideSize.width;
 
