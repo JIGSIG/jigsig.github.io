@@ -932,7 +932,7 @@ input[type="button"]:focus {
 }
 .app-design__visual {
     position: absolute;
-    top: 60px;
+    top: 30px;
     left: 40%;
     margin: 0px;
     padding: 0px;

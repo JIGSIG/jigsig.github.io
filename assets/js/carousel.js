@@ -6,12 +6,38 @@ const prevButton = document.querySelector('.carousel-control.left');
 const dotNav = document.querySelector('.work__navigation');
 const dots = Array.from(dotNav.children);
 
-console.log(video.autoplay);
-setTimeout(() => {
-    video.setAttribute("autoplay", "true")
-    video.play();
-    console.log(video.autoplay)
-}, 1200)
+callback = (event) => {
+    setTimeout(() => {
+        video.setAttribute("autoplay", "true")
+        video.play();
+        var source = document.createElement('source');
+        source.src = "assets/video/VID-20210826-WA0012.webm";
+        source.type = "video/webm";
+        video.appendChild(source)
+    }, 3500)
+}
+const composeObserver = new MutationObserver(callback)
+
+function addObserverIfDesiredNodeAvailable() {
+    // var composeBox = document.querySelectorAll(".no")[2];
+    var composeBox = document.querySelector('.splashscreen')
+    if (!composeBox) {
+        console.log(composeBox)
+        //The node we need does not exist yet.
+        //Wait 500ms and try again
+        window.setTimeout(addObserverIfDesiredNodeAvailable, 500);
+        return;
+    }
+    var config = {
+        attributes: true,
+        attributeFilter: ['class'],
+        childList: false,
+        characterData: false,
+    };
+
+    composeObserver.observe(composeBox, config);
+}
+addObserverIfDesiredNodeAvailable();
 
 // const slideSize = slides[0].getBoundingClientRect();
 // const slideWidth = slideSize.width;
