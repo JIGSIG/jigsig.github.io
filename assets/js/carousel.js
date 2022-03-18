@@ -8,12 +8,12 @@ const dots = Array.from(dotNav.children);
 
 callback = (event) => {
     setTimeout(() => {
-        video.setAttribute("autoplay", "true")
-        video.play();
         var source = document.createElement('source');
         source.src = "assets/video/VID-20210826-WA0012.webm";
         source.type = "video/webm";
         video.appendChild(source)
+        video.setAttribute("autoplay", "true")
+        video.play();
     }, 3500)
 }
 const composeObserver = new MutationObserver(callback)
